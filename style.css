@@ -1,0 +1,133 @@
+body {
+
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  /*font-size: 0px;*/
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.maps {
+  height: 400px;
+}
+
+.navbar {
+  background-color: #0c518a;
+  border: none;
+  color: #fff;
+}
+
+.p5 {
+padding-top: 5px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(12, 81, 138, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
+.navbar-default .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.background-image {
+  background-image: url(img/1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.p80 {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.p230 {
+  padding-top: 230px;
+  padding-bottom: 230px;
+}
+
+.p20 {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.p10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.p10img {
+padding-bottom: 10px;
+}
+
+.bandeau{
+  background-color: #DF225A;
+}
+
+.bandeau p {
+  text-align: justify;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.color {
+  background-color: #43B57E;
+}
+
+.cadre h1 {
+  background-color: #0c518a;
+  border: 2px solid;
+  padding: 20px
+}
+
+.main {
+  background-color: #DF225A;
+}
+
+.nopa {
+  padding: 0px
+}
+
+.bordure {
+  border-radius: 15px;
+  border: 3px solid lightgrey;
+}
+
+.color2 {
+  background-color: lightgrey;
+}
+
+.list-group-item {
+  border: none;
+  padding-bottom: 0px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.list-group-item a {
+  color: #000;
+  border: none;
+  padding-bottom: 0px;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
