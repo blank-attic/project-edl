@@ -1,6 +1,3 @@
-body {
-
-}
 
 p {
   font-family: 'Open Sans', sans-serif;
@@ -11,8 +8,8 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.maps {
-  height: 400px;
+#map {
+  height : 400px;
 }
 
 .navbar {

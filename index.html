@@ -19,6 +19,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
 
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+
     <title>Marie de Paris</title>
   </head>
   <body>
@@ -36,10 +40,9 @@
           </div>
           <div class="collapse navbar-collapse" id="maNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">EDL</a></li>
               <li><a href="#presentation">Présentation</a></li>
-              <li><a href="#">Services proposés</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
+              <li><a href="#associations">Associations</a></li>
+              <li><a href="Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
             </ul>
           </div>
       </div>
@@ -53,26 +56,33 @@
     </div>
 
     <!-- partie texte -->
-    <div class="container-fluid main p20">
+    <div class="container-fluid main p20" id="presentation">
         <div class="container bandeau text-center white">
           <h1>Présentation</h1>
           <p>Site web des permanences d’écrivains publics et d’aide dans les démarches administratives du
             20ème arrondissement à destination des professionnels et bénévoles œuvrant dans le champ de l’accès
             aux droits et permettre de mettre à jour le guide (via le site et la brochure ad hoc).
-            Haec ubi latius fama vulgasset missaeque relationes adsiduae Gallum Caesarem permovissent,
-            quoniam magister equitum longius ea tempestate distinebatur, iussus comes orientis Nebridius
-            contractis undique militaribus copiis ad eximendam periculo civitatem amplam et oportunam studio</p>
+            Le rôle d'un écrivain public consiste à prendre en charge divers travaux d'écriture.
+            Pour répondre au mieux à la demande des usagers, il/elle doit être à leur écoute et doit savoir appréhender leurs problèmes.
+            C'est alors qu'il/elle peut assurer la rédaction, la réécriture ou la correction de documents administratifs, personnels ou professionnels.
+            (Il/elle peut également être  amené(e) à rédiger des textes plus conséquents (des biographies).</p>
         </div>
     </div>
 
     <!-- partie maps -->
     <div class="container-fluid nopa">
-        <iframe class="img-responsive maps" width="1550" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-        src="http://cartosm.eu/map?lon=7.7451091534426&lat=48.581952987201&zoom=18&width=1550&height=400&mark=true&nav=true&pan=true&zb=bar&style=default&icon=down"></iframe>
+      <!-- <iframe class="img-responsive maps" width="1550" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="http://cartosm.eu/map?lon=7.7451091534426&lat=48.581952987201&zoom=18&width=1550&height=400&mark=true&nav=true&pan=true&zb=bar&style=default&icon=down"></iframe> -->
+      <div id='map'></div>
+      <script>
+      L.mapbox.accessToken = 'pk.eyJ1IjoibWlyb3N6IiwiYSI6ImNqMDg1ejAwZzAwMWcycWxreTl6aWdzajgifQ.PcIkHJ-ypNe-dcLv_Y-jiQ';
+      var map = L.mapbox.map('map', 'mapbox.streets')
+      .setView([48.864781 , 2.389814], 30);
+      </script>
     </div>
 
     <!-- partie association -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="associations">
       <div class="container text-center p20">
         <div class="row">
           <h1 class="p20">Associations</h1>
@@ -92,7 +102,7 @@
             <li class="list-group-item"><a href="#"><img src="img/4.svg" alt="Mairie de Paris"></li></a>
             <li class="list-group-item"><a href="#">Contact</li></a>
             <li class="list-group-item"><a href="#">A Propos</li></a>
-            <li class="list-group-item"><a href="#">Qui sommes nous</li></a>
+            <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
           </ul>
         </div>
       </div>
