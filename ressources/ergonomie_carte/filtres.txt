@@ -10,3 +10,5 @@ Emplacement:
 -autour de moi
 -75020
 -75019
+
+Recherche de structures à partir de leur nom
