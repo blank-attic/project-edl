@@ -12,12 +12,21 @@
     </style>
   </head>
   <body>
-  <div id='map'></div>
-  <script>
-    L.mapbox.accessToken = 'pk.eyJ1IjoibWlyb3N6IiwiYSI6ImNqMDg1ejAwZzAwMWcycWxreTl6aWdzajgifQ.PcIkHJ-ypNe-dcLv_Y-jiQ';
-    var map = L.mapbox.map('map', 'mapbox.streets')
-        .setView([48.864781 , 2.389814], 30);
+    <div id='map'></div>
+    <script>
+      L.mapbox.accessToken = 'pk.eyJ1IjoibWlyb3N6IiwiYSI6ImNqMDg1ejAwZzAwMWcycWxreTl6aWdzajgifQ.PcIkHJ-ypNe-dcLv_Y-jiQ';
+      var map = L.mapbox.map('map', 'mapbox.streets')
+          .setView([48.8666797, 2.3832859999999982], 14);
 
-  </script>
+      var marker = L.marker([48.864781,  2.389814]).addTo(map);
+      marker.bindPopup('<b>Centre Social de la 20ème Chaise<br></b> 38 rue des Amandiers 75020 Paris <br>Métro Père-Lachaise<div><img src="http://www.tousbenevoles.org/images/association/20emechaise.jpg"/></div>');
+
+      var marker = L.marker([48.87223179999999,  2.3869651999999633]).addTo(map);
+      marker.bindPopup('<b>Centre Social Archipélia <br></b>17 rue des Envierges 75020 Paris <br>Métro Pyrénées/Jourdain<div><img src="http://www.evous.fr/local/cache-vignettes/L150xH150/archi-3-9ccb8.jpg?1362823127"/></div>');
+
+      var marker = L.marker([48.8722672,  2.3802269999999908]).addTo(map);
+      marker.bindPopup('<b>Chinois de France, Français de Chine <br></b>45, rue de Tourtille 75020 Paris <br>Métro Belleville<div><img src="http://www.cffc.fr/_/rsrc/1452456044545/home/cffc_logo_138x99.jpg"/></div>');
+    </script>
+
   </body>
 </html>
