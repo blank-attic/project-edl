@@ -1,0 +1,6 @@
+-connexion utilisateur
+-liste complète des point d'accès aux droits (paad)
+-liste filtrée des paad
+-modification d'attributs (adresse, services proposés, disponibilité) des paad
+-ajout de paad
+-suppression de paad
