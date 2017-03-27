@@ -11,7 +11,7 @@ var router = express.Router();
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res, next) {
-  res.json({ message: 'hooray! welcome to our api!' });
+  res.json({ message: 'Quelle audace!' });
   next();
 });
 
@@ -27,9 +27,16 @@ router.get('/alert', function(req, res, next) {
 
 
 router.get('/paa', function(req, res){
-  mon_paa.find(null, function (err, comms) {
-    if (err) { throw err; }
-    console.log(comms);
+  // Bear.find(function(err, bears) {
+  //           if (err)
+  //               res.send(err);
+  //
+  //           res.json(bears);
+  //       });
+  nom_paa.find(function (err, paa) {
+    if (err) { res.send (err); }
+    // console.log(paa);
+    res.json(paa);
   });
 });
 
@@ -50,7 +57,7 @@ router.get('/paa', function(req, res){
     if (err) { throw err; }
   });
 
-  var schema       = mongoose.Schema;
+  var schema = mongoose.Schema;
 
   var paa_schema   = new schema({
     name: String
@@ -63,5 +70,6 @@ router.get('/paa', function(req, res){
   nom.save(function (err) {
     if (err) { throw err; }
     console.log('quelque chose a été ajoutée à la base de données');
-    mongoose.connection.close();
+    console.log(nom);
+    // mongoose.connection.close();
   });
