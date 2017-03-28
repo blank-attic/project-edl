@@ -52,24 +52,32 @@ router.get('/paa', function(req, res){
   console.log('Magic happens on port ' + port);
   //
 
-  var mongoose   = require('mongoose');
-  mongoose.connect('mongodb://localhost/paad', function(err) {
-    if (err) { throw err; }
-  });
+  var mongoose = require('mongoose');
+  mongoose.connect('mongodb://localhost/paad');
 
-  var schema = mongoose.Schema;
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+    // we're connected!
+    var schema = mongoose.Schema;
 
-  var paa_schema   = new schema({
-    name: String
-  });
+    var paad_schema   = new schema({
+      nom: String,
+      adresse: {
+        numero: Number,
+        voie: String,
+        code_postal: Number
+      }
+    });
 
-  var nom_paa = mongoose.model('nouvelle_paa', paa_schema);
+    var nouv = mongoose.model('nouvelle_paa', paad_schema);
 
-  var nom = new nom_paa({name:'belleville_citoyenne'});
+    var nouvelle_paad = new nouv({nom:'belleville_citoyenne', adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'}});
 
-  nom.save(function (err) {
-    if (err) { throw err; }
-    console.log('quelque chose a été ajoutée à la base de données');
-    console.log(nom);
-    // mongoose.connection.close();
+    nouvelle_paad.save(function (err) {
+      if (err) { throw err; }
+      console.log('quelque chose a été ajoutée à la base de données');
+      console.log(nouvelle_paad);
+      // mongoose.connection.close();
+    });
   });
