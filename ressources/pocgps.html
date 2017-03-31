@@ -1,0 +1,58 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>poc</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body ng-app>
+    <input type="text" ng-model="query">
+    <div ng-init="users=['Mike']">
+      <ul>
+        <li ng-repeat="user in users | filter:query">{{user}}</li>
+      </ul>
+      {{users}}
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app>
+    <div>
+        <input type="text" ng-model="query">
+        <div ng-init="Arrs=[{nom:'Centre Social de la 20ème Chaise'},{adresse:'38 rue des Amandiers'},
+        {contact:'01 43 49 02 49'},{codepostal:'75020'},{ville:'Paris'},{metro:'Père Lachaise'}]">
+            <div ng-repeat="arr in Arrs | filter:query">{{arr}}</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <script type="text/javascript">
+{
+  "Associations" : [{
+    "position" : "48.864781,  2.389814",
+    "nom" : "Centre Social de la 20ème Chaise",
+    "addresse" : "38 rue des Amandiers",
+    "contact" : "01 43 49 02 49",
+    "site web" : "http://www.la20emechaise.org/",
+    "code postal" : "75020",
+    "ville" : "Paris",
+    "metro/bus" : "Métro Père-Lachaise",
+  },
+}
+</script> -->
+<!-- <div ng-app="myApp">
+  <div ng-controller="MainCtrl">
+    <ul ng-repeat="(k, v) in text">
+      <li ng-repeat="a in v">
+        <p>{{a}}</p>
+      </li>
+    </ul>
+</div> -->
