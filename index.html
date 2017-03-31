@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="leaflet-/dist/leaflet.easyPrint.js"></script>
+
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <!-- partie navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#maNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a href="http://www.paris.fr/" target="_blank" class="navbar-brand">Mairie de Paris</a>
+              <img class="p5" alt="nopic" src="assets/img/6.png">
+          </div>
+          <div class="collapse navbar-collapse" id="maNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#presentation">Présentation</a></li>
+              <li><a href="assets/liste/liste.html">Liste Assos</a></li>
+              <li><a href="#associations">Associations</a></li>
+              <li><a href="assets/Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <!-- Partie image -->
+    <div class="container-fluid background-image">
+      <div class="container p230 text-center cadre white ">
+        <h1>Guide des permanences d’écrivains publics et d’aide dans les démarches administratives du 20ème arrondissement.</h1>
+      </div>
+    </div>
+
+    <!-- partie texte -->
+    <div class="container-fluid main p20" id="presentation">
+        <div class="container bandeau text-center white">
+          <h1>Présentation</h1>
+          <p>Site web des permanences d’écrivains publics et d’aide dans les démarches administratives du
+            20ème arrondissement à destination des professionnels et bénévoles œuvrant dans le champ de l’accès
+            aux droits et permettre de mettre à jour le guide (via le site et la brochure ad hoc).
+            Le rôle d'un écrivain public consiste à prendre en charge divers travaux d'écriture.
+            Pour répondre au mieux à la demande des usagers, il/elle doit être à leur écoute et doit savoir appréhender leurs problèmes.
+            C'est alors qu'il/elle peut assurer la rédaction, la réécriture ou la correction de documents administratifs, personnels ou professionnels.
+            (Il/elle peut également être  amené(e) à rédiger des textes plus conséquents (des biographies).</p>
+        </div>
+    </div>
+
+    <!-- partie maps -->
+    <div class="container-fluid nopa">
+
+      <div id='map'></div>
+
+      <script>
+        var map = L.map('map').setView([48.8666797, 2.3832859999999982], 13);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function createMarker(data) {
+          var marker = L.marker(data.position).addTo(map);
+          marker.bindPopup(data.title + data.address.street + data.address.zipCode + data.address.city + data.subway);
+        };
+        var marker = createMarker({
+          position : [48.864781,  2.389814],
+          title : '<b>Centre Social de la 20ème Chaise<br></b>',
+          address : {
+            street : "38 rue des Amandiers<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Père-Lachaise',
+        });
+        var marker = createMarker({
+          position : [48.87223179999999, 2.3869651999999633],
+          title : '<b>Centre Social Archipélia<br></b>',
+          address : {
+            street : "17 rue des Envierges<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Pyrénées/Jourdain',
+        });
+        var marker = createMarker({
+          position : [48.868794, 2.385238],
+          title : '<b>Association Culture Berbère (ACB)<br></b>',
+          address : {
+            street : "37 bis rue des Maronites<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Couronne/Ménilmontant',
+        });
+        var marker = createMarker({
+          position : [48.872267, 2.380227],
+          title : '<b>Chinois de France Français de Chine<br></b>',
+          address : {
+            street : "45, rue de Tourtille<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Belleville',
+        });
+        var marker = createMarker({
+          position : [48.864612 , 2.387655],
+          title : '<b>UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris<br></b>',
+          address : {
+            street : "14 rue Tlemcen<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Père-Lachaise/ Ménilmontant',
+        });
+        var marker = createMarker({
+          position : [48.871751 , 2.377857],
+          title : '<b>Maison du bas Belleville<br></b>',
+          address : {
+            street : "126 Boulevard de Belleville<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Belleville',
+        });
+        var marker = createMarker({
+          position : [48.868945 , 2.390184],
+          title : '<b>C.S Relais Ménilmontant<br></b>',
+          address : {
+            street : "85 bis rue Ménilmontant<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Ménilmontant',
+        });
+        var marker = createMarker({
+          position : [48.866201 , 2.394174],
+          title : '<b>Centre social Caf Annam<br></b>',
+          address : {
+            street : "4 Rue d'Annam<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Gambetta',
+        });
+        var marker = createMarker({
+          position : [48.869605 , 2.381657],
+          title : '<b>APEIS Association Pour l’Emploi, l’Information et la Solidarité<br></b>',
+          address : {
+            street : "11 Rue des Couronnes<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Couronnes',
+        });
+        var marker = createMarker({
+          position : [48.87278 , 2.3923],
+          title : '<b>Espace Jeunes Taos Amrouche<br></b>',
+          address : {
+            street : "50 rue des Rigoles<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Jourdain',
+        });
+        var marker = createMarker({
+          position : [48.850251 , 2.411305],
+          title : '<b>Davout relais<br></b>',
+          address : {
+            street : "30 boulevard Davout<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Maraîchers/ Porte de Vincennes',
+        });
+        var marker = createMarker({
+          position : [48.859118 , 2.408679],
+          title : '<b>Centre Social SOLEIL BLAISE<br></b>',
+          address : {
+            street : "7 Square Vitruve<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine',
+        });
+        var marker = createMarker({
+          position : [48.859599 , 2.40927],
+          title : '<b>LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME<br></b>',
+          address : {
+            street : "157 boulevard Davout<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Tram T3b Marie de Miribel',
+        });
+        var marker = createMarker({
+          position : [48.871638 , 2.411207],
+          title : '<b>Secours populaire Antenne Fougères<br></b>',
+          address : {
+            street : "3, rue de Noisy-le-Sec<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Tram T3b Adrienne Bolland',
+        });
+        var marker = createMarker({
+          position : [48.854406 , 2.402899],
+          title : '<b>Centre socioculturel étincelles<br></b>',
+          address : {
+            street : "65, rue des Haies<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Buzenval et Avron',
+        });
+        var marker = createMarker({
+          position : [48.856717 , 2.410345],
+          title : '<b>Espace Paris Jeunes Davout<br></b>',
+          address : {
+            street : "94 boulevard Davout<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Mairie de Montreuil',
+        });
+        var marker = createMarker({
+          position : [48.853389 , 2.401092],
+          title : '<b>Bibliothèque Louise Michel<br></b>',
+          address : {
+            street : "29-35 rue des Haies<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Buzenval',
+        });
+        var marker = createMarker({
+          position : [48.872489 , 2.410527],
+          title : '<b>La Maison des Fougères<br></b>',
+          address : {
+            street : "10 rue des fougères<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland',
+        });
+        var marker = createMarker({
+          position : [48.853419 , 2.404624],
+          title : '<b>PIMMS Points Information Médiation Multiservices<br></b>',
+          address : {
+            street : "15 Cité Champagne<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Maraîchers/Bus n°26 et 64',
+        });
+        var marker = createMarker({
+          position : [48.853419 , 2.404624],
+          title : '<b>Point d’Accès au Droit<br></b>',
+          address : {
+            street : "15 Cité Champagne<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Maraîchers/Bus n°26 et 64',
+        });
+        var marker = createMarker({
+          position : [48.865068 , 2.39901],
+          title : '<b>Mairie du 20e<br></b>',
+          address : {
+            street : "6 place Gambetta<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6',
+        });
+        var marker = createMarker({
+          position : [48.854489 , 2.414371],
+          title : '<b>Mairie Mobile de Paris<br></b>',
+          address : {
+            street : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs<br>",
+            zipCode : "75020<br>",
+            city : 'Paris<br>',
+          },
+          subway : 'Métro Porte de Montreuil/Ligne de bus PC2',
+        });
+
+        L.easyPrint({
+          title: 'Imprimer',
+          elementsToHide: 'p, h2,h1, .gitButton'
+        }).addTo(map)
+
+        var map = new L.Map('map', {
+          layers: [base],
+          center: new L.LatLng(48.5, -4.5),
+          zoom: 5,
+          fullscreenControl: true,
+          fullscreenControlOptions: { // optional
+            title:"Show me the fullscreen !"
+          }
+        });
+
+        // function createMarker(data) {
+        //   document.getElementById('maps1').addEventListener('click', function() {
+        //     var marker = L.marker(data.position).addTo(map);
+        //     marker.openPopup();
+        //     });
+        //   };
+
+        // function createMarker(data) {
+        //   var marker = L.marker(data.position).addTo(map);
+        //   marker.bindPopup(data.title + data.address.street + data.address.zipCode + data.address.city + data.subway);
+        // };
+      </script>
+    </div>
+
+    <!-- partie association -->
+    <div class="container-fluid" id="associations">
+      <div class="container text-center p20">
+        <div class="row">
+          <h1 class="p20">Associations</h1>
+          <div class="col-sm-3 col-xs-6"><a href="#"><img id="maps1" src="assets/logos/1.png"></a></div>
+          <div class="col-sm-3 col-xs-6"><a href="#"><img id="maps2" src="assets/logos/2.png"></a></div>
+          <div class="col-sm-3 col-xs-6"><a href="#"><img id="maps3" src="assets/logos/6.png"></a></div>
+          <div class="col-sm-3 col-xs-6"><a href="#"><img id="maps4" src="assets/logos/4.png"></a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- partie footer -->
+    <div class="container-fluid color2 p10">
+      <div class="container text-center ">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="http://www.paris.fr/" target="_blank"><img src="assets/img/4.svg" alt="Mairie de Paris"></li></a>
+            <li class="list-group-item"><a href="#">Contact</li></a>
+            <li class="list-group-item"><a href="#">A Propos</li></a>
+            <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
