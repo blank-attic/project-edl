@@ -14,8 +14,17 @@ h1,h2,th {
   color: #fff;
 }
 
+input {
+margin-left: 55px; 
+}
+
 script {
   text-align: center;
+}
+
+.ng-scope {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 ul {

@@ -63,7 +63,7 @@
             <option value="metro">Organiser par Métro</option>
           </select>
           <ul>
-            <li ng-repeat="association in text.Associations | filter:query | orderBy:order">
+            <li class="col-md-4 col-xs-6"ng-repeat="association in text.Associations | filter:query | orderBy:order">
               <p><strong>{{association.nom}}</strong></br>
                 {{association.adresse}}</br>
                 {{association.contact}}</br>
@@ -118,7 +118,7 @@
                   "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
                   "adresse" : "14 rue Tlemcen",
                   "contact" : "01 42 23 43 95",
-                  "siteweb" : "http://www.unrpa.com/du-cote-des-federations-et-sections/cote-federations/116-paris-75-nouvelles-activites-de-la-federation.html",
+                  "siteweb" : "http://www.unrpa.com/",
                   "codepostal" : "75020",
                   "ville" : "Paris",
                   "metro" : "Métro Père-Lachaise/ Ménilmontant",
@@ -230,7 +230,7 @@
                   "nom" : "PIMMS Points Information Médiation Multiservices",
                   "adresse" : "15 Cité Champagne",
                   "contact" : "01 44 64 00 62",
-                  "siteweb" : "https://www.maisondeservicesaupublic.fr/content/pimms-paris-est",
+                  "siteweb" : "https://www.maisondeservicesaupublic.fr/",
                   "codepostal" : "75020",
                   "ville" : "Paris",
                   "metro" : "Métro Maraîchers/Bus n°26 et 64",
@@ -265,7 +265,7 @@
       </div>
 
       <!-- partie footer -->
-      <div class="container-fluid color2 p10 navbar-fixed-bottom">
+      <div class="container-fluid color2 navbar-fixed-bottom">
         <div class="container text-center ">
           <div>
             <ul class="list-group">
