@@ -7,7 +7,7 @@ geo.geocode('38 rue des amandiers 75020, Paris, France', function(err, res) {
 		return err;
 	} else {
 		// return res;
-    console.log(res[0].display_name);
-		// console.log()
+    // console.log(res[0].display_name);
+		console.log(res);
 	}
 });

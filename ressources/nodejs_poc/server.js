@@ -50,7 +50,7 @@ router.get('/paa', function(req, res){
   // =============================================================================
   app.listen(port);
   console.log('Magic happens on port ' + port);
-  //
+  
 
   var mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/paad');
