@@ -15,7 +15,7 @@ h1,h2,th {
 }
 
 input {
-margin-left: 55px; 
+margin-left: 55px;
 }
 
 script {
@@ -24,7 +24,7 @@ script {
 
 .ng-scope {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 ul {
@@ -36,8 +36,19 @@ ul {
 }
 
 #map {
-  height: 400px;
+  margin-top: 20px;
+  height: 500px;
 }
+
+.scroll {
+    height: 400px;
+    overflow: scroll;
+}
+
+.col-sm-4 {
+  overflow:none
+}
+
 
 .navbar {
   background-color: #0c518a;
@@ -117,6 +128,10 @@ padding-bottom: 10px;
 
 .color {
   background-color: #43B57E;
+}
+
+.degrade {
+  background: linear-gradient(60deg, #F4B350, #EE1C1B);
 }
 
 .cadre h1 {

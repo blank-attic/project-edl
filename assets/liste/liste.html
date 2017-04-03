@@ -27,6 +27,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="../../leaflet-easyPrint-gh-pages/dist/leaflet.easyPrint.js"></script>
+
+    <link rel="stylesheet" href="../../leaflet.fullscreen-1.1.4/Control.FullScreen.css" />
+
+    <script src="../../leaflet.fullscreen-1.1.4/Control.FullScreen.js"></script>
+
     <title>Marie de Paris</title>
   </head>
   <body>
@@ -53,216 +63,473 @@
     </nav>
 
     <div class="container">
-      <h2>Liste des Associations</h2>
-      <div ng-app="myApp">
-        <div ng-controller="MainCtrl">
-          <input type="text" ng-model="query">
-          <select ng-model='order'>
-            <option value="nom">Organiser par ordre Alphabétique</option>
-            <option value="adresse">Organiser par Adresse</option>
-            <option value="metro">Organiser par Métro</option>
-          </select>
-          <ul>
-            <li class="col-md-4 col-xs-6"ng-repeat="association in text.Associations | filter:query | orderBy:order">
-              <p><strong>{{association.nom}}</strong></br>
-                {{association.adresse}}</br>
-                {{association.contact}}</br>
-                {{association.siteweb}}</br>
-                {{association.codepostal}}</br>
-                {{association.ville}}</br>
-                {{association.metro}}</br>
-              </p>
-            </li>
-          </ul>
-      </div>
-        <script type="text/javascript">
-          var myApp = angular.module('myApp', []);
+      <div class="row">
+        <div class="col-md-6">
 
-          myApp.controller('MainCtrl', ['$scope', function ($scope) {
-          $scope.text =
-              {
-                "Associations" : [{
-                  "nom" : "Centre Social de la 20ème Chaise",
-                  "adresse" : "38 rue des Amandiers",
-                  "contact" : "01 43 49 02 49",
-                  "siteweb" : "http://www.la20emechaise.org/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Père-Lachaise",
+            <div id='map'></div>
 
-                },{
-                  "nom" : "Centre Social Archipélia",
-                  "adresse" : "17 rue des Envierges",
-                  "contact" : "01 47 97 02 96",
-                  "siteweb" : "https://www.archipelia.org/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Pyrénées/Jourdain",
-                },{
-                  "nom" : "Association Culture Berbère (ACB)",
-                  "adresse" : "37 bis rue des Maronites",
-                  "contact" : "01 43 58 23 25",
-                  "siteweb" : "https://www.acbparis.org/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Couronne/Ménilmontant",
-                },{
-                  "nom" : "Chinois de France Français de Chine",
-                  "adresse" : "45, rue de Tourtille",
-                  "contact" : "01 83 91 86 31",
-                  "siteweb" : "http://www.cffc.fr/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Belleville",
-                },{
-                  "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
-                  "adresse" : "14 rue Tlemcen",
-                  "contact" : "01 42 23 43 95",
-                  "siteweb" : "http://www.unrpa.com/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Père-Lachaise/ Ménilmontant",
-                },{
-                  "nom" : "Maison du bas Belleville",
-                  "adresse" : "126 Boulevard de Belleville",
-                  "contact" : "01 43 66 64 56",
-                  "siteweb" : "http://maison.bas-belleville@groupe-sos.org",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Belleville",
-                },{
-                  "nom" : "C.S Relais Ménilmontant",
-                  "adresse" : "85 bis rue Ménilmontant",
-                  "contact" : "01 47 97 62 81",
-                  "siteweb" : "https://relaismenilmontant.jimdo.com/ ",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Ménilmontant",
-                },{
-                  "nom" : "Centre social Caf Annam",
-                  "adresse" : "4 Rue d'Annam",
-                  "contact" : "01 47 97 89 19",
-                  "siteweb" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Gambetta",
-                },{
-                  "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
-                  "adresse" : "11 Rue des Couronnes",
-                  "contact" : "09 53 77 35 95",
-                  "siteweb" : "",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Couronnes",
-                },{
-                  "nom" : "Espace Jeunes Taos Amrouche",
-                  "adresse" : "50 rue des Rigoles",
-                  "contact" : "01 42 23 09 10",
-                  "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Taos-Amrouche ",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Jourdain",
-                },{
-                  "nom" : "Davout relais",
-                  "adresse" : "30 boulevard Davout",
-                  "contact" : "01 70 69 42 56",
-                  "siteweb" : "http://davout-relais.org/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Maraîchers/ Porte de Vincennes",
-                },{
-                  "nom" : "Centre Social SOLEIL BLAISE",
-                  "adresse" : "7 Square Vitruve",
-                  "contact" : "01 44 93 00 72",
-                  "siteweb" : "http://soleilblaise.free.fr",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine",
-                },{
-                  "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
-                  "adresse" : "157 boulevard Davout",
-                  "contact" : "06 41 59 49 08",
-                  "siteweb" : "http://www.les2mdu20eme.org",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Tram T3b Marie de Miribel",
-                },{
-                  "nom" : "Secours populaire Antenne Fougères",
-                  "adresse" : "3, rue de Noisy-le-Sec",
-                  "contact" : "01 53 41 39 39",
-                  "siteweb" : "http://www.spf75.org/mots-clefs/accueil",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Tram T3b Adrienne Bolland",
-                },{
-                  "nom" : "Centre socioculturel étincelles",
-                  "adresse" : "65, rue des Haies",
-                  "contact" : "01 43 71 05 45",
-                  "siteweb" : "http://www.etincelles20eme.org",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Buzenval et Avron",
-                },{
-                  "nom" : "Espace Paris Jeunes Davout",
-                  "adresse" : "94 boulevard Davout",
-                  "contact" : "01 40 33 01 84",
-                  "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Davout",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Mairie de Montreuil",
-                },{
-                  "nom" : "Bibliothèque Louise Michel",
-                  "adresse" : "29-35 rue des Haies",
-                  "contact" : "01 58 39 32 10",
-                  "siteweb" : "https://biblouisemichel.wordpress.com/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Buzenval",
-                },{
-                  "nom" : "La Maison des Fougères",
-                  "adresse" : "10 rue des fougères",
-                  "contact" : "09 84 41 17 05",
-                  "siteweb" : "http://lamaisondesfougeres.blogspot.fr/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland",
-                },{
-                  "nom" : "PIMMS Points Information Médiation Multiservices",
-                  "adresse" : "15 Cité Champagne",
-                  "contact" : "01 44 64 00 62",
-                  "siteweb" : "https://www.maisondeservicesaupublic.fr/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Maraîchers/Bus n°26 et 64",
-                },{
-                  "nom" : "Point d’Accès au Droit",
-                  "adresse" : "15 Cité Champagne",
-                  "contact" : "01 53 27 37 40",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Maraîchers/Bus n°26 et 64",
-                },{
-                  "nom" : "Mairie du 20e",
-                  "adresse" : "6 place Gambetta",
-                  "contact" : "01.43.15.20.20 ou 39.75 ",
-                  "siteweb" : "https://biblouisemichel.wordpress.com/",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6",
-                },{
-                  "nom" : "Mairie Mobile de Paris",
-                  "adresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
-                  "siteweb" : "http://www.paris.fr/mairiemobile",
-                  "codepostal" : "75020",
-                  "ville" : "Paris",
-                  "metro" : "Métro Porte de Montreuil/Ligne de bus PC2",
-                 },
-                ]
-              }
-        }]);
-        </script>
+            <script>
+              var map = L.map('map').setView([48.8666797, 2.3832859999999982], 13);
+              L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              }).addTo(map);
+
+              function createMarker(data) {
+                var marker = L.marker(data.position).addTo(map);
+                marker.bindPopup(data.title + data.address.street + data.address.zipCode + data.address.city + data.subway);
+              };
+              var marker = createMarker({
+                position : [48.864781,  2.389814],
+                title : '<b>Centre Social de la 20ème Chaise<br></b>',
+                address : {
+                  street : "38 rue des Amandiers<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Père-Lachaise',
+              });
+              var marker = createMarker({
+                position : [48.87223179999999, 2.3869651999999633],
+                title : '<b>Centre Social Archipélia<br></b>',
+                address : {
+                  street : "17 rue des Envierges<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Pyrénées/Jourdain',
+              });
+              var marker = createMarker({
+                position : [48.868794, 2.385238],
+                title : '<b>Association Culture Berbère (ACB)<br></b>',
+                address : {
+                  street : "37 bis rue des Maronites<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Couronne/Ménilmontant',
+              });
+              var marker = createMarker({
+                position : [48.872267, 2.380227],
+                title : '<b>Chinois de France Français de Chine<br></b>',
+                address : {
+                  street : "45, rue de Tourtille<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Belleville',
+              });
+              var marker = createMarker({
+                position : [48.864612 , 2.387655],
+                title : '<b>UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris<br></b>',
+                address : {
+                  street : "14 rue Tlemcen<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Père-Lachaise/ Ménilmontant',
+              });
+              var marker = createMarker({
+                position : [48.871751 , 2.377857],
+                title : '<b>Maison du bas Belleville<br></b>',
+                address : {
+                  street : "126 Boulevard de Belleville<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Belleville',
+              });
+              var marker = createMarker({
+                position : [48.868945 , 2.390184],
+                title : '<b>C.S Relais Ménilmontant<br></b>',
+                address : {
+                  street : "85 bis rue Ménilmontant<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Ménilmontant',
+              });
+              var marker = createMarker({
+                position : [48.866201 , 2.394174],
+                title : '<b>Centre social Caf Annam<br></b>',
+                address : {
+                  street : "4 Rue d'Annam<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Gambetta',
+              });
+              var marker = createMarker({
+                position : [48.869605 , 2.381657],
+                title : '<b>APEIS Association Pour l’Emploi, l’Information et la Solidarité<br></b>',
+                address : {
+                  street : "11 Rue des Couronnes<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Couronnes',
+              });
+              var marker = createMarker({
+                position : [48.87278 , 2.3923],
+                title : '<b>Espace Jeunes Taos Amrouche<br></b>',
+                address : {
+                  street : "50 rue des Rigoles<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Jourdain',
+              });
+              var marker = createMarker({
+                position : [48.850251 , 2.411305],
+                title : '<b>Davout relais<br></b>',
+                address : {
+                  street : "30 boulevard Davout<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Maraîchers/ Porte de Vincennes',
+              });
+              var marker = createMarker({
+                position : [48.859118 , 2.408679],
+                title : '<b>Centre Social SOLEIL BLAISE<br></b>',
+                address : {
+                  street : "7 Square Vitruve<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine',
+              });
+              var marker = createMarker({
+                position : [48.859599 , 2.40927],
+                title : '<b>LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME<br></b>',
+                address : {
+                  street : "157 boulevard Davout<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Tram T3b Marie de Miribel',
+              });
+              var marker = createMarker({
+                position : [48.871638 , 2.411207],
+                title : '<b>Secours populaire Antenne Fougères<br></b>',
+                address : {
+                  street : "3, rue de Noisy-le-Sec<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Tram T3b Adrienne Bolland',
+              });
+              var marker = createMarker({
+                position : [48.854406 , 2.402899],
+                title : '<b>Centre socioculturel étincelles<br></b>',
+                address : {
+                  street : "65, rue des Haies<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Buzenval et Avron',
+              });
+              var marker = createMarker({
+                position : [48.856717 , 2.410345],
+                title : '<b>Espace Paris Jeunes Davout<br></b>',
+                address : {
+                  street : "94 boulevard Davout<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Mairie de Montreuil',
+              });
+              var marker = createMarker({
+                position : [48.853389 , 2.401092],
+                title : '<b>Bibliothèque Louise Michel<br></b>',
+                address : {
+                  street : "29-35 rue des Haies<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Buzenval',
+              });
+              var marker = createMarker({
+                position : [48.872489 , 2.410527],
+                title : '<b>La Maison des Fougères<br></b>',
+                address : {
+                  street : "10 rue des fougères<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland',
+              });
+              var marker = createMarker({
+                position : [48.853419 , 2.404624],
+                title : '<b>PIMMS Points Information Médiation Multiservices<br></b>',
+                address : {
+                  street : "15 Cité Champagne<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Maraîchers/Bus n°26 et 64',
+              });
+              var marker = createMarker({
+                position : [48.853419 , 2.404624],
+                title : '<b>Point d’Accès au Droit<br></b>',
+                address : {
+                  street : "15 Cité Champagne<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Maraîchers/Bus n°26 et 64',
+              });
+              var marker = createMarker({
+                position : [48.865068 , 2.39901],
+                title : '<b>Mairie du 20e<br></b>',
+                address : {
+                  street : "6 place Gambetta<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6',
+              });
+              var marker = createMarker({
+                position : [48.854489 , 2.414371],
+                title : '<b>Mairie Mobile de Paris<br></b>',
+                address : {
+                  street : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs<br>",
+                  zipCode : "75020<br>",
+                  city : 'Paris<br>',
+                },
+                subway : 'Métro Porte de Montreuil/Ligne de bus PC2',
+              });
+
+              L.easyPrint({
+                title: 'Imprimer',
+                elementsToHide: 'p, h2,h1, .gitButton'
+              }).addTo(map)
+
+              var map = new L.Map('map', {
+                layers: [base],
+                center: new L.LatLng(48.5, -4.5),
+                zoom: 5,
+                fullscreenControl: true,
+                fullscreenControlOptions: { // optional
+                  title:"Show me the fullscreen !"
+                }
+              });
+            </script>
+        </div>
+        <div class="col-md-6">
+          <h2>Liste des Associations</h2>
+          <div ng-app="myApp">
+            <div ng-controller="MainCtrl">
+              <input type="text" ng-model="query" placeholder="Recherche associations">
+              <select ng-model='order'>
+                <option value="nom">Organiser par ordre Alphabétique</option>
+                <option value="adresse">Organiser par Adresse</option>
+                <option value="metro">Organiser par Métro</option>
+              </select>
+              <div class="scroll">
+                <ul>
+                  <li class="col-md-12 col-sm-4"ng-repeat="association in text.Associations | filter:query | orderBy:order">
+                    <p><strong>{{association.nom}}</strong></br>
+                      {{association.adresse}}</br>
+                      {{association.contact}}</br>
+                      {{association.siteweb}}</br>
+                      {{association.codepostal}}</br>
+                      {{association.ville}}</br>
+                      {{association.metro}}</br>
+                    </p>
+                  </li>
+                </ul>
+            </div>
+              <script type="text/javascript">
+                var myApp = angular.module('myApp', []);
+
+                myApp.controller('MainCtrl', ['$scope', function ($scope) {
+                $scope.text =
+                    {
+                      "Associations" : [{
+                        "nom" : "Centre Social de la 20ème Chaise",
+                        "adresse" : "38 rue des Amandiers",
+                        "contact" : "01 43 49 02 49",
+                        "siteweb" : "http://www.la20emechaise.org/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Père-Lachaise",
+
+                      },{
+                        "nom" : "Centre Social Archipélia",
+                        "adresse" : "17 rue des Envierges",
+                        "contact" : "01 47 97 02 96",
+                        "siteweb" : "https://www.archipelia.org/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Pyrénées/Jourdain",
+                      },{
+                        "nom" : "Association Culture Berbère (ACB)",
+                        "adresse" : "37 bis rue des Maronites",
+                        "contact" : "01 43 58 23 25",
+                        "siteweb" : "https://www.acbparis.org/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Couronne/Ménilmontant",
+                      },{
+                        "nom" : "Chinois de France Français de Chine",
+                        "adresse" : "45, rue de Tourtille",
+                        "contact" : "01 83 91 86 31",
+                        "siteweb" : "http://www.cffc.fr/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Belleville",
+                      },{
+                        "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
+                        "adresse" : "14 rue Tlemcen",
+                        "contact" : "01 42 23 43 95",
+                        "siteweb" : "http://www.unrpa.com/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Père-Lachaise/ Ménilmontant",
+                      },{
+                        "nom" : "Maison du bas Belleville",
+                        "adresse" : "126 Boulevard de Belleville",
+                        "contact" : "01 43 66 64 56",
+                        "siteweb" : "http://maison.bas-belleville@groupe-sos.org",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Belleville",
+                      },{
+                        "nom" : "C.S Relais Ménilmontant",
+                        "adresse" : "85 bis rue Ménilmontant",
+                        "contact" : "01 47 97 62 81",
+                        "siteweb" : "https://relaismenilmontant.jimdo.com/ ",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Ménilmontant",
+                      },{
+                        "nom" : "Centre social Caf Annam",
+                        "adresse" : "4 Rue d'Annam",
+                        "contact" : "01 47 97 89 19",
+                        "siteweb" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Gambetta",
+                      },{
+                        "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
+                        "adresse" : "11 Rue des Couronnes",
+                        "contact" : "09 53 77 35 95",
+                        "siteweb" : "",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Couronnes",
+                      },{
+                        "nom" : "Espace Jeunes Taos Amrouche",
+                        "adresse" : "50 rue des Rigoles",
+                        "contact" : "01 42 23 09 10",
+                        "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Taos-Amrouche ",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Jourdain",
+                      },{
+                        "nom" : "Davout relais",
+                        "adresse" : "30 boulevard Davout",
+                        "contact" : "01 70 69 42 56",
+                        "siteweb" : "http://davout-relais.org/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Maraîchers/ Porte de Vincennes",
+                      },{
+                        "nom" : "Centre Social SOLEIL BLAISE",
+                        "adresse" : "7 Square Vitruve",
+                        "contact" : "01 44 93 00 72",
+                        "siteweb" : "http://soleilblaise.free.fr",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine",
+                      },{
+                        "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
+                        "adresse" : "157 boulevard Davout",
+                        "contact" : "06 41 59 49 08",
+                        "siteweb" : "http://www.les2mdu20eme.org",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Tram T3b Marie de Miribel",
+                      },{
+                        "nom" : "Secours populaire Antenne Fougères",
+                        "adresse" : "3, rue de Noisy-le-Sec",
+                        "contact" : "01 53 41 39 39",
+                        "siteweb" : "http://www.spf75.org/mots-clefs/accueil",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Tram T3b Adrienne Bolland",
+                      },{
+                        "nom" : "Centre socioculturel étincelles",
+                        "adresse" : "65, rue des Haies",
+                        "contact" : "01 43 71 05 45",
+                        "siteweb" : "http://www.etincelles20eme.org",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Buzenval et Avron",
+                      },{
+                        "nom" : "Espace Paris Jeunes Davout",
+                        "adresse" : "94 boulevard Davout",
+                        "contact" : "01 40 33 01 84",
+                        "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Davout",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Mairie de Montreuil",
+                      },{
+                        "nom" : "Bibliothèque Louise Michel",
+                        "adresse" : "29-35 rue des Haies",
+                        "contact" : "01 58 39 32 10",
+                        "siteweb" : "https://biblouisemichel.wordpress.com/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Buzenval",
+                      },{
+                        "nom" : "La Maison des Fougères",
+                        "adresse" : "10 rue des fougères",
+                        "contact" : "09 84 41 17 05",
+                        "siteweb" : "http://lamaisondesfougeres.blogspot.fr/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland",
+                      },{
+                        "nom" : "PIMMS Points Information Médiation Multiservices",
+                        "adresse" : "15 Cité Champagne",
+                        "contact" : "01 44 64 00 62",
+                        "siteweb" : "https://www.maisondeservicesaupublic.fr/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Maraîchers/Bus n°26 et 64",
+                      },{
+                        "nom" : "Point d’Accès au Droit",
+                        "adresse" : "15 Cité Champagne",
+                        "contact" : "01 53 27 37 40",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Maraîchers/Bus n°26 et 64",
+                      },{
+                        "nom" : "Mairie du 20e",
+                        "adresse" : "6 place Gambetta",
+                        "contact" : "01.43.15.20.20 ou 39.75 ",
+                        "siteweb" : "https://biblouisemichel.wordpress.com/",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6",
+                      },{
+                        "nom" : "Mairie Mobile de Paris",
+                        "adresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
+                        "siteweb" : "http://www.paris.fr/mairiemobile",
+                        "codepostal" : "75020",
+                        "ville" : "Paris",
+                        "metro" : "Métro Porte de Montreuil/Ligne de bus PC2",
+                       },
+                      ]
+                    }
+              }]);
+              </script>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
 
       <!-- partie footer -->
       <div class="container-fluid color2 navbar-fixed-bottom">
