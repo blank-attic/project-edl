@@ -15,7 +15,8 @@ h1,h2,th {
 }
 
 input {
-margin-left: 55px;
+  margin-left: 55px;
+  margin-right: 41px;
 }
 
 script {
@@ -44,11 +45,6 @@ ul {
     height: 400px;
     overflow: scroll;
 }
-
-.col-sm-4 {
-  overflow:none
-}
-
 
 .navbar {
   background-color: #0c518a;
@@ -107,7 +103,7 @@ padding-top: 5px;
 }
 
 .p10img {
-padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .bandeau{
