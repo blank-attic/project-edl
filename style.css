@@ -15,14 +15,24 @@ h1 {
   height: 400px;
 }
 
+li>a {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
 .navbar {
   background-color: #0c518a;
   border: none;
   color: #fff;
 }
 
+.glyphicon-print {
+  top: 2px;
+  font-size: 15px;
+  padding-right: 7px;
+}
+
 .p5 {
-padding-top: 5px;
+  padding-top: 5px;
 }
 
 .navbar-default .navbar-nav>li>a {

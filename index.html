@@ -47,6 +47,7 @@
           <div class="collapse navbar-collapse" id="maNavbar">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#presentation">Présentation</a></li>
+              <li><a href="listeassos.pdf" target="_blank"><span class="glyphicon glyphicon-print" type="button" class="btn btn-success btn-lg"></span>Imprimer</a></li>
               <li><a href="assets/liste/liste.html">Liste Assos</a></li>
               <!-- <li><a href="#associations">Associations</a></li> -->
               <li><a href="assets/Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
@@ -312,20 +313,20 @@
           subway : 'Métro Porte de Montreuil/Ligne de bus PC2',
         });
 
-        L.easyPrint({
-          title: 'Imprimer',
-          elementsToHide: 'p, h2,h1, .gitButton'
-        }).addTo(map)
-
-        var map = new L.Map('map', {
-          layers: [base],
-          center: new L.LatLng(48.5, -4.5),
-          zoom: 5,
-          fullscreenControl: true,
-          fullscreenControlOptions: { // optional
-            title:"Show me the fullscreen !"
-          }
-        });
+        // L.easyPrint({
+        //   title: 'Imprimer',
+        //   elementsToHide: 'p, h2,h1, .gitButton'
+        // }).addTo(map)
+        //
+        // var map = new L.Map('map', {
+        //   layers: [base],
+        //   center: new L.LatLng(48.5, -4.5),
+        //   zoom: 5,
+        //   fullscreenControl: true,
+        //   fullscreenControlOptions: { // optional
+        //     title:"Show me the fullscreen !"
+        //   }
+        // });
       </script>
     </div>
 
