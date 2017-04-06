@@ -48,6 +48,11 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
+.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
 .navbar-default .navbar-nav>li>a:hover {
   color: rgba(255, 255, 255, 1);
   background-color: #0c518a;
@@ -55,6 +60,11 @@ a {
 }
 
 .navbar-default .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-brand:hover {
   color: rgba(255, 255, 255, 1);
   font-family: 'Montserrat', sans-serif;
 }
