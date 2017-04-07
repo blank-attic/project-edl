@@ -9,14 +9,8 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res, next) {
   res.json({ message: 'Quelle audace!' });
-  next();
-});
-
-router.get('/toto', function(req, res, next) {
-  res.json({ message: 'toto' });
   next();
 });
 
@@ -27,57 +21,46 @@ router.get('/alert', function(req, res, next) {
 
 
 router.get('/paa', function(req, res){
-  // Bear.find(function(err, bears) {
-  //           if (err)
-  //               res.send(err);
-  //
-  //           res.json(bears);
-  //       });
-  nom_paa.find(function (err, paa) {
-    if (err) { res.send (err); }
-    // console.log(paa);
+  paad.find(function (err, paa) {
+    if(err) res.send(err);
+    console.log(paa);
     res.json(paa);
   });
 });
 
-  // more routes for our API will happen here
+app.use('/api', router);
 
-  // REGISTER OUR ROUTES -------------------------------
-  // all of our routes will be prefixed with /api
-  app.use('/api', router);
+app.listen(port);
+console.log('Magic happens on port ' + port);
 
-  // START THE SERVER
-  // =============================================================================
-  app.listen(port);
-  console.log('Magic happens on port ' + port);
-  
+var mongoose = require('mongoose');
 
-  var mongoose = require('mongoose');
-  mongoose.connect('mongodb://localhost/paad');
 
-  var db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', function() {
-    // we're connected!
-    var schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
 
-    var paad_schema   = new schema({
-      nom: String,
-      adresse: {
-        numero: Number,
-        voie: String,
-        code_postal: Number
-      }
-    });
+var schema = mongoose.Schema;
 
-    var nouv = mongoose.model('nouvelle_paa', paad_schema);
+var paad_schema   = new schema({
+  nom: String,
+  adresse: {
+    numero: Number,
+    voie: String,
+    code_postal: Number
+  },
+  contacts: {
+    tel_fixe: Number,
+    tel_portable: Number,
+    email: String
+  },
+  site_web: String
+});
 
-    var nouvelle_paad = new nouv({nom:'belleville_citoyenne', adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'}});
+var paad = mongoose.model('paad', paad_schema);
 
-    nouvelle_paad.save(function (err) {
-      if (err) { throw err; }
-      console.log('quelque chose a été ajoutée à la base de données');
-      console.log(nouvelle_paad);
-      // mongoose.connection.close();
-    });
-  });
+var nouvelle_paad = new paad({nom:'belleville_citoyenne',
+adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'},
+});
+
+nouvelle_paad.save(function (err) {
+  if (err) { throw err; }
+});
