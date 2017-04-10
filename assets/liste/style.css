@@ -32,7 +32,7 @@ ul {
   list-style: none;
 }
 
- .table th,tr,h2 {
+.table th,tr,h2 {
   text-align: center;
 }
 
@@ -52,10 +52,7 @@ ul {
   color: #fff;
 }
 
-.p5 {
-padding-top: 5px;
-}
-
+/*-------NAVIGATION-------*/
 .navbar-default .navbar-nav>li>a {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(12, 81, 138, 1);
@@ -81,11 +78,21 @@ padding-top: 5px;
   color: #fff;
 }
 
+.navbar-default .navbar-brand:focus{
+  color: #fff;
+}
+/*-------FIN NAVIGATION-------*/
+
 .background-image {
   background-image: url(img/1.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+
+/*-------PADDING-------*/
+.p5 {
+padding-top: 5px;
 }
 
 .p80 {
@@ -110,6 +117,8 @@ padding-top: 5px;
 .p10img {
   padding-bottom: 10px;
 }
+
+/*-------FIN PADDING-------*/
 
 .bandeau{
   background-color: #DF225A;
@@ -158,6 +167,7 @@ padding-top: 5px;
   background-color: lightgrey;
 }
 
+/*-------FOOTER-------*/
 .list-group-item {
   border: none;
   padding-bottom: 0px;
@@ -174,3 +184,4 @@ padding-top: 5px;
 .list-group-item a:hover {
   text-decoration: none;
 }
+/*-------FIN FOOTER-------*/

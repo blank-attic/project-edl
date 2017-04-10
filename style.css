@@ -13,22 +13,22 @@ h1 {
 
 #map {
   height: 400px;
+  padding: 0px;
 }
 
-.navbar {
-  background-color: #0c518a;
-  border: none;
-  color: #fff;
-}
-
+/*-------ICONE PRINT-------*/
 .glyphicon-print {
   top: 2px;
   font-size: 15px;
   padding-right: 7px;
 }
+/*-------ICONE PRINT-------*/
 
-.p5 {
-  padding-top: 5px;
+/*-------NAVIGATION-------*/
+.navbar {
+  background-color: #0c518a;
+  border: none;
+  color: #fff;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -51,6 +51,7 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+/*-------Mairie de paris en blanc-------*/
 .navbar-default .navbar-brand:focus {
   color: #fff;
 }
@@ -58,12 +59,19 @@ h1 {
 .navbar-default .navbar-brand:hover {
   color: #fff;
 }
+/*-------Mairie de paris en blanc-------*/
+/*-------FIN NAVIGATION-------*/
 
 .background-image {
   background-image: url(assets/img/1.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+
+/*-------PADDING-------*/
+.p5 {
+  padding-top: 5px;
 }
 
 .p80 {
@@ -88,6 +96,7 @@ h1 {
 .p10img {
 padding-bottom: 10px;
 }
+/*-------PADDING-------*/
 
 .bandeau{
   background-color: #DF225A;
@@ -132,6 +141,7 @@ padding-bottom: 10px;
   background-color: lightgrey;
 }
 
+/*-------FOOTER------*/
 .list-group-item {
   border: none;
   padding-bottom: 0px;
