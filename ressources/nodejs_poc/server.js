@@ -15,9 +15,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/paad', function(req, res){
-  paad.find(function (err, paa) {
+  paad_model.find(function (err, paa) {
     if(err) res.send(err);
-    // console.log(paa);
     res.json(paa);
   });
 });
@@ -33,45 +32,4 @@ mongoose.Promise = require('bluebird');
 
 mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
 
-// var connection = mongoose.createConnection("mongodb://localhost/permanence_acces_aux_droits");
-
-// autoIncrement.initialize(connection);
-
-var paad = require('./models/paad.js');
-
-// bookSchema.plugin(autoIncrement.plugin, 'Book');
-
-// var schema = mongoose.Schema;
-//
-// var paad_schema   = new schema({
-//   nom: String,
-//   adresse: {
-//     numero: Number,
-//     voie: String,
-//     code_postal: Number
-//   },
-//   contacts: {
-//     tel_fixe: Number,
-//     tel_portable: Number,
-//     email: String
-//   },
-//   site_web: String
-// });
-//
-// var paad = mongoose.model('paad', paad_schema);
-//
-// var nouvelle_paad = new paad({nom:'belleville_citoyenne',
-// adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'},
-// });
-//
-// nouvelle_paad.save(function (err) {
-//   if (err) { throw err; }
-// });
-
-// var nouvelle = new nouvelle_paad({nom:'la maison du bas belleville',
-// adresse: {numero: '10', voie: 'rue Piat', code_postal: '75020'},
-// });
-//
-// nouvelle.save(function (err) {
-//   if (err) { throw err; }
-// });
+var paad_model = require('./models/paad_model.js');
