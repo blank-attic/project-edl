@@ -1,13 +1,17 @@
 {
-  "name": "node-api",
+  "name": "permanence_acces_aux_droits_api",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "~1.0.1",
-    "express": "~4.0.0",
-    "mongoose": "~3.6.13",
-    "node-open-geocoder": "^1.2.1"
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3",
+    "mongoose-auto-increment": "^5.0.1",
+    "node-open-geocoder": "^1.2.1",
+    "search-osm-geocode": "0.0.8"
   },
   "devDependencies": {
-    "node-open-geocoder": "^1.2.1"
+    "mongoose-auto-increment": "^5.0.1",
+    "node-open-geocoder": "^1.2.1",
+    "search-osm-geocode": "0.0.8"
   }
 }

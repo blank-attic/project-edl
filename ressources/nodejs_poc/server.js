@@ -1,5 +1,5 @@
-var express    = require('express');
-var app        = express();
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,20 +10,14 @@ var port = process.env.PORT || 8080;
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.json({ message: 'Quelle audace!' });
+  res.json({ message: "Bienvenue sur l'API des permanences d'accès aux droits du 20ème!" });
   next();
 });
 
-router.get('/alert', function(req, res, next) {
-    res.json({message: 'alert'});
-    next();
-});
-
-
-router.get('/paa', function(req, res){
-  nouvelle_paad.find(function (err, paa) {
+router.get('/paad', function(req, res){
+  paad.find(function (err, paa) {
     if(err) res.send(err);
-    console.log(paa);
+    // console.log(paa);
     res.json(paa);
   });
 });
@@ -31,13 +25,21 @@ router.get('/paa', function(req, res){
 app.use('/api', router);
 
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('En écoute sur le port ' + port);
 
 var mongoose = require('mongoose');
 
+mongoose.Promise = require('bluebird');
+
 mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
 
-var nouvelle_paad = require('./models/paad.js');
+// var connection = mongoose.createConnection("mongodb://localhost/permanence_acces_aux_droits");
+
+// autoIncrement.initialize(connection);
+
+var paad = require('./models/paad.js');
+
+// bookSchema.plugin(autoIncrement.plugin, 'Book');
 
 // var schema = mongoose.Schema;
 //
