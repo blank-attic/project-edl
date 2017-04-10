@@ -1,6 +1,6 @@
 {
   "Associations" : [{
-    "position" : "48.864781,  2.389814",
+    "position" : "48.864781,2.389814",
     "nom" : "Centre Social de la 20ème Chaise",
     "addresse" : "38 rue des Amandiers",
     "contact" : "01 43 49 02 49",
@@ -10,7 +10,7 @@
     "metro/bus" : "Métro Père-Lachaise",
 
   },{
-    "position" : "48.87223179999999, 2.3869651999999633",
+    "position" : "48.87223179999999,2.3869651999999633",
     "nom" : "Centre Social Archipélia",
     "addresse" : "17 rue des Envierges",
     "contact" : "01 47 97 02 96",
@@ -19,7 +19,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Pyrénées/Jourdain",
   },{
-    "position" : "48.868794, 2.385238",
+    "position" : "48.868794,2.385238",
     "nom" : "Association Culture Berbère (ACB)",
     "addresse" : "37 bis rue des Maronites",
     "contact" : "01 43 58 23 25",
@@ -28,16 +28,16 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Couronne/Ménilmontant",
   },{
-    "position" : "48.872267, 2.380227",
+    "position" : "48.872267,2.380227",
     "nom" : "Chinois de France Français de Chine",
-    "addresse" : "45, rue de Tourtille",
+    "addresse" : "45,rue de Tourtille",
     "contact" : "01 83 91 86 31",
     "site web" : "http://www.cffc.fr/",
     "code postal" : "75020",
     "ville" : "Paris",
     "metro/bus" : "Métro Belleville",
   },{
-    "position" : "48.864612 , 2.387655",
+    "position" : "48.864612,2.387655",
     "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
     "addresse" : "14 rue Tlemcen",
     "contact" : "01 42 23 43 95",
@@ -46,7 +46,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Père-Lachaise/ Ménilmontant",
   },{
-    "position" : "48.871751 , 2.377857",
+    "position" : "48.871751,2.377857",
     "nom" : "Maison du bas Belleville",
     "addresse" : "126 Boulevard de Belleville",
     "contact" : "01 43 66 64 56",
@@ -55,7 +55,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Belleville",
   },{
-    "position" : "48.868945 , 2.390184",
+    "position" : "48.868945,2.390184",
     "nom" : "C.S Relais Ménilmontant",
     "addresse" : "85 bis rue Ménilmontant",
     "contact" : "01 47 97 62 81",
@@ -64,7 +64,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Ménilmontant",
   },{
-    "position" : "48.866201 , 2.394174",
+    "position" : "48.866201,2.394174",
     "nom" : "Centre social Caf Annam",
     "addresse" : "4 Rue d'Annam",
     "contact" : "01 47 97 89 19",
@@ -73,8 +73,8 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Gambetta",
   },{
-    "position" : "48.869605 , 2.381657",
-    "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
+    "position" : "48.869605,2.381657",
+    "nom" : "APEIS Association Pour l’Emploi,l’Information et la Solidarité",
     "addresse" : "11 Rue des Couronnes",
     "contact" : "09 53 77 35 95",
     "site web" : "",
@@ -82,7 +82,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Couronnes",
   },{
-    "position" : "48.87278 , 2.3923",
+    "position" : "48.87278,2.3923",
     "nom" : "Espace Jeunes Taos Amrouche",
     "addresse" : "50 rue des Rigoles",
     "contact" : "01 42 23 09 10",
@@ -91,7 +91,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Jourdain",
   },{
-    "position" : "48.850251 , 2.411305",
+    "position" : "48.850251,2.411305",
     "nom" : "Davout relais",
     "addresse" : "30 boulevard Davout",
     "contact" : "01 70 69 42 56",
@@ -100,7 +100,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Maraîchers/ Porte de Vincennes",
   },{
-    "position" : "48.859118 , 2.408679",
+    "position" : "48.859118,2.408679",
     "nom" : "Centre Social SOLEIL BLAISE",
     "addresse" : "7 Square Vitruve",
     "contact" : "01 44 93 00 72",
@@ -109,7 +109,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine",
   },{
-    "position" : "48.859599 , 2.40927",
+    "position" : "48.859599,2.40927",
     "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
     "addresse" : "157 boulevard Davout",
     "contact" : "06 41 59 49 08",
@@ -118,25 +118,25 @@
     "ville" : "Paris",
     "metro/bus" : "Tram T3b Marie de Miribel",
   },{
-    "position" : "48.871638 , 2.411207",
+    "position" : "48.871638,2.411207",
     "nom" : "Secours populaire Antenne Fougères",
-    "addresse" : "3, rue de Noisy-le-Sec",
+    "addresse" : "3,rue de Noisy-le-Sec",
     "contact" : "01 53 41 39 39",
     "site web" : "http://www.spf75.org/mots-clefs/accueil",
     "code postal" : "75020",
     "ville" : "Paris",
     "metro/bus" : "Tram T3b Adrienne Bolland",
   },{
-    "position" : "48.854406 , 2.402899",
+    "position" : "48.854406,2.402899",
     "nom" : "Centre socioculturel étincelles",
-    "addresse" : "65, rue des Haies",
+    "addresse" : "65,rue des Haies",
     "contact" : "01 43 71 05 45",
     "site web" : "http://www.etincelles20eme.org",
     "code postal" : "75020",
     "ville" : "Paris",
     "metro/bus" : "Métro Buzenval et Avron",
   },{
-    "position" : "48.856717 , 2.410345",
+    "position" : "48.856717,2.410345",
     "nom" : "Espace Paris Jeunes Davout",
     "addresse" : "94 boulevard Davout",
     "contact" : "01 40 33 01 84",
@@ -145,7 +145,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Mairie de Montreuil",
   },{
-    "position" : "48.853389 , 2.401092",
+    "position" : "48.853389,2.401092",
     "nom" : "Bibliothèque Louise Michel",
     "addresse" : "29-35 rue des Haies",
     "contact" : "01 58 39 32 10",
@@ -154,7 +154,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Buzenval",
   },{
-    "position" : "48.872489 , 2.410527",
+    "position" : "48.872489,2.410527",
     "nom" : "La Maison des Fougères",
     "addresse" : "10 rue des fougères",
     "contact" : "09 84 41 17 05",
@@ -163,7 +163,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland",
   },{
-    "position" : "48.853419 , 2.404624",
+    "position" : "48.853419,2.404624",
     "nom" : "PIMMS Points Information Médiation Multiservices",
     "addresse" : "15 Cité Champagne",
     "contact" : "01 44 64 00 62",
@@ -172,7 +172,7 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Maraîchers/Bus n°26 et 64",
   },{
-    "position" : "48.853419 , 2.404624",
+    "position" : "48.853419,2.404624",
     "nom" : "Point d’Accès au Droit",
     "addresse" : "15 Cité Champagne",
     "contact" : "01 53 27 37 40",
@@ -181,16 +181,16 @@
     "ville" : "Paris",
     "metro/bus" : "Métro Maraîchers/Bus n°26 et 64",
   },{
-    "position" : "48.865068 , 2.39901",
+    "position" : "48.865068,2.39901",
     "nom" : "Mairie du 20e",
     "addresse" : "6 place Gambetta",
     "contact" : "01.43.15.20.20 ou 39.75 ",
     "site web" : "https://biblouisemichel.wordpress.com/",
     "code postal" : "75020",
     "ville" : "Paris",
-    "metro/bus" : "Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6",
+    "metro/bus" : "Métro Gambetta/Bus : lignes 26,60,61,64 et 6",
   },{
-    "position" : "48.854489 , 2.414371",
+    "position" : "48.854489,2.414371",
     "nom" : "Mairie Mobile de Paris",
     "addresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
     "contact" : "",
