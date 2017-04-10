@@ -54,6 +54,7 @@
                      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                      }).addTo(map);
+                     //using layers https://github.com/Leaflet/Leaflet.markercluster
                      var markers = L.markerClusterGroup();
 
                      function createMarker(markers, data) {
@@ -62,6 +63,7 @@
                          marker.bindPopup(data.title + data.address.street + data.address.zipCode + data.address.city + data.subway);
                      }
 
+                     //filter function NOT in use
                      function filterFunction(data) {
                          if (data.title == "toto") {
                              createMarker(data) ;
@@ -72,16 +74,18 @@
 
                      var myApp = angular.module("myApp", []);
 
+                     //my custom filter
                      myApp.filter('ff', function() {
                          // Create the return function and set the required parameter name to **input**
                          return function(input,query) {
                              var out = [];
-                             // setup a marker group
+                             //clear layer at each filter change
                              markers.clearLayers();
 
                              // Using the angular.forEach method, go through the array of data and perform the operation of figuring out if the language is statically or dynamically typed.
                              angular.forEach(input, function(asso) {
                                  if (query == "" || query == undefined) {
+                                     //create marker in group if no query, or query is empty
                                      createMarker(markers, {
                                          position : asso.position.split(','),
                                          title : '<b>' + asso.nom + '<br></b>',
@@ -91,6 +95,7 @@
                                      out.push(asso);
                                  }
                                  else if (checkForValue(asso, query)) {
+                                     //if asso is ok with simple filter text query
                                      createMarker(markers, {
                                          position : asso.position.split(','),
                                          title: '<b>' + asso.nom + '<br></b>',
@@ -102,8 +107,10 @@
 
                              })
 
+                             //add markers layer to map
                              map.addLayer(markers);
 
+                             //return array of filtered associations
                              return out;
                          }
                      });
