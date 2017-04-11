@@ -2,7 +2,7 @@
   "Associations" : [{
     "position" : "48.864781,  2.389814",
     "nom" : "Centre Social de la 20ème Chaise",
-    "addresse" : "38 rue des Amandiers",
+    "adresse" : "38 rue des Amandiers",
     "contact" : "01 43 49 02 49",
     "site web" : "http://www.la20emechaise.org/",
     "code postal" : "75020",
@@ -12,7 +12,7 @@
   },{
     "position" : "48.87223179999999, 2.3869651999999633",
     "nom" : "Centre Social Archipélia",
-    "addresse" : "17 rue des Envierges",
+    "adresse" : "17 rue des Envierges",
     "contact" : "01 47 97 02 96",
     "site web" : "https://www.archipelia.org/",
     "code postal" : "75020",
@@ -21,7 +21,7 @@
   },{
     "position" : "48.868794, 2.385238",
     "nom" : "Association Culture Berbère (ACB)",
-    "addresse" : "37 bis rue des Maronites",
+    "adresse" : "37 bis rue des Maronites",
     "contact" : "01 43 58 23 25",
     "site web" : "https://www.acbparis.org/",
     "code postal" : "75020",
@@ -30,7 +30,7 @@
   },{
     "position" : "48.872267, 2.380227",
     "nom" : "Chinois de France Français de Chine",
-    "addresse" : "45, rue de Tourtille",
+    "adresse" : "45, rue de Tourtille",
     "contact" : "01 83 91 86 31",
     "site web" : "http://www.cffc.fr/",
     "code postal" : "75020",
@@ -39,7 +39,7 @@
   },{
     "position" : "48.864612 , 2.387655",
     "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
-    "addresse" : "14 rue Tlemcen",
+    "adresse" : "14 rue Tlemcen",
     "contact" : "01 42 23 43 95",
     "site web" : "http://www.unrpa.com/du-cote-des-federations-et-sections/cote-federations/116-paris-75-nouvelles-activites-de-la-federation.html",
     "code postal" : "75020",
@@ -48,7 +48,7 @@
   },{
     "position" : "48.871751 , 2.377857",
     "nom" : "Maison du bas Belleville",
-    "addresse" : "126 Boulevard de Belleville",
+    "adresse" : "126 Boulevard de Belleville",
     "contact" : "01 43 66 64 56",
     "site web" : "http://maison.bas-belleville@groupe-sos.org",
     "code postal" : "75020",
@@ -57,7 +57,7 @@
   },{
     "position" : "48.868945 , 2.390184",
     "nom" : "C.S Relais Ménilmontant",
-    "addresse" : "85 bis rue Ménilmontant",
+    "adresse" : "85 bis rue Ménilmontant",
     "contact" : "01 47 97 62 81",
     "site web" : "https://relaismenilmontant.jimdo.com/ ",
     "code postal" : "75020",
@@ -66,7 +66,7 @@
   },{
     "position" : "48.866201 , 2.394174",
     "nom" : "Centre social Caf Annam",
-    "addresse" : "4 Rue d'Annam",
+    "adresse" : "4 Rue d'Annam",
     "contact" : "01 47 97 89 19",
     "site web" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
     "code postal" : "75020",
@@ -75,7 +75,7 @@
   },{
     "position" : "48.869605 , 2.381657",
     "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
-    "addresse" : "11 Rue des Couronnes",
+    "adresse" : "11 Rue des Couronnes",
     "contact" : "09 53 77 35 95",
     "site web" : "",
     "code postal" : "75020",
@@ -84,7 +84,7 @@
   },{
     "position" : "48.87278 , 2.3923",
     "nom" : "Espace Jeunes Taos Amrouche",
-    "addresse" : "50 rue des Rigoles",
+    "adresse" : "50 rue des Rigoles",
     "contact" : "01 42 23 09 10",
     "site web" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Taos-Amrouche ",
     "code postal" : "75020",
@@ -93,7 +93,7 @@
   },{
     "position" : "48.850251 , 2.411305",
     "nom" : "Davout relais",
-    "addresse" : "30 boulevard Davout",
+    "adresse" : "30 boulevard Davout",
     "contact" : "01 70 69 42 56",
     "site web" : "http://davout-relais.org/",
     "code postal" : "75020",
@@ -102,7 +102,7 @@
   },{
     "position" : "48.859118 , 2.408679",
     "nom" : "Centre Social SOLEIL BLAISE",
-    "addresse" : "7 Square Vitruve",
+    "adresse" : "7 Square Vitruve",
     "contact" : "01 44 93 00 72",
     "site web" : "http://soleilblaise.free.fr",
     "code postal" : "75020",
@@ -111,7 +111,7 @@
   },{
     "position" : "48.859599 , 2.40927",
     "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
-    "addresse" : "157 boulevard Davout",
+    "adresse" : "157 boulevard Davout",
     "contact" : "06 41 59 49 08",
     "site web" : "http://www.les2mdu20eme.org",
     "code postal" : "75020",
@@ -120,7 +120,7 @@
   },{
     "position" : "48.871638 , 2.411207",
     "nom" : "Secours populaire Antenne Fougères",
-    "addresse" : "3, rue de Noisy-le-Sec",
+    "adresse" : "3, rue de Noisy-le-Sec",
     "contact" : "01 53 41 39 39",
     "site web" : "http://www.spf75.org/mots-clefs/accueil",
     "code postal" : "75020",
@@ -129,7 +129,7 @@
   },{
     "position" : "48.854406 , 2.402899",
     "nom" : "Centre socioculturel étincelles",
-    "addresse" : "65, rue des Haies",
+    "adresse" : "65, rue des Haies",
     "contact" : "01 43 71 05 45",
     "site web" : "http://www.etincelles20eme.org",
     "code postal" : "75020",
@@ -138,7 +138,7 @@
   },{
     "position" : "48.856717 , 2.410345",
     "nom" : "Espace Paris Jeunes Davout",
-    "addresse" : "94 boulevard Davout",
+    "adresse" : "94 boulevard Davout",
     "contact" : "01 40 33 01 84",
     "site web" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Davout",
     "code postal" : "75020",
@@ -147,7 +147,7 @@
   },{
     "position" : "48.853389 , 2.401092",
     "nom" : "Bibliothèque Louise Michel",
-    "addresse" : "29-35 rue des Haies",
+    "adresse" : "29-35 rue des Haies",
     "contact" : "01 58 39 32 10",
     "site web" : "https://biblouisemichel.wordpress.com/",
     "code postal" : "75020",
@@ -156,7 +156,7 @@
   },{
     "position" : "48.872489 , 2.410527",
     "nom" : "La Maison des Fougères",
-    "addresse" : "10 rue des fougères",
+    "adresse" : "10 rue des fougères",
     "contact" : "09 84 41 17 05",
     "site web" : "http://lamaisondesfougeres.blogspot.fr/",
     "code postal" : "75020",
@@ -165,7 +165,7 @@
   },{
     "position" : "48.853419 , 2.404624",
     "nom" : "PIMMS Points Information Médiation Multiservices",
-    "addresse" : "15 Cité Champagne",
+    "adresse" : "15 Cité Champagne",
     "contact" : "01 44 64 00 62",
     "site web" : "https://www.maisondeservicesaupublic.fr/content/pimms-paris-est",
     "code postal" : "75020",
@@ -174,7 +174,7 @@
   },{
     "position" : "48.853419 , 2.404624",
     "nom" : "Point d’Accès au Droit",
-    "addresse" : "15 Cité Champagne",
+    "adresse" : "15 Cité Champagne",
     "contact" : "01 53 27 37 40",
     "site web" : "",
     "code postal" : "75020",
@@ -183,7 +183,7 @@
   },{
     "position" : "48.865068 , 2.39901",
     "nom" : "Mairie du 20e",
-    "addresse" : "6 place Gambetta",
+    "adresse" : "6 place Gambetta",
     "contact" : "01.43.15.20.20 ou 39.75 ",
     "site web" : "https://biblouisemichel.wordpress.com/",
     "code postal" : "75020",
@@ -192,7 +192,7 @@
   },{
     "position" : "48.854489 , 2.414371",
     "nom" : "Mairie Mobile de Paris",
-    "addresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
+    "adresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
     "contact" : "",
     "site web" : "http://www.paris.fr/mairiemobile",
     "code postal" : "75020",

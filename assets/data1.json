@@ -1,0 +1,16 @@
+{
+    "nom" : "Centre Social de la 20ème Chaise",
+    "adresse" : {
+      "numero" : "38",
+      "voie" : "rue des Amandiers",
+      "code_postal" : "75020",
+      "latitude" : "48.864781",
+      "longitude" : "2.389814",
+      },
+    "contacts" : {
+      "tel_fixe" : "01 43 49 02 49",
+      "tel_portable"
+      "email" :
+    },
+    "site web" : "http://www.la20emechaise.org/",
+}
