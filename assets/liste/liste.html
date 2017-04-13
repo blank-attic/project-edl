@@ -90,14 +90,13 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-              <h2>Liste des Associations</h2>
+              <h2>Liste des Structures</h2>
               <div ng-app="myApp">
                 <div ng-controller="MainCtrl">
                     <input type="text" ng-model="query" placeholder="Recherche associations">
                     <select ng-model='order'>
-                      <option value="nom">Organiser par ordre Alphabétique</option>
-                      <option value="adresse">Organiser par Adresse</option>
-                      <option value="metro">Organiser par Métro</option>
+                      <option value="nom">Ecrivains publics et médiateurs</option>
+                      <option value="Eadministration">E-administration</option>
                     </select>
 
                     <div class="scroll">
@@ -110,6 +109,7 @@
                                 {{marqueurs.codepostal}}</br>
                                 {{marqueurs.ville}}</br>
                                 {{marqueurs.metro}}</br>
+                                {{marqueurs.Eadministration}}</br>
                               </p>
                             </li>
                         </ul>
@@ -186,7 +186,6 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Père-Lachaise",
-
                              },{
                                  "position" : "48.87223179999999, 2.3869651999999633",
                                  "nom" : "Centre Social Archipélia",

@@ -81,7 +81,7 @@ h1 {
 
 .p230 {
   padding-top: 230px;
-  padding-bottom: 230px;
+  padding-bottom: 309px;
 }
 
 .p20 {
@@ -141,16 +141,19 @@ padding-bottom: 10px;
   background-color: lightgrey;
 }
 
-/*-------Newsletters------*/
-.newsletters {
-  /*background-color: #F4B350;*/
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(assets/img/2.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  padding-top: 40px;
-  padding-bottom: 100px;
+/*-------présentation------*/
+li {
+  text-align: justify;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.pad5 {
+  padding-bottom: 20px;
+}
+/*-------Fin présentation------*/
 
 .width {
   max-width: 500px;
