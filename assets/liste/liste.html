@@ -104,6 +104,8 @@
                             <li class="col-md-12 col-sm-4" ng-repeat="marqueurs in assos.Associations | ff:query | orderBy:order">
                               <p><strong>{{marqueurs.nom}}</strong></br>
                                 {{marqueurs.adresse}}</br>
+                                {{marqueurs.permanences}}</br>
+                                {{marqueurs.permanence}}</br>
                                 {{marqueurs.contact}}</br>
 <a href="{{marqueurs.siteweb}}" target="_blank">{{marqueurs.siteweb}}</br></a>
                                 {{marqueurs.codepostal}}</br>
@@ -180,6 +182,7 @@
                              "Associations" : [{
                                  "position" : "48.864781,  2.389814",
                                  "nom" : "Centre Social la 20ème Chaise",
+                                 "permanences" : "Écrivains publics",
                                  "adresse" : "38 rue des Amandiers",
                                  "contact" : "01 43 49 02 49",
                                  "siteweb" : "http://www.la20emechaise.org/",
@@ -189,6 +192,8 @@
                              },{
                                  "position" : "48.87223179999999, 2.3869651999999633",
                                  "nom" : "Centre Social Archipélia",
+                                 "permanences" : "Écrivains publics",
+                                 "permanence" : "Formation numérique",
                                  "adresse" : "17 rue des Envierges",
                                  "contact" : "01 47 97 02 96",
                                  "siteweb" : "https://www.archipelia.org/",
@@ -198,6 +203,8 @@
                              },{
                                  "position" : "48.868794, 2.385238",
                                  "nom" : "Association Culture Berbère (ACB)",
+                                 "permanences" : "Écrivains publics",
+                                 "permanence" : "Formation numérique",
                                  "adresse" : "37 bis rue des Maronites",
                                  "contact" : "01 43 58 23 25",
                                  "siteweb" : "https://www.acbparis.org/",
@@ -207,6 +214,7 @@
                              },{
                                  "position" : "48.872267, 2.380227",
                                  "nom" : "Chinois de France Français de Chine",
+                                 "permanences" : "Écrivains publics, e-administration, Interprète français mandarin",
                                  "adresse" : "45, rue de Tourtille",
                                  "contact" : "01 83 91 86 31",
                                  "siteweb" : "http://www.cffc.fr/",
@@ -216,6 +224,8 @@
                              },{
                                  "position" : "48.864612 , 2.387655",
                                  "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
+                                 "permanences" : "Démarches retraite et droits annexes, service public en ligne, orientations vers professionnels spécifiques",
+                                 "permamnence" : "E-administration",
                                  "adresse" : "14 rue Tlemcen",
                                  "contact" : "01 42 23 43 95",
                                  "siteweb" : "http://www.unrpa.com/du-cote-des-federations-et-sections/cote-federations/116-paris-75-nouvelles-activites-de-la-federation.html",
@@ -225,6 +235,8 @@
                              },{
                                  "position" : "48.871751 , 2.377857",
                                  "nom" : "Maison du bas Belleville",
+                                 "permanences" : "Écrivains publics, E-administration",
+                                 "permanence" : "Association APTM Accueil et Préorientation des Travailleurs Migrants (pour Documents préfecture)",
                                  "adresse" : "126 Boulevard de Belleville",
                                  "contact" : "01 43 66 64 56",
                                  "siteweb" : "http://maison.bas-belleville@groupe-sos.org",
@@ -234,6 +246,8 @@
                              },{
                                  "position" : "48.868945 , 2.390184",
                                  "nom" : "C.S Relais Ménilmontant",
+                                 "permanences" : "Écrivains Publics",
+                                 "permanence" : "E-administration",
                                  "adresse" : "85 bis rue Ménilmontant",
                                  "contact" : "01 47 97 62 81",
                                  "siteweb" : "https://relaismenilmontant.jimdo.com/ ",
@@ -243,6 +257,8 @@
                              },{
                                  "position" : "48.866201 , 2.394174",
                                  "nom" : "Centre social Caf Annam",
+                                 "permanences" : "Écrivains publics",
+                                 "permanence" : "E-administration",
                                  "adresse" : "4 Rue d'Annam",
                                  "contact" : "01 47 97 89 19",
                                  "siteweb" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
@@ -252,6 +268,7 @@
                              },{
                                  "position" : "48.869605 , 2.381657",
                                  "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
+                                 "permanences" : "Écrivain public pour les personnes au chômage ou en emploi précaire",
                                  "adresse" : "11 Rue des Couronnes",
                                  "contact" : "09 53 77 35 95",
                                  "siteweb" : "",
@@ -261,6 +278,7 @@
                              },{
                                  "position" : "48.87278 , 2.3923",
                                  "nom" : "Espace Jeunes Taos Amrouche",
+                                 "permanences" : "Écrivain public prioritairement pour les jeunes jusqu’à 25 ans",
                                  "adresse" : "50 rue des Rigoles",
                                  "contact" : "01 42 23 09 10",
                                  "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Taos-Amrouche ",
@@ -270,6 +288,8 @@
                              },{
                                  "position" : "48.850251 , 2.411305",
                                  "nom" : "Davout relais",
+                                 "permanences" : "Écrivains publics",
+                                 "permanence" : "assistantes sociales",
                                  "adresse" : "30 boulevard Davout",
                                  "contact" : "01 70 69 42 56",
                                  "siteweb" : "http://davout-relais.org/",
@@ -279,6 +299,8 @@
                              },{
                                  "position" : "48.859118 , 2.408679",
                                  "nom" : "Centre Social SOLEIL BLAISE",
+                                 "permanences" : "Écrivains publics, E-administration",
+                                 "permanence" : "Conseil juridique, Permanence vacances de mars à juin",
                                  "adresse" : "7 Square Vitruve",
                                  "contact" : "01 44 93 00 72",
                                  "siteweb" : "http://soleilblaise.free.fr",
@@ -288,6 +310,8 @@
                              },{
                                  "position" : "48.859599 , 2.40927",
                                  "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
+                                 "permanences" : "Réseau de médiateurs interculturels et multilingues, Écrivain public",
+                                 "permanence" : "Interprète Bambara Possibilité d’interprétariat des langues d’Afrique occidentale (Dioula, Soninké, Peul, Wolof), Arabe, Anglais en prenant contact avec l’association.",
                                  "adresse" : "157 boulevard Davout",
                                  "contact" : "06 41 59 49 08",
                                  "siteweb" : "http://www.les2mdu20eme.org",
@@ -297,6 +321,7 @@
                              },{
                                  "position" : "48.871638 , 2.411207",
                                  "nom" : "Secours populaire Antenne Fougères",
+                                 "permanences" : "Permanences d'Accueil et de Solidarité (PAS) Personnes domiciliées dans les 19e et 20e arrondissements.",
                                  "adresse" : "3, rue de Noisy-le-Sec",
                                  "contact" : "01 53 41 39 39",
                                  "siteweb" : "http://www.spf75.org/mots-clefs/accueil",
@@ -306,6 +331,7 @@
                              },{
                                  "position" : "48.854406 , 2.402899",
                                  "nom" : "Centre socioculturel étincelles",
+                                 "permanences" : "Écrivains publics",
                                  "adresse" : "65, rue des Haies",
                                  "contact" : "01 43 71 05 45",
                                  "siteweb" : "http://www.etincelles20eme.org",
@@ -315,6 +341,7 @@
                              },{
                                  "position" : "48.856717 , 2.410345",
                                  "nom" : "Espace Paris Jeunes Davout",
+                                 "permanences" : "Écrivains publics",
                                  "adresse" : "94 boulevard Davout",
                                  "contact" : "01 40 33 01 84",
                                  "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Davout",
@@ -324,6 +351,7 @@
                              },{
                                  "position" : "48.853389 , 2.401092",
                                  "nom" : "Bibliothèque Louise Michel",
+                                 "permanences" : "Écrivains publics",
                                  "adresse" : "29-35 rue des Haies",
                                  "contact" : "01 58 39 32 10",
                                  "siteweb" : "https://biblouisemichel.wordpress.com/",
@@ -333,6 +361,7 @@
                              },{
                                  "position" : "48.872489 , 2.410527",
                                  "nom" : "La Maison des Fougères",
+                                 "permanences" : "E-administration",
                                  "adresse" : "10 rue des fougères",
                                  "contact" : "09 84 41 17 05",
                                  "siteweb" : "http://lamaisondesfougeres.blogspot.fr/",
@@ -342,6 +371,8 @@
                              },{
                                  "position" : "48.853419 , 2.404624",
                                  "nom" : "PIMMS Points Information Médiation Multiservices",
+                                 "permanences" : "Explication de courriers, formulaires, factures et des services des entreprises partenaires (Eau, Energie, Transport...), Aide à la rédaction de courriers, Aide pour remplir les dossiers et les formulaires administratifs.",
+                                 "permanence" : "Orientation vers le bon service et le bon interlocuteur en fonction de votre situation, 2 ordinateurs disponibles pour vos démarches, vos recherches d’emploi, la création d’une boîte mail…",
                                  "adresse" : "15 Cité Champagne",
                                  "contact" : "01 44 64 00 62",
                                  "siteweb" : "https://www.maisondeservicesaupublic.fr/content/pimms-paris-est",
@@ -351,6 +382,8 @@
                              },{
                                  "position" : "48.853419 , 2.404624",
                                  "nom" : "Point d’Accès au Droit",
+                                 "permanences" : "Écrivain public",
+                                 "permanence" : "Permanence juridique",
                                  "adresse" : "15 Cité Champagne",
                                  "contact" : "01 53 27 37 40",
                                  "siteweb" : "",
@@ -360,6 +393,7 @@
                              },{
                                  "position" : "48.865068 , 2.39901",
                                  "nom" : "Mairie du 20e",
+                                 "permanences" : "Écrivains publics",
                                  "adresse" : "6 place Gambetta",
                                  "contact" : "01.43.15.20.20 ou 39.75 ",
                                  "siteweb" : "https://biblouisemichel.wordpress.com/",
@@ -369,6 +403,8 @@
                              },{
                                  "position" : "48.854489 , 2.414371",
                                  "nom" : "Mairie Mobile de Paris",
+                                 "permanences" : "Explication des courriers, formulaires, factures et des services des entreprises partenaires (Eau, Énergie, Transport...), Aide à la rédaction de courriers administratifs, Aide pour remplir les dossiers et les formulaires administratifs.",
+                                 "permanence" : "Information sur les prestations du Centre d’Action Sociale de la Ville de Paris et accompagnement dans les  démarches, Accompagnement sur les démarches sur internet, Conseil pour des économies d’énergie",
                                  "adresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
                                  "contact" : "",
                                  "site web" : "http://www.paris.fr/mairiemobile",
