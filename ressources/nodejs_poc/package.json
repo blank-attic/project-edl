@@ -2,16 +2,20 @@
   "name": "permanence_acces_aux_droits_api",
   "main": "server.js",
   "dependencies": {
+    "async": "^2.3.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.3",
     "mongoose-auto-increment": "^5.0.1",
     "node-open-geocoder": "^1.2.1",
-    "search-osm-geocode": "0.0.8"
+    "search-osm-geocode": "0.0.8",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
+    "async": "^2.3.0",
     "mongoose-auto-increment": "^5.0.1",
     "node-open-geocoder": "^1.2.1",
-    "search-osm-geocode": "0.0.8"
+    "search-osm-geocode": "0.0.8",
+    "superagent": "^3.5.2"
   }
 }
