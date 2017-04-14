@@ -97,6 +97,7 @@
                     <select ng-model='order'>
                       <option value="nom">Ecrivains publics et médiateurs</option>
                       <option value="administration">E-administration</option>
+                      <option value="formation">Formation au numérique</option>
                     </select>
 
                     <div class="scroll">
@@ -109,9 +110,10 @@
                                 {{marqueurs.codepostal}}</br>
                                 {{marqueurs.ville}}</br>
                                 {{marqueurs.metro}}</br>
-                                {{marqueurs.permanences}}</br>
-                                {{marqueurs.administration}}</br>
-                                {{marqueurs.permanence}}</br>
+                        <strong>{{marqueurs.permanences}}</strong></br>
+                        <strong>{{marqueurs.administration}}</strong></br>
+                        <strong>{{marqueurs.permanence}}</strong></br>
+                        <strong>{{marqueurs.formation}}</strong></br>
                               </p>
                             </li>
                         </ul>
@@ -193,7 +195,7 @@
                                  "position" : "48.87223179999999, 2.3869651999999633",
                                  "nom" : "Centre Social Archipélia",
                                  "permanences" : "Écrivains publics",
-                                 "permanence" : "Formation numérique",
+                                 "formation" : "Formation numérique",
                                  "adresse" : "17 rue des Envierges",
                                  "contact" : "01 47 97 02 96",
                                  "siteweb" : "https://www.archipelia.org/",
@@ -204,7 +206,7 @@
                                  "position" : "48.868794, 2.385238",
                                  "nom" : "Association Culture Berbère (ACB)",
                                  "permanences" : "Écrivains publics",
-                                 "permanence" : "Formation numérique",
+                                 "formation" : "Formation numérique",
                                  "adresse" : "37 bis rue des Maronites",
                                  "contact" : "01 43 58 23 25",
                                  "siteweb" : "https://www.acbparis.org/",
@@ -214,8 +216,8 @@
                              },{
                                  "position" : "48.872267, 2.380227",
                                  "nom" : "Chinois de France Français de Chine",
-                                 "permanences" : "Écrivains publics, e-administration, Interprète français mandarin",
-                                 "administration" : "e-administration",
+                                 "permanences" : "Écrivains publics, Interprète français mandarin",
+                                 "administration" : "E-administration",
                                  "adresse" : "45, rue de Tourtille",
                                  "contact" : "01 83 91 86 31",
                                  "siteweb" : "http://www.cffc.fr/",
@@ -227,7 +229,8 @@
                                  "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
                                  "permanences" : "Démarches retraite et droits annexes, service public en ligne, orientations vers professionnels spécifiques",
                                  "permamnence" : "E-administration",
-                                 "administration" : "e-administration",
+                                 "administration" : "E-administration",
+                                 "formation" : "Formation numérique",
                                  "adresse" : "14 rue Tlemcen",
                                  "contact" : "01 42 23 43 95",
                                  "siteweb" : "http://www.unrpa.com/du-cote-des-federations-et-sections/cote-federations/116-paris-75-nouvelles-activites-de-la-federation.html",
@@ -237,8 +240,8 @@
                              },{
                                  "position" : "48.871751 , 2.377857",
                                  "nom" : "Maison du bas Belleville",
-                                 "permanences" : "Écrivains publics, E-administration",
-                                 "administration" : "e-administration",
+                                 "permanences" : "Écrivains publics",
+                                 "administration" : "E-administration",
                                  "permanence" : "Association APTM Accueil et Préorientation des Travailleurs Migrants (pour Documents préfecture)",
                                  "adresse" : "126 Boulevard de Belleville",
                                  "contact" : "01 43 66 64 56",
@@ -250,7 +253,8 @@
                                  "position" : "48.868945 , 2.390184",
                                  "nom" : "C.S Relais Ménilmontant",
                                  "permanences" : "Écrivains Publics",
-                                 "administration" : "e-administration",
+                                 "administration" : "E-administration",
+                                 "formation" : "Formation numérique",
                                  "adresse" : "85 bis rue Ménilmontant",
                                  "contact" : "01 47 97 62 81",
                                  "siteweb" : "https://relaismenilmontant.jimdo.com/ ",
@@ -261,7 +265,7 @@
                                  "position" : "48.866201 , 2.394174",
                                  "nom" : "Centre social Caf Annam",
                                  "permanences" : "Écrivains publics",
-                                 "administration" : "e-administration",
+                                 "administration" : "E-administration",
                                  "adresse" : "4 Rue d'Annam",
                                  "contact" : "01 47 97 89 19",
                                  "siteweb" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
@@ -292,7 +296,7 @@
                                  "position" : "48.850251 , 2.411305",
                                  "nom" : "Davout relais",
                                  "permanences" : "Écrivains publics",
-                                 "permanence" : "assistantes sociales",
+                                 "permanence" : "Assistantes sociales",
                                  "adresse" : "30 boulevard Davout",
                                  "contact" : "01 70 69 42 56",
                                  "siteweb" : "http://davout-relais.org/",
@@ -302,8 +306,8 @@
                              },{
                                  "position" : "48.859118 , 2.408679",
                                  "nom" : "Centre Social SOLEIL BLAISE",
-                                 "permanences" : "Écrivains publics, E-administration",
-                                 "administration" : "e-administration",
+                                 "permanences" : "Écrivains publics",
+                                 "administration" : "E-administration",
                                  "permanence" : "Conseil juridique, Permanence vacances de mars à juin",
                                  "adresse" : "7 Square Vitruve",
                                  "contact" : "01 44 93 00 72",
@@ -365,7 +369,7 @@
                              },{
                                  "position" : "48.872489 , 2.410527",
                                  "nom" : "La Maison des Fougères",
-                                 "administration" : "e-administration",
+                                 "administration" : "E-administration",
                                  "adresse" : "10 rue des fougères",
                                  "contact" : "09 84 41 17 05",
                                  "siteweb" : "http://lamaisondesfougeres.blogspot.fr/",
