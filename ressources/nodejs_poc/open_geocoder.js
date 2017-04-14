@@ -3,11 +3,8 @@ var OpenGeocoder = require('node-open-geocoder');
 var geo = new OpenGeocoder();
 
 var nouv = {nom:'la maison du bas belleville',
-adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'},
-logo: 'machin'
+adresse: {numero: '29-35', voie: 'boulevard davout', code_postal: '75020'}
 };
-
-var lon, lat;
 
 function lon_lat(fnc) {
 
@@ -20,8 +17,9 @@ function lon_lat(fnc) {
 		if (err) {
 			return err;
 		} else {
-			console.log(res);
-      return fnc(res[0]);
+      if (res.length>0){
+        return fnc(res[0]);
+      }
     }
   });
 

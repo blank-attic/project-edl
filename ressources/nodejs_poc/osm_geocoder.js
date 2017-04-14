@@ -5,8 +5,10 @@ var options = {
 };
 
 var nouv = {nom:'la maison du bas belleville',
-adresse: {numero: '38', voie: 'rue des amandiers', code_postal: '75020'},
-logo: 'machin'
+adresse: {numero: '126',
+voie: 'boulevard de belleville',
+code_postal: '75020'
+},
 };
 
 function lon_lat(fnc) {
@@ -20,8 +22,9 @@ function lon_lat(fnc) {
 		if (err) {
 			return err;
 		} else {
-      console.log(res);
-      return fnc(res[0]);
+      if (res.length>0){
+        fnc(res[0]);
+      } else console.log("L'adresse n'a pas été géocodée");
     }
   },
     options
@@ -30,21 +33,9 @@ function lon_lat(fnc) {
 }
 
 function donnees(x) {
-	nouv.adresse.longitude=x.longitude;
-	nouv.adresse.latitude=x.latitude;
-	console.log(nouv.adresse);
+  nouv.adresse.longitude=x.longitude;
+  nouv.adresse.latitude=x.latitude;
+  console.log(nouv.adresse);
 }
 
 lon_lat(donnees);
-
-// geocoder.geocode(nouv.adresse.numero
-//   + ', '
-//   + nouv.adresse.voie
-//   + ', '
-//   + nouv.adresse.code_postal,
-//   function callback (error, result) {
-//     if (error) return error;
-//     else console.log(result);
-//   },
-//   options
-// );
