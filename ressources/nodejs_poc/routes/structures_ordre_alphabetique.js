@@ -6,7 +6,15 @@ var paad_model = require('../models/paad_model.js');
 router.get('', function(req, res){
   paad_model.find(function (err, paad) {
     if(err) res.send(err);
-    else res.json(paad);
+    else {
+      res
+      .header('Access-Control-Allow-Origin', '*')
+      .header('Access-Control-Allow-Methods', 'GET')
+      .header('Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept')
+      .status(200)
+      .json(paad);
+    }
   }).sort({'nom':1});
 });
 
