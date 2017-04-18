@@ -26,9 +26,8 @@ function lon_lat(fnc) {
 }
 
 function donnees(x) {
-	nouv.adresse.longitude=x.lon;
-	nouv.adresse.latitude=x.lat;
-	console.log(nouv.adresse);
+	nouv.coordonnees=x.lon+', '+x.lat;
+	console.log(nouv);
 }
 
 lon_lat(donnees);
