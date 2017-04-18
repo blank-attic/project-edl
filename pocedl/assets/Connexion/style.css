@@ -1,0 +1,122 @@
+body {
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(img/1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox {
+  font-weight: bold;
+}
+
+a {
+  color: #fff;
+}
+
+.p5 {
+  padding-top: 5px;
+}
+
+.navbar {
+  background-color: #DF225A;
+  border: none;
+  color: #fff;
+}
+
+.p150 {
+  padding-top: 150px;
+}
+
+.panel-info {
+  border-radius: 0px;
+  border: 0px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.panel-heading {
+     border-bottom: 1px solid transparent;
+     border-top-left-radius: 0px;
+     border-top-right-radius: 0px;
+}
+
+.panel-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: #0c518a;
+  /*background-color: rgba(223, 34, 90, 1);*/
+}
+
+.navbar-default .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.panel-info>.panel-heading {
+    color: #fff;
+    background-color: #DF225A;
+    border-color: #fff;
+}
+
+.color2 {
+  background-color: lightgrey;
+}
+
+.list-group-item {
+  border: none;
+  padding-bottom: 0px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.list-group-item a {
+  color: #000;
+  border: none;
+  padding-bottom: 0px;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  margin-top: 10px;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+
+.btn-success {
+  background-color: #0c518a;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #DF225A;
+  border: none;
+}

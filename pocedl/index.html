@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <!-- partie navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#maNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a href="http://www.paris.fr/" target="_blank" class="navbar-brand">Mairie de Paris</a>
+              <img class="p5" alt="nopic" src="assets/img/6.png">
+          </div>
+          <div class="collapse navbar-collapse" id="maNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#presentation">Présentation</a></li>
+              <li><a href="listestructures.pdf" target="_blank"><span class="glyphicon glyphicon-print" type="button" class="btn btn-success btn-lg"></span>Imprimer</a></li>
+              <li><a href="assets/liste/liste.html">Liste Assos</a></li>
+              <!-- <li><a href="#associations">Associations</a></li> -->
+              <li><a href="assets/Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <!-- Partie image -->
+    <div class="container-fluid background-image">
+      <div class="container p230 text-center cadre white ">
+        <h1>Guide des permanences d’écrivains publics et d’aide dans les démarches administratives du 20ème arrondissement.</h1>
+      </div>
+    </div>
+
+    <!-- partie texte -->
+    <div class="container-fluid main p20" id="presentation">
+        <div class="container bandeau text-center white">
+          <h1 class="pad5">Présentation</h1>
+          <p class="bold">Le rôle d'un écrivain public consiste à assurer la rédaction, la réécriture ou la correction de documents administratifs, personnels ou professionnels.</p>
+          <p>Les demandes qu’ils peuvent traiter :<p>
+            <ul>
+              <li>Constituer des dossiers en aidant à rédiger des courriers administratifs/ à remplir et comprendre des formulaires/ courriers.</li>
+              <li>Apporter une aide pour toutes les démarches administratives.</li>
+              <li>Faire du tri dans papiers administratifs.</li>
+              <li>Informer, conseiller et diriger le public dans ses démarches juridiques vers les lieux plus spécialisés dans l’accès au droit (PAD, PIMMS, MJD…).</li>
+            </ul>
+          <p>Les demandes qu’ils ne peuvent pas traiter :<p>
+            <ul>
+              <li>Tout ce qui concerne le juridique (à part les recours gracieux).</li>
+              <li>Les dossiers de surendettement (rediriger le public vers l’association CRESUS).</li>
+              <li>Dossier de naturalisation.</li>
+              <li>Les formulaires liés aux demandes de titre de séjour (rediriger vers CIMADE).</li>
+              <li>Toutes les demandes nécessitant des compétences spécifiques ou l’intervention de spécialistes.
+                  Dans tous les cas, on peut orienter vers d’autres structures : MJD, PAD, associations du quartier.
+                  Cette réorientation fait partie du métier d’écrivain public, savoir informer et rediriger le public vers les partenaires locaux et compétents.
+                  Savoir répondre aux demandes.</li>
+            </ul>
+          <p>Les permanences d’e-administration ont vocation à accompagner les usagers-ères dans leurs démarches administratives dématérialisées.(Services publics en lignes :<p>
+            <ul>
+              <li>CAF</li>
+              <li>Pôle emploi</li>
+              <li>Facil' Familles...)</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- partie footer -->
+    <div class="container-fluid color2 p10">
+      <div class="container text-center ">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="http://www.paris.fr/" target="_blank"><img src="assets/img/4.svg" alt="Mairie de Paris"></li></a>
+            <li class="list-group-item"><a href="#">Contact</li></a>
+            <li class="list-group-item"><a href="#">A Propos</li></a>
+            <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
