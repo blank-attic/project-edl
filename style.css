@@ -16,22 +16,6 @@ h1 {
   padding: 0px;
 }
 
-.lien {
-  font-family: 'Montserrat', sans-serif;
-  color: #FFF;
-  padding-left: 10px;
-  font-size: 18px;
-}
-
-.lien:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.lien:focus {
-  color: #fff;
-  text-decoration: none;
-}
 
 /*-------ICONE PRINT-------*/
 .glyphicon-print {
@@ -42,6 +26,11 @@ h1 {
 /*-------ICONE PRINT-------*/
 
 /*-------NAVIGATION-------*/
+.lien {
+  /*height: 58px;*/
+  padding-top: 11px;
+}
+
 .navbar {
   background-color: #0c518a;
   border: none;
