@@ -1,6 +1,4 @@
 body {
-  margin-top: 80px;
-  background-color: rgba(223, 34, 90, 1);
 }
 
 p {
@@ -14,54 +12,6 @@ h1,h2,th {
   color: #fff;
   margin-top: 10px;
   margin-bottom: 20px;
-}
-
-input {
-  margin-left: 55px;
-  margin-right: 41px;
-}
-
-script {
-  text-align: center;
-}
-
-.ng-scope {
-  margin-top: 10px;
-}
-
-input {
-  margin-bottom: 20px;
-}
-
-select {
-  margin-left: 55px;
-}
-
-li {
-  list-style: none;
-}
-
-li a {
-  color: #fff;
-}
-
-li a:hover {
-  color: #000;
-  text-decoration: none;
-}
-
-.table th,tr,h2 {
-  text-align: center;
-}
-
-#map {
-  margin-top: 20px;
-  height: 500px;
-}
-
-.scroll {
-    height: 400px;
-    overflow-y: scroll;
 }
 
 .navbar {
@@ -102,7 +52,7 @@ li a:hover {
 /*-------FIN NAVIGATION-------*/
 
 .background-image {
-  background-image: url(img/1.jpg);
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../img/2.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -115,61 +65,15 @@ padding-top: 5px;
 
 .p80 {
   padding-top: 80px;
-  padding-bottom: 60px;
-}
-
-.p230 {
-  padding-top: 230px;
-  padding-bottom: 230px;
-}
-
-.p20 {
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
-.p10 {
-  padding-top: 10px;
-}
-
-.p10img {
-  padding-bottom: 10px;
+  padding-bottom: 90px;
 }
 
 /*-------FIN PADDING-------*/
-
-.bandeau{
-  background-color: #DF225A;
-}
-
-.bandeau p {
-  text-align: justify;
-}
-
-.white {
-  color: white;
-}
-
-.black {
-  color: black;
-}
-
-.color {
-  background-color: #43B57E;
-}
-
-.degrade {
-  background: linear-gradient(60deg, #F4B350, #EE1C1B);
-}
 
 .cadre h1 {
   background-color: #0c518a;
   border: 2px solid;
   padding: 20px
-}
-
-.main {
-  background-color: #DF225A;
 }
 
 .nopa {
@@ -183,6 +87,37 @@ padding-top: 5px;
 
 .color2 {
   background-color: lightgrey;
+}
+
+/*-------CONTACT-------*/
+.well-sm {
+  margin-top: 65px;
+  padding: 15px;
+  border-radius: 0px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+label {
+  color: #fff;
+}
+
+legend {
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.btn {
+  border-radius: 0px;
+  border: 1px solid white;
+  padding: 8px;
+  font-size: 14px;
+  transition: 0.5s;
+  background-color: transparent;
+  margin-top: 15px;
 }
 
 /*-------FOOTER-------*/

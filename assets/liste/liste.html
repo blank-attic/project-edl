@@ -2,13 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,19 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
     <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
 
     <title>Marie de Paris</title>
@@ -65,7 +55,7 @@
 
     <div class="container">
       <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-8">
             <div id='map'></div>
                 <script>
                  var map = L.map('map').setView([48.866201 , 2.394174], 13);
@@ -92,19 +82,19 @@
             </script>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <h2>Liste des Structures</h2>
               <div ng-app="myApp">
                 <div ng-controller="MainCtrl">
-                    <input type="text" ng-model="query" placeholder="Recherche associations">
-                    <select ng-model='order'>
-                      <option value="nom">Ecrivains publics et Médiateurs</option>
-                      <option value="administration">E-administration</option>
-                      <option value="formation">Formation au numérique</option>
-                      <option value="bellevilleamandierspelleport">Quartier politique de la ville Belleville-Amandiers-Pelleport</option>
-                      <option value="lesPortesdu20">Quartier politique de la ville Les Portes du 20e</option>
-                      <option value="echelledelarrondissement">À l’échelle de l’arrondissement</option>
-                    </select>
+                  <input type="text" ng-model="query" placeholder="Recherche associations">
+                  <select ng-model='order'>
+                    <option value="nom">Ecrivains publics et Médiateurs</option>
+                    <option value="administration">E-administration</option>
+                    <option value="formation">Formation au numérique</option>
+                    <option value="bellevilleamandierspelleport">Belleville-Amandiers-Pelleport</option>
+                    <option value="lesPortesdu20">Les Portes du 20e</option>
+                    <option value="echelledelarrondissement">À l’échelle de l’arrondissement</option>
+                  </select>
 
                     <div class="scroll">
                         <ul>
@@ -200,7 +190,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Père-Lachaise",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.87223179999999, 2.3869651999999633",
                                  "nom" : "Centre Social Archipélia",
@@ -212,7 +202,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Pyrénées/Jourdain",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.868794, 2.385238",
                                  "nom" : "Association Culture Berbère (ACB)",
@@ -224,7 +214,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Couronne/Ménilmontant",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.872267, 2.380227",
                                  "nom" : "Chinois de France Français de Chine",
@@ -236,7 +226,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Belleville",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.864612 , 2.387655",
                                  "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
@@ -250,7 +240,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Père-Lachaise/ Ménilmontant",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.871751 , 2.377857",
                                  "nom" : "Maison du bas Belleville",
@@ -263,7 +253,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Belleville",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.868945 , 2.390184",
                                  "nom" : "C.S Relais Ménilmontant",
@@ -276,7 +266,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Ménilmontant",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.866201 , 2.394174",
                                  "nom" : "Centre social Caf Annam",
@@ -288,7 +278,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Gambetta",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.869605 , 2.381657",
                                  "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
@@ -299,7 +289,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Couronnes",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.87278 , 2.3923",
                                  "nom" : "Espace Jeunes Taos Amrouche",
@@ -310,7 +300,7 @@
                                  "codepostal" : "75020",
                                  "ville" : "Paris",
                                  "metro" : "Métro Jourdain",
-                                 "bellevilleamandierspelleport" : "Quartier politique de la ville Belleville-Amandiers-Pelleport",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
                              },{
                                  "position" : "48.850251 , 2.411305",
                                  "nom" : "Davout relais",
@@ -459,7 +449,7 @@
           <div>
             <ul class="list-group">
               <li class="list-group-item"><a href="http://www.paris.fr/"><img src="../img/4.svg" alt="Mairie de Paris"></li></a>
-              <li class="list-group-item"><a href="#">Contact</li></a>
+              <li class="list-group-item"><a href="../contact/contact.html">Contact</li></a>
               <li class="list-group-item"><a href="#">A Propos</li></a>
               <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
             </ul>
