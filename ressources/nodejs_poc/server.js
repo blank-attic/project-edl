@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var router = express.Router();
@@ -16,7 +17,17 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
+app.use('/statiques',express.static(path.join(__dirname,'/statiques')));
+
 app.use('/api', bienvenue);
+
+app.get('/index.html', function(req, res) {
+  res.sendFile(path.join(__dirname,'/index.html'));
+});
+
+app.get('/requete_ajax.js', function(req, res) {
+  res.sendFile(path.join(__dirname,'/requete_ajax.js'));
+});
 
 mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
 
