@@ -8,14 +8,16 @@ router.get('', function(req, res){
     if(err) res.send(err);
     else {
       res
-      .header('Access-Control-Allow-Origin', '*')
+      .header('Access-Control-Allow-Origin', 'localhost')
       .header('Access-Control-Allow-Methods', 'GET')
       .header('Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept')
       .status(200)
       .json(paad);
     }
-  }).sort({'nom':1});
+  })
+  .select({connexion:0, _id:0, __v:0, services:0})
+  .sort({'nom':1});
 });
 
 module.exports = router;

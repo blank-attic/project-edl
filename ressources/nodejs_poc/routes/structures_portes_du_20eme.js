@@ -8,7 +8,7 @@ router.get('', function(req, res){
     if(err) res.send(err);
     else {
       res
-      .header('Access-Control-Allow-Origin', '*')
+      .header('Access-Control-Allow-Origin', 'localhost')
       .header('Access-Control-Allow-Methods', 'GET')
       .header('Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept')
