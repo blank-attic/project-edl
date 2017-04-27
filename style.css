@@ -7,7 +7,7 @@ p {
   font-size: 17px;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -68,12 +68,12 @@ h1 {
 /*-------Mairie de paris en blanc-------*/
 /*-------FIN NAVIGATION-------*/
 
-.background-image {
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(assets/img/1.jpg);
+/*.background-image {
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(assets/img/fond5.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-}
+}*/
 
 /*-------PADDING-------*/
 .p5 {
@@ -120,6 +120,23 @@ padding-bottom: 10px;
   color: white;
 }
 
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+
+}
 .black {
   color: black;
 }
@@ -128,10 +145,19 @@ padding-bottom: 10px;
   background-color: #43B57E;
 }
 
-.cadre h1 {
-  background-color: #0c518a;
+.shadow {
+  text-shadow: 3px 2px #000;
+}
+
+.cadre  {
+  /*background-color: #0c518a;*/
+  /*background-color: rgba(12, 81, 138, 0.4);*/
+  /*background-color: rgba(255, 255, 255, 0.2);*/
   border: 2px solid;
-  padding: 20px
+  padding: 20px;
+  padding-bottom: 35px;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .main {

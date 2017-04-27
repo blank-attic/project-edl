@@ -52,7 +52,7 @@ h1,h2,th {
 /*-------FIN NAVIGATION-------*/
 
 .background-image {
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../img/2.jpg);
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../img/9.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -104,10 +104,6 @@ label {
 legend {
   color: #fff;
   padding-bottom: 15px;
-}
-
-.form-control {
-  border-radius: 0px;
 }
 
 .btn {

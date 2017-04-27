@@ -1,5 +1,5 @@
 body {
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(img/1.jpg);
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../img/10.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

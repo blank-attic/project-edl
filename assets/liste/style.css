@@ -16,6 +16,19 @@ h1,h2,th {
   margin-bottom: 20px;
 }
 
+.input {
+  margin-bottom: 0px;
+}
+
+.margin {
+  margin-left: 40px;
+}
+
+label {
+  color: #fff;
+  margin-bottom: 0px;
+}
+
 input {
   margin-left: 55px;
   margin-right: 41px;
