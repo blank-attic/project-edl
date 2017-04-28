@@ -29,6 +29,10 @@ app.get('/requete_ajax.js', function(req, res) {
   res.sendFile(path.join(__dirname,'/requete_ajax.js'));
 });
 
+app.get('/liste.html', function(req, res) {
+  res.sendFile(path.join(__dirname,'/liste.html'));
+});
+
 mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
 
 app.use('/api/paad', structures);
