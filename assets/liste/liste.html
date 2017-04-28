@@ -55,26 +55,37 @@
 
     <div class="container margin">
       <div class="row">
-        <!-- <h1>Filtres</h1> -->
-        <!-- <input class="input" type="text" name="text" value="lol"> -->
-        <label for="">
-          <input type="checkbox" name="checkbox" value="lol">
+        <button type="button" name="button" value="" id="buttonHideList">Zone Géographique du 20e</button>
+        <div id="listHide" class="hide">
+        <label>
+          <input id="btn1" type="checkbox" name="checkbox" value="lol">
             Belleville-Amandiers-Pelleport
-          <input type="checkbox" name="checkbox" value="lol">
+        </label>
+        <label>
+          <input id="btn2" type="checkbox" name="checkbox" value="lol">
             les Portes du 20e
-          <input type="checkbox" name="checkbox" value="lol">
+        </label>
+        <label>
+          <input id="btn3" type="checkbox" name="checkbox" value="lol">
             A l'echelle de l'arrondissement
         </label>
-
       </div>
-    </div>
+      </div>
 
+    <script>
+      var button = document.getElementById('buttonHideList');
+      var list = document.getElementById('listHide');
+      button.addEventListener('click', function(){
+          list.classList.toggle("hide");
+      });
+    </script>
+  </div>
     <div class="container">
       <div class="row">
           <div class="col-md-8">
             <div id='map'></div>
                 <script>
-                 var map = L.map('map').setView([48.866201 , 2.394174], 13);
+                 var map = L.map('map').setView([48.868945 , 2.390184], 15);
                  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                  }).addTo(map);

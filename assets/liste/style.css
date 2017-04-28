@@ -12,9 +12,10 @@ p {
 h1,h2,th {
   font-family: 'Montserrat', sans-serif;
   color: #fff;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 7px;
+  margin-bottom: 14px;
 }
+/*------input------*/
 
 .input {
   margin-bottom: 0px;
@@ -22,6 +23,8 @@ h1,h2,th {
 
 .margin {
   margin-left: 40px;
+  margin-top: -16px;
+  margin-bottom: 15px;
 }
 
 label {
@@ -43,7 +46,7 @@ script {
 }
 
 input {
-  margin-bottom: 20px;
+  margin-bottom: 13px;
 }
 
 select {
@@ -68,7 +71,7 @@ li a:hover {
 }
 
 #map {
-  margin-top: 20px;
+  margin-top: 13px;
   height: 500px;
 }
 
@@ -216,3 +219,11 @@ padding-top: 5px;
   text-decoration: none;
 }
 /*-------FIN FOOTER-------*/
+
+.hide {
+  display:none;
+}
+
+#listHide {
+  margin-bottom: -19px;
+}
