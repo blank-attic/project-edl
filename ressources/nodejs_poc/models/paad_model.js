@@ -38,76 +38,183 @@ var paad_schema = new schema(
       required: true,
       default: './logos/'
     },
-    services :
+    services:
     {
       ecrivain_public_et_mediateur:
       {
-        propose: Boolean,
-        disponibilites:
-        [
-          {
-            jour:Number,
-            horaires:String,
-            rdv: Boolean,
-            _id:
-            {
-              type: schema.Types.ObjectId,
-              required: true
-            }
-          }
-        ]
+        type: Boolean,
+        required: true
       },
       e_administration:
       {
-        propose: Boolean,
-        disponibilites:
-        [
-          {
-            jour:Number,
-            horaires:String,
-            rdv: Boolean,
-            _id:
-            {
-              type: schema.Types.ObjectId,
-              required: true
-            }
-          }
-        ]
+        type: Boolean,
+        required: true
       },
       formation_au_numerique:
       {
-        propose: Boolean,
-        disponibilites:
-        [
-          {
-            jour:Number,
-            horaires:String,
-            rdv: Boolean,
-            _id:
-            {
-              type: schema.Types.ObjectId,
-              required: true
-            }
-          }
-        ]
+        type: Boolean,
+        required: true
       },
       interprete:
       {
-        propose: Boolean,
-        disponibilites:
-        [
-          {
-            jour:Number,
-            horaires:String,
-            rdv: Boolean,
-            _id:
-            {
-              type: schema.Types.ObjectId,
-              required: true
-            }
-          }
-        ]
+        type: Boolean,
+        required: true
       },
+    },
+    jours_ouverture:
+    {
+      ecrivain_public_et_mediateur:
+      {
+        lundi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mardi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mercredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        jeudi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        vendredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        samedi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        dimanche:
+        {
+          horaires: String,
+          rdv: Boolean
+        }
+      },
+      e_administration:
+      {
+        lundi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mardi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mercredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        jeudi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        vendredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        samedi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        dimanche:
+        {
+          horaires: String,
+          rdv: Boolean
+        }
+      },
+      formation_au_numerique:
+      {
+        lundi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mardi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mercredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        jeudi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        vendredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        samedi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        dimanche:
+        {
+          horaires: String,
+          rdv: Boolean
+        }
+      },
+      interprete:
+      {
+        lundi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mardi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        mercredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        jeudi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        vendredi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        samedi:
+        {
+          horaires: String,
+          rdv: Boolean
+        },
+        dimanche:
+        {
+          horaires: String,
+          rdv: Boolean
+        }
+      }
     },
     connexion:
     {
@@ -119,7 +226,7 @@ var paad_schema = new schema(
 
 paad_schema.plugin(autoIncrement.plugin, {
     model: 'paad_collection',
-    field: 'auto_icrement_id',
+    field: '_id',
     startAt: 1,
     incrementBy: 1,
     required: true
