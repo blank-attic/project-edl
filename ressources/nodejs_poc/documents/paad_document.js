@@ -17,7 +17,7 @@ function save(paad) {
 }
 
 function donnees(paad, geocode_results, save) {
-  paad.coordonnees = geocode_results.lon +', '+geocode_results.lat;
+  paad.coordonnees = geocode_results.lat +', '+geocode_results.lon;
   save(paad);
 }
 
@@ -79,39 +79,33 @@ var paads = [
       {
         tel_fixe: '01 43 49 02 49'
       },
-      _id: new mongoose.Types.ObjectId(),
       services:
+      {
+        ecrivain_public_et_mediateur: true,
+        e_administration: false,
+        formation_au_numerique: false,
+        interprete: false
+      },
+      jours_ouverture:
       {
         ecrivain_public_et_mediateur:
         {
-          propose: true,
-          disponibilites:
-          [
-            {
-              jour: 2,
-              horaires:'10h-12h',
-              rdv: false,
-              _id: new mongoose.Types.ObjectId()
-            },
-            {
-              jour: 3,
-              horaires:'10h-12h',
-              rdv: false,
-              _id: new mongoose.Types.ObjectId()
-            },
-            {
-              jour: 4,
-              horaires:'10h-12h',
-              rdv: false,
-              _id: new mongoose.Types.ObjectId()
-            },
-            {
-              jour: 5,
-              horaires:'10h-12h',
-              rdv: false,
-              _id: new mongoose.Types.ObjectId()
-            },
-          ]
+          mardi: {
+            horaires: '10h-12h',
+            rdv: false
+          },
+          mercredi: {
+            horaires: '10h-12h',
+            rdv: false
+          },
+          jeudi: {
+            horaires: '10h-12h',
+            rdv: false
+          },
+          vendredi: {
+            horaires: '10h-12h',
+            rdv: false
+          }
         }
       },
       connexion:
@@ -120,312 +114,113 @@ var paads = [
         mot_de_passe: 'la20emechaise'
       }
     }
+  ),
+  new paad_model(
+    {
+      nom:'Centre social Soleil Blaise',
+      adresse:
+      {
+        numero: '7',
+        voie: 'square Vitruve',
+        code_postal: '75020',
+        secteur: 'Portes du 20ème'
+      },
+      coordonnees: ' ',
+      logo: paad_model.concatenation('.png'),
+      site_web: "soleilblaise.free.fr",
+      contacts:
+      {
+        tel_fixe: '01 44 93 00 72'
+      },
+      services:
+      {
+        ecrivain_public_et_mediateur: true,
+        e_administration: true,
+        formation_au_numerique: false,
+        interprete: false
+      },
+      jours_ouverture:
+      {
+        ecrivain_public_et_mediateur:
+        {
+          lundi: {
+            horaires: '18h30-20h30',
+            rdv: false
+          },
+          mercredi: {
+            horaires: '10h-12h30',
+            rdv: false
+          },
+          samedi: {
+            horaires: '10h-12h30',
+            rdv: false
+          }
+        },
+        e_administration:
+        {
+          mercredi: {
+            horaires: '10h-12h30',
+            rdv: false
+          }
+        }
+      },
+      connexion:
+      {
+        identifiant:'soleilblaise',
+        mot_de_passe: 'soleilblaise'
+      }
+    }
+  ),
+  new paad_model(
+    {
+      nom:'Mairie mobile de Paris',
+      adresse:
+      {
+        numero: ' ',
+        voie: 'Place de la Porte de Montreuil',
+        code_postal: '75020',
+        secteur: "à l'échelle de l'arrondissement"
+      },
+      coordonnees: ' ',
+      logo: paad_model.concatenation('.png'),
+      site_web: "paris.fr/mairiemobile",
+      contacts:
+      {
+        tel_fixe: ' '
+      },
+      services:
+      {
+        ecrivain_public_et_mediateur: true,
+        e_administration: true,
+        formation_au_numerique: false,
+        interprete: false
+      },
+      jours_ouverture:
+      {
+        ecrivain_public_et_mediateur:
+        {
+          lundi: {
+            horaires: '9h30-17h',
+            rdv: false
+          }
+        },
+        e_administration:
+        {
+          lundi: {
+            horaires: '9h30-17h',
+            rdv: false
+          }
+        },
+      },
+      connexion:
+      {
+        identifiant:'mairiemobile',
+        mot_de_passe: 'mairiemobile'
+      }
+    }
   )
-  // new paad_model(
-  //   {
-  //     nom:'Centre social Archipélia',
-  //     adresse:
-  //     {
-  //       numero: '17',
-  //       voie: 'rue des Envierges',
-  //       code_postal: '75020',
-  //       secteur: 'Belleville-Amandiers-Pelleport'
-  //     },
-  //     coordonnees: ' ',
-  //     logo: paad_model.concatenation('.png'),
-  //     site_web: "www.archipelia.org",
-  //     contacts:
-  //     {
-  //       tel_fixe: '01 47 97 02 96'
-  //     },
-  //     _id: new mongoose.Types.ObjectId(),
-  //     services:
-  //     {
-  //       ecrivain_public_et_mediateur:
-  //       {
-  //         propose: true,
-  //         disponibilites:
-  //         [
-  //           {
-  //             jour: 1,
-  //             horaires:'18h-20h',
-  //             rdv: true,
-  //             _id: new mongoose.Types.ObjectId()
-  //           },
-  //           {
-  //             jour: 2,
-  //             horaires:'10h-12h30',
-  //             rdv: true,
-  //             _id: new mongoose.Types.ObjectId()
-  //           },
-  //           {
-  //             jour: 5,
-  //             horaires:'10h-12h30',
-  //             rdv: true,
-  //             _id: new mongoose.Types.ObjectId()
-  //           }
-  //         ]
-  //       },
-  //       formation_au_numerique:
-  //       {
-  //         propose: true,
-  //         disponibilites:
-  //         [
-  //           {
-  //             jour: 3,
-  //             horaires: '10h-12h',
-  //             rdv: true,
-  //             _id: new mongoose.Types.ObjectId()
-  //           }
-  //         ]
-  //       }
-  //     },
-  //     connexion:
-  //     {
-  //       identifiant:'archipélia',
-  //       mot_de_passe: 'archipélia'
-  //     }
-  //   }
-  // )
-// // new paad_model({nom:'Centre social Archipélia',
-// // adresse: {numero: '17',
-// // voie: 'rue des Envierges',
-// // code_postal: '75020',
-// // secteur: 'Belleville-Amandiers-Pelleport'
-// // },
-// // coordonnees: ' ',
-// // logo: paad_model.concatenation('.png'),
-// // site_web: "www.archipelia.org",
-// // contacts: {tel_fixe: '01 47 97 02 96'},
-// // _id: new mongoose.Types.ObjectId()
-// // }),
-// new paad_model({nom:'Association culture Berbère (ACB)',
-// adresse: {numero: '37 bis',
-// voie: 'rue des Maronites',
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// coordonnees: ' ',
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.acbparis.fr",
-// contacts: {tel_fixe: '01 43 58 23 25'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Chinois de France - Français de Chine',
-// adresse: {numero: '45',
-// voie: 'rue de Tourtille',
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.cffc.fr",
-// contacts: {tel_fixe: '01 83 91 86 31'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'UNRPA ensemble & solidaires- fédération de Paris',
-// adresse: {numero: '14',
-// voie: 'rue de Tlemcen',
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.unrpa.com/du-cote-des-federations-et-sections/cote_federations/116-paris-75-nouvelles-activites-de-la-federation.html",
-// contacts: {tel_fixe: '01 42 23 43 95'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Maison du bas Belleville',
-// adresse: {numero: '126',
-// voie: 'boulevard de Belleville',
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// coordonnees: ' ',
-// logo: paad_model.concatenation('.png'),
-// site_web: "maison.bas-belleville@groupe-sos.org",
-// contacts: {tel_fixe: '01 43 66 64 56'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'C.S relais Ménilmontant',
-// adresse: {numero: '85 bis',
-// voie: 'rue Ménilmontant',
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "relaismenilmontant.jimdo.com",
-// contacts: {tel_fixe: '01 47 97 62 81'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Centre social CAF Annam',
-// adresse: {numero: '4',
-// voie: "rue d'Annam",
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
-// contacts: {tel_fixe: '01 47 97 89 19'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:"APEIS association pour l'emploi, l'information et la solidarité",
-// adresse: {numero: '11',
-// voie: "rue des Couronnes",
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "",
-// contacts: {tel_fixe: '09 53 77 35 95'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Espace jeunes Taos Amrouche',
-// adresse: {numero: '50',
-// voie: "rue des Rigoles",
-// code_postal: '75020',
-// secteur: 'Belleville-Amandiers-Pelleport'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.ifac.asso.fr/espace-paris-jeunes-taos-amrouche",
-// contacts: {tel_fixe: '01 42 23 09 10'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Davout relais',
-// adresse: {numero: '30',
-// voie: "boulevard Davout",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème '
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "davout-relais.org",
-// contacts: {tel_fixe: '01 70 69 42 56'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Centre social Soleil Blaise',
-// adresse: {numero: '7',
-// voie: "square Vitruve",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "soleilblaise.free.fr",
-// contacts: {tel_fixe: '01 44 93 00 72'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Les médiateurs et les médiatrices du 20ème',
-// adresse: {numero: '157',
-// voie: "boulevard Davout",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.les2mdu20eme.org",
-// contacts: {tel_portable: '06 41 59 49 08'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Secours populaire antenne Fougères',
-// adresse: {numero: '3',
-// voie: "rue de Noisy-le-Sec",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "spf75.org/mots-clefs/accueil",
-// contacts: {tel_fixe: '01 53 41 39 39'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Centre socioculturel étincelles',
-// adresse: {numero: '65',
-// voie: "rue des Haies",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "etincelles20eme.org",
-// contacts: {tel_fixe: '01 43 71 05 45'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Espace Paris Jeunes Davout',
-// adresse: {numero: '94',
-// voie: "boulevard Davout",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "ifac.asso.fr/espace-paris-jeunes-davout",
-// contacts: {tel_fixe: '01 40 33 01 84'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Bibliothèque Louise Michel',
-// adresse: {numero: '29-35',
-// voie: "rue des Haies",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "biblouisemichel.wordpress.com",
-// contacts: {tel_fixe: '01 58 39 32 10'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'La maison des Fougères',
-// adresse: {numero: '10',
-// voie: "rue des Fougères",
-// code_postal: '75020',
-// secteur: 'Portes du 20ème'
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "lamaisondesfougeres.blogpost.fr",
-// contacts: {tel_fixe: '09 84 41 17 05'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'PIMMS - points information médiation multiservices',
-// adresse: {numero: '15',
-// voie: "cité Champagne",
-// code_postal: '75020',
-// secteur: "à l'échelle de l'arrondissement"
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "maisondesservicesaupublic.fr/content/pimms-paris-est",
-// contacts: {tel_fixe: '01 44 64 00 62'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:"Point d'accès au droit",
-// adresse: {numero: '15',
-// voie: "cité Champagne",
-// code_postal: '75020',
-// secteur: "à l'échelle de l'arrondissement"
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "",
-// contacts: {tel_fixe: '01 53 27 37 40'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Mairie du 20ème',
-// adresse: {numero: '6',
-// voie: "place Gambetta",
-// code_postal: '75020',
-// secteur: "à l'échelle de l'arrondissement"
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "mairie20.paris.fr",
-// contacts: {tel_fixe: '01 43 15 20 20 ou 01 43 39 75'},
-// _id: new mongoose.Types.ObjectId()
-// }),
-// new paad_model({nom:'Mairie mobile du 20ème',
-// adresse: {numero: '',
-// voie: "place de la Porte de Montreuil",
-// code_postal: '75020',
-// secteur: "à l'échelle de l'arrondissement"
-// },
-// logo: paad_model.concatenation('.png'),
-// site_web: "www.paris.fr/mairiemobile",
-// contacts: {tel_fixe: '01 43 15 20 20 ou 01 43 39 75'},
-// _id: new mongoose.Types.ObjectId()
-// })
 ];
 
-console.log(typeof(paads));
 async.forEachOf(paads,lon_lat, function (err) {
   if (err) console.log("une erreur s'est produite: "+err.message);
 });
-
-// async.forEachOf(paads, function(item){console.log(item)}, function(err){console.log(err)});
