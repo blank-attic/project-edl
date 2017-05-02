@@ -135,6 +135,14 @@ padding-bottom: 10px;
   }
 }
 
+@media screen and (max-width: 1024px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+  #m20 {
+    display: none;
+  }
+}
 
 .hero {
     position: absolute;

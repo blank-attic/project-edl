@@ -49,6 +49,16 @@ input {
   margin-bottom: 13px;
 }
 
+@media screen and (max-width: 500px) {
+.hero h1, .hero h3, .hero h4 {
+  
+  font-size: 90%;
+  }
+  #m20 {
+    display: none;
+  }
+}
+
 select {
   margin-left: 55px;
 }

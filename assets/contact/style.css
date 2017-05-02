@@ -20,6 +20,16 @@ h1,h2,th {
   color: #fff;
 }
 
+@media screen and (max-width: 500px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+
+  #m20 {
+    display: none;
+  }
+}
+
 /*-------NAVIGATION-------*/
 .navbar-default .navbar-nav>li>a {
   color: rgba(255, 255, 255, 1);
@@ -64,8 +74,8 @@ padding-top: 5px;
 }
 
 .p80 {
-  padding-top: 80px;
-  padding-bottom: 90px;
+  padding-top: 44px;
+  padding-bottom: 140px;
 }
 
 /*-------FIN PADDING-------*/

@@ -9,6 +9,7 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
   width: 15px;
   height: 15px;
@@ -16,6 +17,15 @@ h1 {
 
 .checkbox {
   font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+  #m20 {
+    display: none;
+  }
 }
 
 a {
