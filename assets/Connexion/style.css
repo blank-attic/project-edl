@@ -26,6 +26,9 @@ h1 {
   #m20 {
     display: none;
   }
+  .p150{
+    margin-top: -85px;
+  }
 }
 
 a {
@@ -35,6 +38,7 @@ a {
 a:hover {
   color: #fff;
 }
+
 .p5 {
   padding-top: 5px;
 }
@@ -46,7 +50,7 @@ a:hover {
 }
 
 .p150 {
-  padding-top: 150px;
+  padding-top: 144px;
 }
 
 .panel-info {

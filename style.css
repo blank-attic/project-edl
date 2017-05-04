@@ -133,6 +133,10 @@ padding-bottom: 10px;
   #m20 {
     display: none;
   }
+
+  #carousel-example-generic {
+    margin-top: 49px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
