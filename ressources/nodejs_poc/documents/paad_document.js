@@ -1,29 +1,135 @@
 var mongoose = require('mongoose'),
-OpenGeocoder = require('node-open-geocoder'),
-async = require('async'),
-geo = new OpenGeocoder();
+geocodeur = require('search-osm-geocode'),
+vide = require('is-empty'),
+paad_model = require('../models/paad_model.js');
 
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
+var paads = [
+  {
+    _id: new mongoose.Types.ObjectId,
+    nom: 'Centre social de la 20ème chaise',
+    adresse: {
+      numero: '38',
+      voie: 'rue des Amandiers',
+      code_postal: '75020'
+    },
+    secteur: {
+      Belleville_Amandiers_Pelleport: true,
+      Portes_du_20eme: false,
+      echelle_arrondissement: false
+    },
+    contacts: {
+      tel_fixe: '01 43 49 02 49'
+    },
+    site_web: 'http://www.la20emechaise.org',
+    logo: paad_model.concatenation('.png'),
+    identifiants: {
+      nom_utilisateur: 'la20èmechaise',
+      mot_de_passe: 'la20èmechaise'
+    },
+    services: {
+      ecrivain_public_et_mediateur: true,
+      e_administration: false,
+      formation_au_numerique: false,
+      interprete: false
+    },
+    jours_ouverture: {
+      ecrivain_public_et_mediateur: {
+        mardi: {
+          horaires: '10h-12h',
+          rdv: false
+        },
+        mercredi: {
+          horaires: '10h-12h',
+          rdv: false
+        },
+        jeudi: {
+          horaires: '10h-12h',
+          rdv: false
+        },
+        vendredi: {
+          horaires: '10h-12h',
+          rdv: false
+        }
+      }
+    }
+  },
+  {
+    _id: new mongoose.Types.ObjectId,
+    nom: 'Centre social Archipélia',
+    adresse: {
+      numero: '17',
+      voie: 'rue des Envierges',
+      code_postal: '75020'
+    },
+    secteur: {
+      Belleville_Amandiers_Pelleport: true,
+      Portes_du_20eme: false,
+      echelle_arrondissement: false
+    },
+    contacts: {
+      tel_fixe: '01 47 97 02 96',
+      email: 'info@archipelia.org'
+    },
+    site_web: 'https://www.archipelia.org',
+    logo: paad_model.concatenation('.png'),
+    identifiants: {
+      nom_utilisateur: 'archipélia',
+      mot_de_passe: 'archipélia'
+    },
+    services: {
+      ecrivain_public_et_mediateur: true,
+      e_administration: true,
+      formation_au_numerique: false,
+      interprete: false
+    },
+    jours_ouverture: {
+      ecrivain_public_et_mediateur: {
+        lundi: {
+          horaires: '18h-20h',
+          rdv: false
+        },
+        mardi: {
+          horaires: '10h-12h30',
+          rdv: false
+        },
+        vendredi: {
+          horaires: '10h-12h30',
+          rdv: false
+        }
+      },
+      e_administration: {
+        mercredi: {
+          horaires: '10-12h',
+          rdv: false
+        }
+      }
+    }
+  }
+];
 
-var paad_model = require('../models/paad_model.js');
-
-function save(paad) {
-  paad.save(function (err, doc) {
-    if (err) return err;
-    else {console.log(doc); return doc;}
+function insertion_bdd(paad) {
+  var model = new paad_model(paad);
+  model.save(function (err, doc) {
+    if (err) {
+      console.error(err);
+      return;
+    } else {
+      console.log(doc);
+      mongoose.connection.close();
+      return;
+    }
   });
 }
 
-function donnees(paad, geocode_results, save) {
-  paad.coordonnees = geocode_results.lat +', '+geocode_results.lon;
-  save(paad);
+function ajout_coordonnees(paad, resultats_geocodage) {
+  paad.coordonnees = resultats_geocodage.latitude +', '+resultats_geocodage.longitude;
+  return insertion_bdd(paad);
 }
 
-function lon_lat(paad) {
-
-  geo.geocode(paad.adresse.numero
+function lat_lon(paad) {
+  geocodeur.geocode(paad.adresse.numero
 		+ ', '
 		+ paad.adresse.voie
 		+ ', '
@@ -33,194 +139,94 @@ function lon_lat(paad) {
 			return err;
 		} else {
       if (res.length>0){
-        return donnees(paad, res[0], save);
+        return ajout_coordonnees(paad, res[0]);
       } else {
         paad.coordonnees = "l'adresse n'a pas été géocodée";
-        return save(paad);
+        return insertion_bdd(paad);
       }
     }
   });
-
 }
 
-// function jours_ouverture(paad) {
-//   var a;
-//   var b;
-//   var c;
-//   // var d;
-//   for (a in paad ) {
-//     if (paad[a]=='services') {
-//       for (b in paad[a]) {
-//         for (c in paad[a][b]){
-//           if (paad[a][b][c]=='disponibilites') {
-//             console.log(paad[a][b][c]);
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-var paads = [
-  new paad_model(
-    {
-      nom:'Centre social de la 20ème chaise',
-      adresse:
-      {
-        numero: '38',
-        voie: 'rue des Amandiers',
-        code_postal: '75020',
-        secteur: 'Belleville-Amandiers-Pelleport'
-      },
-      coordonnees: ' ',
-      logo: paad_model.concatenation('.png'),
-      site_web: "www.la20emechaise.org",
-      contacts:
-      {
-        tel_fixe: '01 43 49 02 49'
-      },
-      services:
-      {
-        ecrivain_public_et_mediateur: true,
-        e_administration: false,
-        formation_au_numerique: false,
-        interprete: false
-      },
-      jours_ouverture:
-      {
-        ecrivain_public_et_mediateur:
-        {
-          mardi: {
-            horaires: '10h-12h',
-            rdv: false
-          },
-          mercredi: {
-            horaires: '10h-12h',
-            rdv: false
-          },
-          jeudi: {
-            horaires: '10h-12h',
-            rdv: false
-          },
-          vendredi: {
-            horaires: '10h-12h',
-            rdv: false
+function disponibilites(paad) {
+  return new Promise(function(resolve, reject){
+    var erreur = '';
+    if (paad.services.ecrivain_public_et_mediateur === true ) {
+      if (vide(paad.jours_ouverture) === true ) {
+        erreur ="N'oubliez pas d'indiquer les jours d'ouverture de la structure suivante: " +paad.nom+ "!";
+      } else {
+        if (vide(paad.jours_ouverture.ecrivain_public_et_mediateur) === true) {
+          if (vide(erreur)===true) {
+            erreur = "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: écrivain public et médiateur!";
+          } else {
+            erreur = erreur + ' ' + "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: écrivain public et médiateur!";
           }
         }
-      },
-      connexion:
-      {
-        identifiant:'la20emechaise',
-        mot_de_passe: 'la20emechaise'
       }
     }
-  ),
-  new paad_model(
-    {
-      nom:'Centre social Soleil Blaise',
-      adresse:
-      {
-        numero: '7',
-        voie: 'square Vitruve',
-        code_postal: '75020',
-        secteur: 'Portes du 20ème'
-      },
-      coordonnees: ' ',
-      logo: paad_model.concatenation('.png'),
-      site_web: "soleilblaise.free.fr",
-      contacts:
-      {
-        tel_fixe: '01 44 93 00 72'
-      },
-      services:
-      {
-        ecrivain_public_et_mediateur: true,
-        e_administration: true,
-        formation_au_numerique: false,
-        interprete: false
-      },
-      jours_ouverture:
-      {
-        ecrivain_public_et_mediateur:
-        {
-          lundi: {
-            horaires: '18h30-20h30',
-            rdv: false
-          },
-          mercredi: {
-            horaires: '10h-12h30',
-            rdv: false
-          },
-          samedi: {
-            horaires: '10h-12h30',
-            rdv: false
-          }
-        },
-        e_administration:
-        {
-          mercredi: {
-            horaires: '10h-12h30',
-            rdv: false
+    if (paad.services.e_administration === true ) {
+      if (vide(paad.jours_ouverture) === true) {
+        erreur ="N'oubliez pas d'indiquer les jours d'ouverture de la structure suivante: " +paad.nom+ "!";
+      } else {
+        if (vide(paad.jours_ouverture.e_administration) === true) {
+          if (vide(erreur)===true) {
+            erreur = "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: e-administration!";
+          } else {
+            erreur = erreur + ' ' + "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: e-administration!";
           }
         }
-      },
-      connexion:
-      {
-        identifiant:'soleilblaise',
-        mot_de_passe: 'soleilblaise'
       }
     }
-  ),
-  new paad_model(
-    {
-      nom:'Mairie mobile de Paris',
-      adresse:
-      {
-        numero: ' ',
-        voie: 'Place de la Porte de Montreuil',
-        code_postal: '75020',
-        secteur: "à l'échelle de l'arrondissement"
-      },
-      coordonnees: ' ',
-      logo: paad_model.concatenation('.png'),
-      site_web: "paris.fr/mairiemobile",
-      contacts:
-      {
-        tel_fixe: ' '
-      },
-      services:
-      {
-        ecrivain_public_et_mediateur: true,
-        e_administration: true,
-        formation_au_numerique: false,
-        interprete: false
-      },
-      jours_ouverture:
-      {
-        ecrivain_public_et_mediateur:
-        {
-          lundi: {
-            horaires: '9h30-17h',
-            rdv: false
+    if (paad.services.formation_au_numerique === true ) {
+      if (vide(paad.jours_ouverture) === true) {
+        erreur ="N'oubliez pas d'indiquer les jours d'ouverture de la structure suivante: " +paad.nom+ "!";
+      } else {
+        if (vide(paad.jours_ouverture.formation_au_numerique) === true) {
+          if (vide(erreur)===true) {
+            erreur = "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: formation au numérique!";
+          } else {
+            erreur = erreur + ' ' + "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: formation au numérique!";
           }
-        },
-        e_administration:
-        {
-          lundi: {
-            horaires: '9h30-17h',
-            rdv: false
-          }
-        },
-      },
-      connexion:
-      {
-        identifiant:'mairiemobile',
-        mot_de_passe: 'mairiemobile'
+        }
       }
     }
-  )
-];
+    if (paad.services.interprete === true ) {
+      if (vide(paad.jours_ouverture) === true) {
+        erreur ="N'oubliez pas d'indiquer les jours d'ouverture de la structure suivante: " +paad.nom+ "!";
+      } else {
+        if (vide(paad.jours_ouverture.interprete) === true) {
+          if (vide(erreur)===true) {
+            erreur = "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: interprete!";
+          } else {
+            erreur = erreur + ' ' + "N'oubliez pas d'indiquer pour la structure, " +paad.nom+ ", les jours où est proposé le service suivant: interprete!";
+          }
+        }
+      }
+    }
+    if (vide(erreur)===false) {
+      reject(erreur);
+    }
+    resolve(paad);
+  });
+}
 
-async.forEachOf(paads,lon_lat, function (err) {
-  if (err) console.log("une erreur s'est produite: "+err.message);
+mongoose.connect('mongodb://localhost/permanence_acces_aux_droits');
+
+mongoose.connection.on('error', console.error.bind(console, 'erreur de connection à la base de données:'));
+
+mongoose.connection.once('open', function() {
+  var paads_promises = paads.map(disponibilites);
+  paads_promises.forEach(function(promise_actuelle){
+    Promise
+    .resolve()
+    .then(function(){
+      return promise_actuelle;
+    })
+    .then(function(paad) {
+      lat_lon(paad);
+    })
+    .catch(function(erreur){
+      console.log(erreur);
+    });
+  });
 });
