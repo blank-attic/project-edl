@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include ../partiels/head.ejs %>
+
+    <title>Page de bienvenue</title>
+
     <meta charset="utf-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +49,7 @@
     </nav>
 
     <!-- partie formulaire -->
-    <div class="container p150">
+    <!-- <div class="container p150">
       <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info" >
           <div class="panel-heading">
@@ -77,12 +81,28 @@
 
               <div style="margin-top:10px" class="form-group">
                 <!-- Button -->
-              </div>
+              <!-- </div>
                 <div class="col-sm-12 controls  text-center">
                   <a id="btn-login" href="#" class="btn btn-success">Login</a>
-                </div>
+                </div> -->
 
-            </form>
+            <!-- </form> -->
+            <header>
+            </header>
+            <main class="mar">
+              <p> <%= message %> </p>
+              <form action="vues/pages/bienvenue.html" method="POST">
+                <label for="nom_utilisateur" style="color:white;">Nom d'utilisateur</label>
+                <input id="nom_utilisateur" name="nom_utilisateur" type="text" /><br/>
+                <label for="mot_de_passe" style="color:white;">Mot de passe</label>
+                <input id="mot_de_passe" name="mot_de_passe" type="password"/><br/>
+                <label for='session' style="color:white;">Se souvenir de moi</label>
+                <input id='session' name='session' value='true' type='checkbox'/><br/>
+                <input type="submit" value="Se connecter"/>
+              </form>
+            </main>
+            <footer>
+            </footer>
 
           </div>
         </div>

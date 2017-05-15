@@ -9,6 +9,17 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+.mar {
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 15%;
+
+}
+
+form {
+  background-color: #0c518a;
+  padding: 30px;
+}
 
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
   width: 15px;
