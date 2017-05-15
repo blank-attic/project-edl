@@ -41,7 +41,6 @@
           <div class="collapse navbar-collapse" id="maNavbar">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="../../../../index.html">Accueil</a></li>
-              <li><a href="bienvenue.html">Ajouter une Association</a></li>
             </ul>
           </div>
       </div>
@@ -49,41 +48,14 @@
 
     <div class="container text-center ">
         <main>
-      <form action="/ajout_structure" method="POST">
-        <label for="nom_paad">Nom de la structure</label>
-        <input id="nom_paad" name="nom" type="text" /><br/>
-        <fieldsed>
-          <legend>Secteur</legend>
-            <label for="bap">Belleville-Amandiers-Pelleport</label>
-            <input id="bap" name="bap" type="radio"/><br/>
-            <label for='arrondissement'>Échelle d'arrondissement</label>
-            <input id='arrondissement' name='arrondissement' type='radio'/><br/>
-            <label for='portes'>Portes_du_20eme</label>
-            <input id='portes' name='portes' type='radio'>
-        </fieldset>
-        <fieldset>
-          <legend>Identifiants</legend>
-            <label for='nom_utilisateur'>Nom d'utilisateur</label>
-            <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
-            <label for='mot_de_passe'>Mot de passe</label>
-            <input id='mot_de_passe' name='nom_utilisateur' type='password' required>
-        </fieldeset>
-        <fieldset>
-          <legend>Services proposés</legend>
-            <label for='ecrivain'>Écrivain public et médiateur</label>
-            <input id='ecrivain' name='ecrivain' type='checkbox'></br>
-            <label for='administration'>E-administration</label>
-            <input id='administration' name='administration' type='checkbox'></br>
-            <label for='formation'>Formation au numérique</label>
-            <input id='formation' name='formation' type='checkbox'></br>
-            <label for='interprete'>Interprête</label>
-            <input id='interprete' name='interprete' type='checkbox'>
-        <input type="submit" value="Se connecter"/>
-      </form>
-        <form action="deconnexion.html" method="POST">
-          <input type="submit" value="Se déconnecter"/>
-        </form>
-      </main>
+          <p style="color:white;">Bienvenue <%= nom_utilisateur %></p>
+          <form action="deconnexion.html" method="POST">
+            <input type="submit" value="Se déconnecter"/>
+          </form>
+          <form action="ajout_structure.html" method="POST">
+            <input style="margin-top:20px;" type="submit" value="Ajouter une structure"/>
+          </form>
+        </main>
     </div>
 
     <div class="container-fluid color2 navbar-fixed-bottom p5">

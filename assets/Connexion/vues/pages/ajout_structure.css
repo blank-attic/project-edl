@@ -3,6 +3,8 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  margin-top: -94px;
+  margin-bottom: 70px;
 }
 
 h1 {
@@ -21,12 +23,22 @@ ul li {
   list-style: none;
 }
 
-form {
-  background-color: #0c518a;
-  padding: 30px;
-  margin-left: 40%;
-  margin-right: 40%;
-  margin-top: 15%;
+main {
+    background-color: #0c518a;
+    padding: 30px;
+    margin-left: 19%;
+    margin-right: 19%;
+    margin-top: 16%;
+}
+
+label {
+  color: white;
+}
+
+legend {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: justify;
 }
 
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
@@ -126,6 +138,10 @@ a:hover {
 
 .color2 {
   background-color: lightgrey;
+}
+
+p {
+  margin: 41px 40px 61px;
 }
 
 .list-group-item {

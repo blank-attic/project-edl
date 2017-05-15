@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>bienvenue</title>
-    <% include ../partiels/head.ejs %>
 
-    <title>Page de déconnexion</title>
+    <title>bienvenue</title>
+
+    <% include ../partiels/head.ejs %>
 
     <meta charset="utf-8">
 
@@ -21,7 +21,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" href="deconnexion.css">
+    <link rel="stylesheet" href="nouv_structure.css">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
   </head>
@@ -46,10 +46,14 @@
       </div>
     </nav>
 
-    <main class="mar">
-      <p style="color:white;"> <%= message %>Vous êtes deconnecté</p>
-      <p><a href='../../connexion.html'>Se reconnecter</a></p>
-    </main>
+    <div class="container text-center ">
+        <main>
+           <p>La structure <%= nom_utilisateur %> a été bien ajoutée!</p>
+           <form action="deconnexion.html" method="POST">
+             <input type="submit" value="Se déconnecter"/>
+           </form>
+        </main>
+    </div>
 
     <div class="container-fluid color2 navbar-fixed-bottom p5">
       <div class="container text-center ">

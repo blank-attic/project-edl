@@ -11,16 +11,6 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-label, legend {
-  color: white;
-}
-
-legend  {
-  font-family: 'Montserrat', sans-serif;
-  padding-top: 20px;
-  text-align: justify;
-}
-
 .bandeau{
   background-color: #DF225A;
 }
@@ -38,7 +28,12 @@ main {
     padding: 30px;
     margin-left: 19%;
     margin-right: 19%;
-    margin-top: 15%;
+    margin-top: 25%;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
 }
 
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {

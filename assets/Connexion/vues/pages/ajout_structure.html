@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>bienvenue</title>
-    <% include ../partiels/head.ejs %>
 
-    <title>Page de déconnexion</title>
+    <title>bienvenue</title>
+
+    <% include ../partiels/head.ejs %>
 
     <meta charset="utf-8">
 
@@ -21,7 +21,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" href="deconnexion.css">
+    <link rel="stylesheet" href="ajout_structure.css">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
   </head>
@@ -46,10 +46,43 @@
       </div>
     </nav>
 
-    <main class="mar">
-      <p style="color:white;"> <%= message %>Vous êtes deconnecté</p>
-      <p><a href='../../connexion.html'>Se reconnecter</a></p>
-    </main>
+    <div class="container text-center ">
+      <main>
+         <form action="nouv_structure.html" method="POST">
+           <label for="nom_paad">Nom de la structure</label>
+           <input id="nom_paad" name="nom" type="text" required/><br/>
+           <fieldsed>
+             <legend>Secteur</legend>
+               <label for="bap">Belleville-Amandiers-Pelleport</label>
+               <input id="bap" name="bap" type="radio"/><br/>
+               <label for='arrondissement'>Échelle d'arrondissement</label>
+               <input id='arrondissement' name='arrondissement' type='radio'/><br/>
+               <label for='portes'>Portes_du_20eme</label>
+               <input id='portes' name='portes' type='radio'>
+           </fieldset>
+           <fieldset>
+             <legend>Identifiants</legend>
+               <label for='nom_utilisateur'>Nom d'utilisateur</label>
+               <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
+               <label for='mot_de_passe_1'>Mot de passe</label>
+               <input id='mot_de_passe_1' name='nom_utilisateur' type='password' required>
+               <!-- <label for='mot_de_pass_2'> -->
+           </fieldeset>
+           <fieldset>
+             <legend>Services proposés</legend>
+               <label for='ecrivain'>Écrivain public et médiateur</label>
+               <input id='ecrivain' name='ecrivain' type='checkbox'></br>
+               <label for='administration'>E-administration</label>
+               <input id='administration' name='administration' type='checkbox'></br>
+               <label for='formation'>Formation au numérique</label>
+               <input id='formation' name='formation' type='checkbox'></br>
+               <label for='interprete'>Interprête</label>
+               <input id='interprete' name='interprete' type='checkbox'></br>
+           <input type="submit" value="Se connecter"/>
+          </fieldeset>
+         </form>
+       </main>
+    </div>
 
     <div class="container-fluid color2 navbar-fixed-bottom p5">
       <div class="container text-center ">
