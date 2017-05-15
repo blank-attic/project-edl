@@ -2,13 +2,12 @@
 <html>
   <head>
     <% include ../partiels/head.ejs %>
-    <title>Page de bienvenue</title>
+    <title>Ajout d'une nouvelle structure</title>
   </head>
   <body>
     <header>
     </header>
     <main>
-      <p>Bienvenue <%= nom_utilisateur %></p>
       <form action="/ajout_structure" method="POST">
         <label for="nom_paad">Nom de la structure</label>
         <input id="nom_paad" name="nom" type="text" /><br/>
@@ -40,7 +39,6 @@
             <input id='interprete' name='interprete' type='checkbox'>
         <input type="submit" value="Se connecter"/>
       </form>
-      <p><%= nom_utilisateur %></p>
     </main>
     <footer>
     </footer>
