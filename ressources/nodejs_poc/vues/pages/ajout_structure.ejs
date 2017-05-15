@@ -8,9 +8,9 @@
     <header>
     </header>
     <main>
-      <form action="/ajout_structure" method="POST">
+      <form action="/nouvelle_structure" method="POST">
         <label for="nom_paad">Nom de la structure</label>
-        <input id="nom_paad" name="nom" type="text" /><br/>
+        <input id="nom_paad" name="nom" type="text" required/><br/>
         <fieldsed>
           <legend>Secteur</legend>
             <label for="bap">Belleville-Amandiers-Pelleport</label>
@@ -24,8 +24,9 @@
           <legend>Identifiants</legend>
             <label for='nom_utilisateur'>Nom d'utilisateur</label>
             <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
-            <label for='mot_de_passe'>Mot de passe</label>
+            <label for='mot_de_passe_1'>Mot de passe</label>
             <input id='mot_de_passe' name='nom_utilisateur' type='password' required>
+            <label for='mot_de_pass_2'>
         </fieldeset>
         <fieldset>
           <legend>Services proposés</legend>
