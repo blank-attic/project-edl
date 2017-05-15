@@ -5,8 +5,8 @@ var options = {
 };
 
 var nouv = {nom:'la maison du bas belleville',
-adresse: {numero: '126',
-voie: 'boulevard de belleville',
+adresse: {numero: '38',
+voie: 'rue des amandiers',
 code_postal: '75020'
 },
 };

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partiels/head.ejs %>
+    <title>Page de bienvenue</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <p>Bienvenue <%= nom_utilisateur %></p>
+      <form action="/deconnexion" method="POST">
+        <input type="submit" value="Se déconnecter"/>
+      </form>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>

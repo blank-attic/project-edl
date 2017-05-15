@@ -106,6 +106,60 @@ var paads = [
         }
       }
     }
+  },
+  {
+    _id: new mongoose.Types.ObjectId,
+    nom: 'Association culture berbère - ACB',
+    adresse: {
+      numero: '37 bis',
+      voie: 'rue des Maronites',
+      code_postal: '75020'
+    },
+    secteur: {
+      Belleville_Amandiers_Pelleport: true,
+      Portes_du_20eme: false,
+      echelle_arrondissement: false
+    },
+    contacts: {
+      tel_fixe: '01 43 58 23 25',
+      email: 'contact@acbparis.org'
+    },
+    site_web: 'https://www.acbparis.org/',
+    logo: paad_model.concatenation('.png'),
+    identifiants: {
+      nom_utilisateur: 'acb',
+      mot_de_passe: 'acb'
+    },
+    services: {
+      ecrivain_public_et_mediateur: true,
+      e_administration: true,
+      formation_au_numerique: true,
+      interprete: false
+    },
+    jours_ouverture: {
+      ecrivain_public_et_mediateur: {
+        lundi: {
+          horaires: '14h-17h',
+          rdv: true
+        },
+        vendredi: {
+          horaires: 'après-midi',
+          rdv: true
+        }
+      },
+      formation_au_numerique: {
+        jeudi: {
+          horaires: '10-12h',
+          rdv: true
+        }
+      },
+      e_administration: {
+        jeudi: {
+          horaires: '11h30-12h',
+          rdv: true
+        }
+      }
+    }
   }
 ];
 

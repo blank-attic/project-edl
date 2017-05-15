@@ -1,42 +1,44 @@
-var authentification = require('../authentification/authentification.js');
+var vide = require('is-empty');
 var mongoose = require('mongoose').Promise = require('bluebird');
-var session_model = require('../models/session_model.js');
-
-function verif(req, res, next) {
-  if (req.session.user) {
-    next();
-  } else {
-    req.session.error = 'Access denied!';
-    res.redirect('/login');
-  }
-}
+var authentification = require('../authentification/authentification.js');
+var session_persistante = require('../models/session_persistante.js');
+var session_non_persistante = require('../models/session_non_persistante');
 
 module.exports = function(app) {
-  app.post('/connexion.html', function(req, res) {
+  app.post('/connexion', function(req, res) {
+    if (vide(req.body.nom_utilisateur) || vide(req.body.mot_de_passe)) {
+      res.render('pages/connexion.ejs', {message: "N'oubliez pas d'indiquez votre nom d'utilisateur et votre mot de passe!"});
+      return;
+    }
     authentification(req.body.nom_utilisateur,req.body.mot_de_passe, function(err,paad){
       if (err) {
-        res.redirect('connexion.html');
+        res.render('pages/connexion.ejs', {message: 'Identifiants erronés!'});
         return;
       } else {
-        req.session.regenerate(function(err) {
-          if (err) res.redirect('connexion.html');
-          else {
-            var connexion = new session_model({
-              _id: req.sessionID,
-              nom_paad: req.body.nom_utilisateur
-            });
-            connexion.save(function (err, doc) {
-              if (err) {
-                res.redirect('connexion.html');
-                return;
-              } else {
-                res.redirect('bienvenue.html');
-                return;
-              }
-            });
+        if (req.body.session==='true') {
+          var connexion = new session_persistante({
+            _id: req.sessionID,
+            nom_paad: req.body.nom_utilisateur
+          });
+        } else {
+          var connexion = new session_non_persistante({
+            _id: req.sessionID,
+            nom_paad: req.body.nom_utilisateur
+          });
+        }
+        connexion.save(function (err, doc) {
+          if (err) {
+            res.render('pages/connexion.ejs', {message: 'Erreur de connexion!'});
+            return;
+          } else {
+            res.render('pages/bienvenue.ejs', {nom_utilisateur: req.body.nom_utilisateur});
+            return;
           }
         });
+        return;
       }
     });
+    return;
   });
+  return;
 }

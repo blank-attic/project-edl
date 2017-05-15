@@ -4,6 +4,7 @@ var router = express.Router();
 var paad_model = require('../models/paad_model.js');
 
 router.get('', function(req, res){
+  console.log(req);
   paad_model.find(function (err, paad) {
     if(err) res.send(err);
     else {
@@ -16,7 +17,7 @@ router.get('', function(req, res){
       .json(paad);
     }
   })
-  .select({connexion:0, _id:0, __v:0, services:0})
+  .select({identifiants:0, _id:0, __v:0})
   .sort({'nom':1});
 });
 

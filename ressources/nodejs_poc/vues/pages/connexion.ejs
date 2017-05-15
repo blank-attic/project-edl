@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partiels/head.ejs %>
+    <title>Page de connexion</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <p> <%= message %> </p>
+      <form action="/connexion" method="POST">
+        <label for="nom_utilisateur">Nom d'utilisateur</label>
+        <input id="nom_utilisateur" name="nom_utilisateur" type="text" /><br/>
+        <label for="mot_de_passe">Mot de passe</label>
+        <input id="mot_de_passe" name="mot_de_passe" type="password"/><br/>
+        <label for='session'>Se souvenir de moi</label>
+        <input id='session' name='session' value='true' type='checkbox'/><br/>
+        <input type="submit" value="Se connecter"/>
+      </form>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>

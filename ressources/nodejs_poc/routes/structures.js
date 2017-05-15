@@ -15,7 +15,7 @@ router.get('', function(req, res){
       .status(200)
       .json(paad);
     }
-  });
+  }).select({identifiants:0, _id:0, __v:0});
 });
 
 module.exports = router;

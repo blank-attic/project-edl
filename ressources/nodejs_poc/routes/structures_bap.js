@@ -4,7 +4,7 @@ var router = express.Router();
 var paad_model = require('../models/paad_model.js');
 
 router.get('', function(req, res){
-  paad_model.find({'adresse.secteur' : 'Belleville-Amandiers-Pelleport'} , function (err, paad) {
+  paad_model.find({'secteur.Belleville_Amandiers_Pelleport' : true} , function (err, paad) {
     if(err) res.send(err);
     else {
       res
@@ -15,7 +15,7 @@ router.get('', function(req, res){
       .status(200)
       .json(paad);
     }
-  });
+  }).select({identifiants:0, _id:0, __v:0});
 });
 
 module.exports = router;
