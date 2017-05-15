@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partiels/head.ejs %>
+    <title>Une nouvelle structure a bien été ajoutée</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <p>La structure <%= nom_utilisateur %> a été bien ajoutée!</p>
+      <form action="/deconnexion" method="POST">
+        <input type="submit" value="Se déconnecter"/>
+      </form>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partiels/head.ejs %>
+    <title>Page de bienvenue</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <p>Bienvenue <%= nom_utilisateur %></p>
+      <form action="/ajout_structure" method="POST">
+        <label for="nom_paad">Nom de la structure</label>
+        <input id="nom_paad" name="nom" type="text" /><br/>
+        <fieldsed>
+          <legend>Secteur</legend>
+            <label for="bap">Belleville-Amandiers-Pelleport</label>
+            <input id="bap" name="bap" type="radio"/><br/>
+            <label for='arrondissement'>Échelle d'arrondissement</label>
+            <input id='arrondissement' name='arrondissement' type='radio'/><br/>
+            <label for='portes'>Portes_du_20eme</label>
+            <input id='portes' name='portes' type='radio'>
+        </fieldset>
+        <fieldset>
+          <legend>Identifiants</legend>
+            <label for='nom_utilisateur'>Nom d'utilisateur</label>
+            <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
+            <label for='mot_de_passe'>Mot de passe</label>
+            <input id='mot_de_passe' name='nom_utilisateur' type='password' required>
+        </fieldeset>
+        <fieldset>
+          <legend>Services proposés</legend>
+            <label for='ecrivain'>Écrivain public et médiateur</label>
+            <input id='ecrivain' name='ecrivain' type='checkbox'></br>
+            <label for='administration'>E-administration</label>
+            <input id='administration' name='administration' type='checkbox'></br>
+            <label for='formation'>Formation au numérique</label>
+            <input id='formation' name='formation' type='checkbox'></br>
+            <label for='interprete'>Interprête</label>
+            <input id='interprete' name='interprete' type='checkbox'>
+        <input type="submit" value="Se connecter"/>
+      </form>
+      <p><%= nom_utilisateur %></p>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
