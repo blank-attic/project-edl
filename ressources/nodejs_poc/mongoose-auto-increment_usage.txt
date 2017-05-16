@@ -1,0 +1,9 @@
+autoIncrement.initialize();
+
+paad_schema.plugin(autoIncrement.plugin, {
+    model: 'paad_collection',
+    field: '_id',
+    startAt: 1,
+    incrementBy: 1,
+    required: true
+});

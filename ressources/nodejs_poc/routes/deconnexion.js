@@ -14,14 +14,31 @@ module.exports = function(app) {
             res.redirect('/connexion');
             return;
           } else if (vide(session)) {
-            req.session.regenerate(res.redirect('/connexion'));
+            req.session.regenerate(function(err){
+              if(err) {
+                res.redirect('/connexion');
+                return;
+              } else {
+                res.redirect('/connexion');
+                return;
+              }
+            });
             return;
           } else {
             session_non_persistante.remove({'_id':req.sessionID}, function(err){
               if (err) {
                 res.redirect('/connexion');
+                return;
               } else {
-                req.session.regenerate(res.render('pages/deconnexion.ejs', {message: 'Déconnexion réussie!'}));
+                req.session.regenerate(function(err){
+                  if(err) {
+                    res.redirect('/connexion');
+                    return;
+                  } else {
+                    res.render('pages/deconnexion.ejs', {message: 'À bientôt!'});
+                    return;
+                  }
+                });
                 return;
               }
             });
@@ -33,8 +50,17 @@ module.exports = function(app) {
         session_persistante.remove({'_id':req.sessionID}, function(err){
           if (err) {
             res.redirect('/connexion');
+            return;
           } else {
-            req.session.regenerate(res.render('pages/deconnexion.ejs', {message: 'Déconnexion réussie!'}));
+            req.session.regenerate(function(err){
+              if(err) {
+                res.redirect('/connexion');
+                return;
+              } else {
+                res.render('pages/deconnexion.ejs', {message: 'À bientôt!'});
+                return;
+              }
+            });
             return;
           }
         });

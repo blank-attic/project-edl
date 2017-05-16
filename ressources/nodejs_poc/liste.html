@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <!-- partie navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#maNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div>
+              <a href="http://www.paris.fr/" target="_blank" class="navbar-brand">Mairie de Paris</a>
+              <img class="navbar-brand" alt="nopic" src="../img/6.png">
+              <a href="http://www.mairie20.paris.fr/mairie20/" target="_blank" class="navbar-brand">Mairie du 20ème</a>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="maNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../../index.html">Accueil</a></li>
+              <li><a href="liste.html">Liste des structures</a></li>
+              <li><a href="../Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container margin">
+      <div class="row">
+        <!-- <h1>Filtres</h1> -->
+        <!-- <input class="input" type="text" name="text" value="lol"> -->
+        <label for="">
+          <input type="checkbox" name="checkbox" value="lol">
+            Belleville-Amandiers-Pelleport
+          <input type="checkbox" name="checkbox" value="lol">
+            les Portes du 20e
+          <input type="checkbox" name="checkbox" value="lol">
+            A l'echelle de l'arrondissement
+        </label>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8">
+            <div id='map'></div>
+                <script>
+                 var map = L.map('map').setView([48.866201 , 2.394174], 13);
+                 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                 }).addTo(map);
+                 //using layers https://github.com/Leaflet/Leaflet.markercluster
+                 var markers = L.markerClusterGroup();
+                 function createMarker(markers, data) {
+                     var marker = L.marker(data.coordonnees);
+                     markers.addLayer(marker);
+                     marker.bindPopup(
+                       data.title
+                       + data.address
+                       + data.zipCode
+                      //  + data.city
+                      //  + data.subway
+                     );
+                   };
+                 //filter function NOT in use
+                 function filterFunction(data) {
+                     if (data.title == "toto") {
+                         createMarker(data) ;
+                         return true;
+                     }
+                     return false;
+                 }
+            </script>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <h2>Liste des Structures</h2>
+              <div ng-app="myApp">
+                <div ng-controller="MainCtrl">
+                  <input type="text" ng-model="query" placeholder="Recherche associations">
+                  <select ng-model='order'>
+                    <option value="nom">Ecrivains publics et Médiateurs</option>
+                    <option value="administration">E-administration</option>
+                    <option value="formation">Formation au numérique</option>
+                    <option value="bellevilleamandierspelleport">Belleville-Amandiers-Pelleport</option>
+                    <option value="lesPortesdu20">Les Portes du 20e</option>
+                    <option value="echelledelarrondissement">À l’échelle de l’arrondissement</option>
+                  </select>
+
+                    <div class="scroll">
+                        <ul>
+                            <li class="col-md-12 col-sm-4" ng-repeat="marqueurs in assos.Associations | ff:query | orderBy:order">
+                              <p><strong>{{marqueurs.nom}}</strong></br>
+                                {{marqueurs.adresse}}</br>
+                                {{marqueurs.contact}}</br>
+<a href="{{marqueurs.site_web}}" target="_blank">{{marqueurs.site_web}}</br></a>
+                                {{marqueurs.codepostal}}</br>
+                                <!-- {{marqueurs.ville}}</br> -->
+                                <!-- {{marqueurs.metro}}</br> -->
+                        <!-- <strong>{{marqueurs.permanences}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.bellevilleamandierspelleport}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.formation}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.echelledelarrondissement}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.administration}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.permanence}}</strong></br> -->
+                        <!-- <strong>{{marqueurs.lesPortesdu20}}</strong></br> -->
+                              </p>
+                            </li>
+                        </ul>
+                    </div>
+                <script>
+                 var myApp = angular.module("myApp", []);
+                 //my custom filter
+                 myApp.filter('ff', function() {
+                     // Create the return function and set the required parameter name to **input**
+                     return function(input,query) {
+                         var out = [];
+                         //clear layer at each filter change
+                         markers.clearLayers();
+                         // Using the angular.forEach method, go through the array of data and perform the operation of figuring out if the language is statically or dynamically typed.
+                         angular.forEach(input, function(asso) {
+                             if (query == "" || query == undefined) {
+                                 //create marker in group if no query, or query is empty
+                                 createMarker(markers, {
+                                     coordonnees : asso.coordonnees.split(','),
+                                     title : '<b>' + asso.nom + '<br></b>',
+                                     address : asso.adresse + '<br>',
+                                     zipCode: asso.codepostal + '<br>',
+                                     city : asso.ville + '<br>',
+                                     subway : asso.metro,
+                                 });
+                                 out.push(asso);
+                             }
+                             else if (checkForValue(asso, query)) {
+                                 //if asso is ok with simple filter text query
+                                 createMarker(markers, {
+                                     coordonnees : asso.coordonnees.split(','),
+                                     title: '<b>' + asso.nom + '<br></b>',
+                                     address: asso.adresse + '<br>',
+                                     zipCode: asso.codepostal + '<br>',
+                                     city : asso.ville + '<br>',
+                                     subway : asso.metro,
+                                 });
+                                 out.push(asso)
+                             }
+                         })
+                         //add markers layer to map
+                         map.addLayer(markers);
+                         //return array of filtered associations
+                         return out;
+                     }
+                 });
+                 /* filter */
+                 function checkForValue(json, value) {
+                     for (key in json) {
+                         if (typeof (json[key]) === "object") {
+                             return checkForValue(json[key], value);
+                         } else if (json[key].toUpperCase().indexOf(value.toUpperCase()) > -1) {
+                             return true;
+                         }
+                     }
+                     return false;
+                 }
+                 window.onload=function(){
+                   var url = '/api/paad';
+                   var request = new XMLHttpRequest();
+                   request.onreadystatechange = function() {
+                     if (this.readyState == 4 && this.status == 200) {
+                       console.log(request.responseText);
+                       var body = document.getElementsByTagName('body')[0];
+                       var p = document.createElement('p');
+                       p.innerHTML={'Associations':request.responseText};
+                       body.appendChild(p);
+                       //  myApp.controller("MainCtrl", ["$scope", function ($scope) {
+                       //      $scope.assos={'Associations':request.responseText;};
+                       //  }]);
+                     }
+                   };
+                   request.open('GET', url, true);
+                   request.send();
+                 };
+                </script>
+            </div>
+        </div>
+
+      <!-- partie footer -->
+      <div class="container-fluid color2 navbar-fixed-bottom">
+        <div class="container text-center ">
+          <div>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="http://www.paris.fr/"><img src="../img/4.svg" alt="Mairie de Paris"></li></a>
+              <li class="list-group-item"><a href="../contact/contact.html">Contact</li></a>
+              <li class="list-group-item"><a href="#">A Propos</li></a>
+              <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

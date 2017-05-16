@@ -1,0 +1,146 @@
+body {
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  /*font-size: 0px;*/
+  color: #fff;
+}
+
+h1,h2,th {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  background-color: #0c518a;
+  border: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+
+  #m20 {
+    display: none;
+  }
+}
+
+/*-------NAVIGATION-------*/
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(12, 81, 138, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
+.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
+.navbar-default .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #fff;
+}
+
+.navbar-default .navbar-brand:focus{
+  color: #fff;
+}
+/*-------FIN NAVIGATION-------*/
+
+.background-image {
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../img/9.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/*-------PADDING-------*/
+.p5 {
+padding-top: 5px;
+}
+
+.p80 {
+  padding-top: 44px;
+  padding-bottom: 140px;
+}
+
+/*-------FIN PADDING-------*/
+
+.cadre h1 {
+  background-color: #0c518a;
+  border: 2px solid;
+  padding: 20px
+}
+
+.nopa {
+  padding: 0px
+}
+
+.bordure {
+  border-radius: 15px;
+  border: 3px solid lightgrey;
+}
+
+.color2 {
+  background-color: lightgrey;
+}
+
+/*-------CONTACT-------*/
+.well-sm {
+  margin-top: 65px;
+  padding: 15px;
+  border-radius: 0px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+label {
+  color: #fff;
+}
+
+legend {
+  color: #fff;
+  padding-bottom: 15px;
+}
+
+.btn {
+  border-radius: 0px;
+  border: 1px solid white;
+  padding: 8px;
+  font-size: 14px;
+  transition: 0.5s;
+  background-color: transparent;
+  margin-top: 15px;
+}
+
+/*-------FOOTER-------*/
+.list-group-item {
+  border: none;
+  padding-bottom: 0px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.list-group-item a {
+  color: #000;
+  border: none;
+  padding-bottom: 0px;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+/*-------FIN FOOTER-------*/

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <div id='map'></div>
+      <script>
+      var map = L.map('map').setView([48.866201 , 2.394174], 13);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      var markers = L.markerClusterGroup();
+      markers.addLayer(L.marker(new L.LatLng(48.864781,2.389814)));
+      map.addLayer(markers);
+      // function createMarker(data) {
+      //     var marker = L.marker(data.position);
+      //     markers.addLayer(marker);
+      //     // marker.bindPopup(data.title + data.address + data.zipCode + data.city + data.subway);
+      //   };
+        // 48.864781,  2.389814
+        var a=
+        [
+          {
+            "_id":1,
+            "date_ajout":"2017-04-27T23:05:00.652Z",
+            "date_modification":"2017-04-27T23:05:00.652Z",
+            "nom":"Centre social de la 20ème chaise",
+            "coordonnees":"2.389814, 48.864781",
+            "site_web":"www.la20emechaise.org",
+            "__v":0,
+            "connexion":
+            {
+              "identifiant":"la20emechaise",
+              "mot_de_passe":"la20emechaise"
+            },
+            "jours_ouverture":
+            {
+              "ecrivain_public_et_mediateur":
+              {
+                "vendredi":
+                {
+                  "horaires":"10h-12h",
+                  "rdv":false
+                },
+                "jeudi":
+                {
+                  "horaires":"10h-12h",
+                  "rdv":false
+                },
+                "mercredi":
+                {
+                  "horaires":"10h-12h",
+                  "rdv":false
+                },
+                "mardi":
+                {
+                  "horaires":"10h-12h",
+                  "rdv":false
+                }
+              }
+            },
+            "services":
+            {
+              "ecrivain_public_et_mediateur":true,
+              "e_administration":false,
+              "formation_au_numerique":false,
+              "interprete":false
+            },
+            "logo":"./logos/.png",
+            "contacts":
+            {
+              "tel_fixe":"01 43 49 02 49"
+            },
+            "adresse":
+            {
+              "numero":"38",
+              "voie":"rue des Amandiers",
+              "code_postal":"75020",
+              "secteur":"Belleville-Amandiers-Pelleport"
+            }
+          }];
+          // var b;
+          // for (b in a) {
+          //   // console.log(a[b].coordonnees);
+          //   createMarker(a[b]);
+          // }
+      </script>
+    </body>
+    </html>

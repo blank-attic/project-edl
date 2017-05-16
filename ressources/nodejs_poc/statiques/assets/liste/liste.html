@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <!-- partie navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#maNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div>
+              <a href="http://www.paris.fr/" target="_blank" class="navbar-brand">Mairie de Paris</a>
+              <img class="navbar-brand" alt="nopic" src="../img/6.png">
+              <a href="http://www.mairie20.paris.fr/mairie20/" target="_blank" class="navbar-brand" id="m20">Mairie du 20ème</a>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="maNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../../index.html">Accueil</a></li>
+              <li><a href="liste.html">Liste des structures</a></li>
+              <li><a href="../Connexion/connexion.html"><span class="glyphicon glyphicon-user"></span> connexion</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container margin">
+      <div class="row">
+        <button type="button" name="button" value="" id="buttonHideList">Zone Géographique du 20e</button>
+        <div id="listHide" class="hide">
+        <label>
+          <input id="btn1" type="checkbox" name="checkbox" value="lol">
+            Belleville-Amandiers-Pelleport
+        </label>
+        <label>
+          <input id="btn2" type="checkbox" name="checkbox" value="lol">
+            les Portes du 20e
+        </label>
+        <label>
+          <input id="btn3" type="checkbox" name="checkbox" value="lol">
+            A l'echelle de l'arrondissement
+        </label>
+      </div>
+    </div>
+
+      <script>
+        var button = document.getElementById('buttonHideList');
+        var list = document.getElementById('listHide');
+        button.addEventListener('click', function(){
+            list.classList.toggle("hide");
+        });
+      </script>
+
+  </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8">
+            <div id='map'></div>
+                <script>
+                 var map = L.map('map').setView([48.868945 , 2.390184], 15);
+                 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                 }).addTo(map);
+                 //using layers https://github.com/Leaflet/Leaflet.markercluster
+                 var markers = L.markerClusterGroup();
+
+                 function createMarker(markers, data) {
+                     var marker = L.marker(data.position);
+                     markers.addLayer(marker);
+                     marker.bindPopup(data.title + data.address + data.zipCode + data.city + data.subway);
+                   };
+
+                 //filter function NOT in use
+                 function filterFunction(data) {
+                     if (data.title == "toto") {
+                         createMarker(data) ;
+                         return true;
+                     }
+                     return false;
+                 }
+            </script>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <h2>Liste des Structures</h2>
+              <div ng-app="myApp">
+                <div ng-controller="MainCtrl">
+                  <input type="text" ng-model="query" placeholder="Recherche associations">
+                  <select ng-model='order'>
+                    <option value="nom">Ecrivains publics et Médiateurs</option>
+                    <option value="administration">E-administration</option>
+                    <option value="formation">Formation au numérique</option>
+                    <option value="bellevilleamandierspelleport">Belleville-Amandiers-Pelleport</option>
+                    <option value="lesPortesdu20">Les Portes du 20e</option>
+                    <option value="echelledelarrondissement">À l’échelle de l’arrondissement</option>
+                  </select>
+
+                    <div class="scroll">
+                        <ul>
+                            <li class="col-md-12 col-sm-4" ng-repeat="marqueurs in assos.Associations | ff:query | orderBy:order">
+                              <p><strong>{{marqueurs.nom}}</strong></br>
+                                {{marqueurs.adresse}}</br>
+                                {{marqueurs.contact}}</br>
+<a href="{{marqueurs.siteweb}}" target="_blank">{{marqueurs.siteweb}}</br></a>
+                                {{marqueurs.codepostal}}</br>
+                                {{marqueurs.ville}}</br>
+                                {{marqueurs.metro}}</br>
+                        <strong>{{marqueurs.permanences}}</strong></br>
+                        <strong>{{marqueurs.bellevilleamandierspelleport}}</strong></br>
+                        <strong>{{marqueurs.formation}}</strong></br>
+                        <strong>{{marqueurs.echelledelarrondissement}}</strong></br>
+                        <strong>{{marqueurs.administration}}</strong></br>
+                        <strong>{{marqueurs.permanence}}</strong></br>
+                        <strong>{{marqueurs.lesPortesdu20}}</strong></br>
+                              </p>
+                            </li>
+                        </ul>
+                    </div>
+                <script>
+                 var myApp = angular.module("myApp", []);
+
+                 //my custom filter
+                 myApp.filter('ff', function() {
+                     // Create the return function and set the required parameter name to **input**
+                     return function(input,query) {
+                         var out = [];
+                         //clear layer at each filter change
+                         markers.clearLayers();
+
+                         // Using the angular.forEach method, go through the array of data and perform the operation of figuring out if the language is statically or dynamically typed.
+                         angular.forEach(input, function(asso) {
+                             if (query == "" || query == undefined) {
+                                 //create marker in group if no query, or query is empty
+                                 createMarker(markers, {
+                                     position : asso.position.split(','),
+                                     title : '<b>' + asso.nom + '<br></b>',
+                                     address : asso.adresse + '<br>',
+                                     zipCode: asso.codepostal + '<br>',
+                                     city : asso.ville + '<br>',
+                                     subway : asso.metro,
+                                 });
+                                 out.push(asso);
+                             }
+                             else if (checkForValue(asso, query)) {
+                                 //if asso is ok with simple filter text query
+                                 createMarker(markers, {
+                                     position : asso.position.split(','),
+                                     title: '<b>' + asso.nom + '<br></b>',
+                                     address: asso.adresse + '<br>',
+                                     zipCode: asso.codepostal + '<br>',
+                                     city : asso.ville + '<br>',
+                                     subway : asso.metro,
+                                 });
+                                 out.push(asso)
+                             }
+
+                         })
+
+                         //add markers layer to map
+                         map.addLayer(markers);
+
+                         //return array of filtered associations
+                         return out;
+                     }
+                 });
+
+                 /* filter */
+                 function checkForValue(json, value) {
+                     for (key in json) {
+                         if (typeof (json[key]) === "object") {
+                             return checkForValue(json[key], value);
+                         } else if (json[key].toUpperCase().indexOf(value.toUpperCase()) > -1) {
+                             return true;
+                         }
+                     }
+                     return false;
+                 }
+
+                 myApp.controller("MainCtrl", ["$scope", function ($scope) {
+                     $scope.assos =
+                         {
+                             "Associations" : [{
+                                 "position" : "48.864781,  2.389814",
+                                 "nom" : "Centre Social la 20ème Chaise",
+                                 "permanences" : "Écrivains publics",
+                                 "adresse" : "38 rue des Amandiers",
+                                 "contact" : "01 43 49 02 49",
+                                 "siteweb" : "http://www.la20emechaise.org/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Père-Lachaise",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.87223179999999, 2.3869651999999633",
+                                 "nom" : "Centre Social Archipélia",
+                                 "permanences" : "Écrivains publics",
+                                 "formation" : "Formation numérique",
+                                 "adresse" : "17 rue des Envierges",
+                                 "contact" : "01 47 97 02 96",
+                                 "siteweb" : "https://www.archipelia.org/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Pyrénées/Jourdain",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : ",",
+                                 "nom" : "AMI Association de Médiation Interculturelle",
+                                 "permanences" : "Écrivains publics",
+                                 "formation" : "soutien juridique",
+                                 "adresse" : "",
+                                 "contact" : "",
+                                 "siteweb" : "",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.868794, 2.385238",
+                                 "nom" : "Association Culture Berbère (ACB)",
+                                 "permanences" : "Écrivains publics",
+                                 "formation" : "Formation numérique",
+                                 "adresse" : "37 bis rue des Maronites",
+                                 "contact" : "01 43 58 23 25",
+                                 "siteweb" : "https://www.acbparis.org/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Couronne/Ménilmontant",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.872267, 2.380227",
+                                 "nom" : "Chinois de France Français de Chine",
+                                 "permanences" : "Écrivains publics, Interprète français mandarin",
+                                 "administration" : "E-administration",
+                                 "adresse" : "45, rue de Tourtille",
+                                 "contact" : "01 83 91 86 31",
+                                 "siteweb" : "http://www.cffc.fr/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Belleville",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.864612 , 2.387655",
+                                 "nom" : "UNRPA Ensemble & Solidaires - UNRPA- Fédération de Paris",
+                                 "permanences" : "Démarches retraite et droits annexes, service public en ligne, orientations vers professionnels spécifiques",
+                                 "permamnence" : "E-administration",
+                                 "administration" : "E-administration",
+                                 "formation" : "Formation numérique",
+                                 "adresse" : "14 rue Tlemcen",
+                                 "contact" : "01 42 23 43 95",
+                                 "siteweb" : "http://www.unrpa.com/du-cote-des-federations-et-sections/cote-federations/116-paris-75-nouvelles-activites-de-la-federation.html",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Père-Lachaise/ Ménilmontant",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.871751 , 2.377857",
+                                 "nom" : "Maison du bas Belleville",
+                                 "permanences" : "Écrivains publics",
+                                 "administration" : "E-administration",
+                                 "permanence" : "Association APTM Accueil et Préorientation des Travailleurs Migrants (pour Documents préfecture)",
+                                 "adresse" : "126 Boulevard de Belleville",
+                                 "contact" : "01 43 66 64 56",
+                                 "siteweb" : "http://maison.bas-belleville@groupe-sos.org",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Belleville",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.868945 , 2.390184",
+                                 "nom" : "C.S Relais Ménilmontant",
+                                 "permanences" : "Écrivains Publics",
+                                 "administration" : "E-administration",
+                                 "formation" : "Formation numérique",
+                                 "adresse" : "85 bis rue Ménilmontant",
+                                 "contact" : "01 47 97 62 81",
+                                 "siteweb" : "https://relaismenilmontant.jimdo.com/ ",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Ménilmontant",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.866201 , 2.394174",
+                                 "nom" : "Centre social Caf Annam",
+                                 "permanences" : "Écrivains publics",
+                                 "administration" : "E-administration",
+                                 "adresse" : "4 Rue d'Annam",
+                                 "contact" : "01 47 97 89 19",
+                                 "siteweb" : "https://www.caf.fr/ma-caf/caf-de-paris/points-d-accueil/centre-social-d-annam",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Gambetta",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.869605 , 2.381657",
+                                 "nom" : "APEIS Association Pour l’Emploi, l’Information et la Solidarité",
+                                 "permanences" : "Écrivain public pour les personnes au chômage ou en emploi précaire",
+                                 "adresse" : "11 Rue des Couronnes",
+                                 "contact" : "09 53 77 35 95",
+                                 "siteweb" : "",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Couronnes",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.87278 , 2.3923",
+                                 "nom" : "Espace Jeunes Taos Amrouche",
+                                 "permanences" : "Écrivain public prioritairement pour les jeunes jusqu’à 25 ans",
+                                 "adresse" : "50 rue des Rigoles",
+                                 "contact" : "01 42 23 09 10",
+                                 "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Taos-Amrouche ",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Jourdain",
+                                 "bellevilleamandierspelleport" : "Belleville-Amandiers-Pelleport",
+                             },{
+                                 "position" : "48.850251 , 2.411305",
+                                 "nom" : "Davout relais",
+                                 "permanences" : "Écrivains publics",
+                                 "permanence" : "Assistantes sociales",
+                                 "adresse" : "30 boulevard Davout",
+                                 "contact" : "01 70 69 42 56",
+                                 "siteweb" : "http://davout-relais.org/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Maraîchers/ Porte de Vincennes",
+                             },{
+                                 "position" : "48.859118 , 2.408679",
+                                 "nom" : "Centre Social SOLEIL BLAISE",
+                                 "permanences" : "Écrivains publics",
+                                 "administration" : "E-administration",
+                                 "permanence" : "Conseil juridique, Permanence vacances de mars à juin",
+                                 "adresse" : "7 Square Vitruve",
+                                 "contact" : "01 44 93 00 72",
+                                 "siteweb" : "http://soleilblaise.free.fr",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Porte de Montreuil ou Porte de Bagnolet Tram T3b Marie de Miribel Bus 57 arrêt Dejérine",
+                                 "lesPortesdu20" : "Quartier politique de la ville Les Portes du 20e",
+                             },{
+                                 "position" : "48.859599 , 2.40927",
+                                 "nom" : "LES MÉDIATEURS ET LES MÉDIATRICES DU 20EME",
+                                 "permanences" : "Réseau de médiateurs interculturels et multilingues, Écrivain public",
+                                 "permanence" : "Interprète Bambara Possibilité d’interprétariat des langues d’Afrique occidentale (Dioula, Soninké, Peul, Wolof), Arabe, Anglais en prenant contact avec l’association.",
+                                 "adresse" : "157 boulevard Davout",
+                                 "contact" : "06 41 59 49 08",
+                                 "siteweb" : "http://www.les2mdu20eme.org",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Tram T3b Marie de Miribel",
+                                 "lesPortesdu20" : "Quartier politique de la ville Les Portes du 20e",
+                             },{
+                                 "position" : "48.871638 , 2.411207",
+                                 "nom" : "Secours populaire Antenne Fougères",
+                                 "permanences" : "Permanences d'Accueil et de Solidarité (PAS) Personnes domiciliées dans les 19e et 20e arrondissements.",
+                                 "adresse" : "3, rue de Noisy-le-Sec",
+                                 "contact" : "01 53 41 39 39",
+                                 "siteweb" : "http://www.spf75.org/mots-clefs/accueil",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "codepostal" : "Tram T3b Adrienne Bolland",
+                                 "lesPortesdu20" : "Quartier politique de la ville Les Portes du 20e",
+                             },{
+                                 "position" : "48.854406 , 2.402899",
+                                 "nom" : "Centre socioculturel étincelles",
+                                 "permanences" : "Écrivains publics",
+                                 "adresse" : "65, rue des Haies",
+                                 "contact" : "01 43 71 05 45",
+                                 "siteweb" : "http://www.etincelles20eme.org",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Buzenval et Avron",
+                             },{
+                                 "position" : "48.856717 , 2.410345",
+                                 "nom" : "Espace Paris Jeunes Davout",
+                                 "permanences" : "Écrivains publics",
+                                 "adresse" : "94 boulevard Davout",
+                                 "contact" : "01 40 33 01 84",
+                                 "siteweb" : "http://www.ifac.asso.fr/Espace-Paris-Jeunes-Davout",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Mairie de Montreuil",
+                             },{
+                                 "position" : "48.853389 , 2.401092",
+                                 "nom" : "Bibliothèque Louise Michel",
+                                 "permanences" : "Écrivains publics",
+                                 "adresse" : "29-35 rue des Haies",
+                                 "contact" : "01 58 39 32 10",
+                                 "siteweb" : "https://biblouisemichel.wordpress.com/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Buzenval",
+                             },{
+                                 "position" : "48.872489 , 2.410527",
+                                 "nom" : "La Maison des Fougères",
+                                 "administration" : "E-administration",
+                                 "adresse" : "10 rue des fougères",
+                                 "contact" : "09 84 41 17 05",
+                                 "siteweb" : "http://lamaisondesfougeres.blogspot.fr/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Porte des Lilas ou St Fargeau/Tram T3 Adrienne Bolland",
+                             },{
+                                 "position" : "48.853419 , 2.404624",
+                                 "nom" : "PIMMS Points Information Médiation Multiservices",
+                                 "permanences" : "Explication de courriers, formulaires, factures et des services des entreprises partenaires (Eau, Energie, Transport...), Aide à la rédaction de courriers, Aide pour remplir les dossiers et les formulaires administratifs.",
+                                //  "permanence" : "Orientation vers le bon service et le bon interlocuteur en fonction de votre situation, 2 ordinateurs disponibles pour vos démarches, vos recherches d’emploi, la création d’une boîte mail…",
+                                 "adresse" : "15 Cité Champagne",
+                                 "contact" : "01 44 64 00 62",
+                                 "siteweb" : "https://www.maisondeservicesaupublic.fr/content/pimms-paris-est",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Maraîchers/Bus n°26 et 64",
+                                 "echelledelarrondissement" : "À l’échelle de l’arrondissement",
+                             },{
+                                 "position" : "48.853419 , 2.404624",
+                                 "nom" : "Point d’Accès au Droit",
+                                 "permanences" : "Écrivain public",
+                                 "permanence" : "Permanence juridique",
+                                 "adresse" : "15 Cité Champagne",
+                                 "contact" : "01 53 27 37 40",
+                                 "siteweb" : "",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Maraîchers/Bus n°26 et 64",
+                                 "echelledelarrondissement" : "À l’échelle de l’arrondissement",
+                             },{
+                                 "position" : "48.865068 , 2.39901",
+                                 "nom" : "Mairie du 20e",
+                                 "permanences" : "Écrivains publics",
+                                 "adresse" : "6 place Gambetta",
+                                 "contact" : "01.43.15.20.20 ou 39.75 ",
+                                 "siteweb" : "https://biblouisemichel.wordpress.com/",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Gambetta/Bus : lignes 26, 60, 61, 64 et 6",
+                                 "echelledelarrondissement" : "À l’échelle de l’arrondissement",
+                             },{
+                                 "position" : "48.854489 , 2.414371",
+                                 "nom" : "Mairie Mobile de Paris",
+                                 "permanences" : "Explication des courriers, formulaires, factures et des services des entreprises partenaires (Eau, Énergie, Transport...), Aide à la rédaction de courriers administratifs, Aide pour remplir les dossiers et les formulaires administratifs.",
+                                 "permanence" : "Information sur les prestations du Centre d’Action Sociale de la Ville de Paris et accompagnement dans les  démarches, Accompagnement sur les démarches sur internet, Conseil pour des économies d’énergie",
+                                 "adresse" : "Place de la Porte de Montreuil devant la Recyclerie Emmaüs",
+                                 "contact" : "",
+                                 "site web" : "http://www.paris.fr/mairiemobile",
+                                 "codepostal" : "75020",
+                                 "ville" : "Paris",
+                                 "metro" : "Métro Porte de Montreuil/Ligne de bus PC2",
+                                 "echelledelarrondissement" : "À l’échelle de l’arrondissement",
+                             },
+                             ]
+                         };
+                 }]);
+                </script>
+            </div>
+        </div>
+
+      <!-- partie footer -->
+      <div class="container-fluid color2 navbar-fixed-bottom">
+        <div class="container text-center ">
+          <div>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="http://www.paris.fr/"><img src="../img/4.svg" alt="Mairie de Paris"></li></a>
+              <li class="list-group-item"><a href="../contact/contact.html">Contact</li></a>
+              <li class="list-group-item"><a href="#">A Propos</li></a>
+              <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,36 +9,68 @@
     </header>
     <main>
       <form action="/nouvelle_structure" method="POST">
-        <label for="nom_paad">Nom de la structure</label>
-        <input id="nom_paad" name="nom" type="text" required/><br/>
-        <fieldsed>
-          <legend>Secteur</legend>
-            <label for="bap">Belleville-Amandiers-Pelleport</label>
-            <input id="bap" name="bap" type="radio"/><br/>
-            <label for='arrondissement'>Échelle d'arrondissement</label>
-            <input id='arrondissement' name='arrondissement' type='radio'/><br/>
-            <label for='portes'>Portes_du_20eme</label>
-            <input id='portes' name='portes' type='radio'>
+        <fieldset>
+          <label for="nom_paad">Nom de la structure</label>
+          <input id="nom_paad" name="nom" type="text" required/><br/>
         </fieldset>
         <fieldset>
           <legend>Identifiants</legend>
-            <label for='nom_utilisateur'>Nom d'utilisateur</label>
-            <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
-            <label for='mot_de_passe_1'>Mot de passe</label>
-            <input id='mot_de_passe' name='nom_utilisateur' type='password' required>
-            <label for='mot_de_pass_2'>
-        </fieldeset>
+          <label for='nom_utilisateur'>Nom d'utilisateur</label>
+          <input id='nom_utilisateur' name='nom_utilisateur' type='text' required><br/>
+          <label for='mot_de_passe'>Mot de passe</label>
+          <input id='mot_de_passe' name='mot_de_passe' type='password' required><br/>
+        </fieldset>
+        <fieldset>
+          <legend>Adresse</legend>
+          <label for='numero'>Numéro</label>
+          <input id='numero' name='numero' type='text' required/></br>
+          <label for='voie'>Voie</label>
+          <input id='voie' name='voie' type='text' required/></br>
+          <label for='code_postal'>Code postal</label>
+          <input id='code_postal' name='code_postal' type='text' required/>
+        </fieldset>
+        <fieldset>
+          <legend>Coordonnées</legend>
+          <label for='latitude'>Latitude</label>
+          <input id='latitude' name='latitude' type='text' required/></br>
+          <label for='longitude'>Longitude</label>
+          <input id='longitude' name='longitude' type='text' required/>
+        </fieldset>
+        <fieldset>
+          <legend>Secteur</legend>
+          <label for="bap">Belleville-Amandiers-Pelleport</label>
+          <input type="radio" id="bap" name='secteur' value='bap' required/><br/>
+          <label for='arrondissement'>Échelle d'arrondissement</label>
+          <input type="radio" id='arrondissement' name='secteur' value='arrondissement'/><br/>
+          <label for='portes'>Portes du 20eme</label>
+          <input type="radio" id='portes' name='secteur' value='portes'/>
+        </fieldset>
         <fieldset>
           <legend>Services proposés</legend>
-            <label for='ecrivain'>Écrivain public et médiateur</label>
-            <input id='ecrivain' name='ecrivain' type='checkbox'></br>
-            <label for='administration'>E-administration</label>
-            <input id='administration' name='administration' type='checkbox'></br>
-            <label for='formation'>Formation au numérique</label>
-            <input id='formation' name='formation' type='checkbox'></br>
-            <label for='interprete'>Interprête</label>
-            <input id='interprete' name='interprete' type='checkbox'>
-        <input type="submit" value="Se connecter"/>
+          <label for='ecrivain'>Écrivain public et médiateur</label>
+          <input id='ecrivain' name='ecrivain' type='checkbox'></br>
+          <label for='administration'>E-administration</label>
+          <input id='administration' name='administration' type='checkbox'></br>
+          <label for='formation'>Formation au numérique</label>
+          <input id='formation' name='formation' type='checkbox'></br>
+          <label for='interprete'>Interprête</label>
+          <input id='interprete' name='interprete' type='checkbox'>
+        </fieldset>
+        <fieldset>
+          <legend>Contacts</legend>
+          <label for='tel_fixe'>N° de téléphone fixe</label>
+          <input id='tel_fixe' name='tel_fixe' type='text'/></br>
+          <label for='tel_portable'>N° de téléphone portable</label>
+          <input id='tel_portable' name='tel_portable' type='text'/></br>
+          <label for='email'>E-mail</label>
+          <input id='email' name='email' type='text'/>
+        </fieldset>
+        <fieldset>
+          <legend>Site internet</legend>
+          <label for='site'>Site internet</label>
+          <input id='site' name='site' type='text'/>
+        </fieldset>
+        <input type="submit" value="Ajouter une nouvelle structure"/>
       </form>
     </main>
     <footer>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+    <title>Marie de Paris</title>
+  </head>
+  <body>
+    <!-- partie navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#maNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div>
+              <a href="http://www.paris.fr/" target="_blank" class="navbar-brand">Mairie de Paris</a>
+              <img class="navbar-brand" alt="nopic" src="../img/6.png">
+              <a href="http://www.mairie20.paris.fr/mairie20/" target="_blank" class="navbar-brand" id="m20">Mairie du 20ème</a>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="maNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../../index.html">Accueil</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+  <!-- Contact -->
+  <div class="container-fluid background-image p80">
+    <div class="container">
+    	<div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+              <form class="form-horizontal" action="" method="post">
+              <fieldset>
+                <legend class="text-center">Contactez-Nous</legend>
+
+                <!-- Name input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="name">Prénom</label>
+                  <div class="col-md-9">
+                    <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                  </div>
+                </div>
+
+                <!-- Email input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="email">Votre E-mail</label>
+                  <div class="col-md-9">
+                    <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+                  </div>
+                </div>
+
+                <!-- Message body -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="message">Votre message</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                  </div>
+                </div>
+
+                <!-- Form actions -->
+                <div class="form-group">
+                  <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Envoyez</button>
+                  </div>
+                </div>
+              </fieldset>
+              </form>
+            </div>
+          </div>
+    	  </div>
+    </div>
+  </div>
+
+    <!-- partie footer -->
+    <div class="container-fluid color2 navbar-fixed-bottom">
+      <div class="container text-center ">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="http://www.paris.fr/" target="_blank"><img src="../img/4.svg" alt="Mairie de Paris"></li></a>
+            <li class="list-group-item"><a href="../contact/contact.html">Contact</li></a>
+            <li class="list-group-item"><a href="#">A Propos</li></a>
+            <li class="list-group-item"><a href="#">Infos Pratiques</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>

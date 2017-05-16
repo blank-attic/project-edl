@@ -1,0 +1,261 @@
+body {
+
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#map {
+  height: 400px;
+  padding: 0px;
+}
+
+
+/*-------ICONE PRINT-------*/
+.glyphicon-print {
+  top: 2px;
+  font-size: 15px;
+  padding-right: 7px;
+}
+/*-------ICONE PRINT-------*/
+
+/*-------NAVIGATION-------*/
+.lien {
+  /*height: 58px;*/
+  padding-top: 11px;
+}
+
+.navbar {
+  background-color: #0c518a;
+  border: none;
+  color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(12, 81, 138, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(223, 34, 90, 1);
+}
+
+.navbar-default .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*-------Mairie de paris en blanc-------*/
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #fff;
+}
+/*-------Mairie de paris en blanc-------*/
+/*-------FIN NAVIGATION-------*/
+
+/*.background-image {
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(assets/img/fond5.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}*/
+
+/*-------PADDING-------*/
+.p5 {
+  padding-top: 5px;
+}
+
+.p20 {
+  padding-top: 20px;
+}
+
+.p80 {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.p230 {
+  padding-top: 230px;
+  padding-bottom: 309px;
+}
+
+.p20 {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.p10 {
+  padding-top: 10px;
+}
+
+.p10img {
+padding-bottom: 10px;
+}
+/*-------PADDING-------*/
+
+.bandeau{
+  background-color: #DF225A;
+}
+
+.bandeau p {
+  text-align: justify;
+}
+
+.white {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+  #m20 {
+    display: none;
+  }
+
+  #carousel-example-generic {
+    margin-top: 49px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+.hero h1, .hero h3, .hero h4 {
+  font-size: 90%;
+  }
+  #m20 {
+    display: none;
+  }
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+
+}
+.black {
+  color: black;
+}
+
+.color {
+  background-color: #43B57E;
+}
+
+.shadow {
+  text-shadow: 3px 2px #000;
+}
+
+.cadre  {
+  /*background-color: #0c518a;*/
+  /*background-color: rgba(12, 81, 138, 0.4);*/
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  border: 2px solid;
+  padding: 20px;
+  padding-bottom: 35px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+.main {
+  background-color: #DF225A;
+}
+
+.nopa {
+  padding: 0px
+}
+
+.bordure {
+  border-radius: 15px;
+  border: 3px solid lightgrey;
+}
+
+.color2 {
+  background-color: lightgrey;
+}
+
+/*-------présentation------*/
+li {
+  text-align: justify;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.pad5 {
+  padding-bottom: 20px;
+}
+/*-------Fin présentation------*/
+
+.width {
+  max-width: 500px;
+}
+
+.btn {
+  margin-top: 10px;
+  border-radius: 0px;
+  transition: 0.5s;
+}
+
+.btn-custom {
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.btn-custom:hover {
+  color: #fff;
+  background-color: #0c518a;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+/*-------FOOTER------*/
+.list-group-item {
+  border: none;
+  padding-bottom: 0px;
+  display: inline-block;
+  background-color: lightgrey;
+}
+
+.list-group-item a {
+  color: #000;
+  border: none;
+  padding-bottom: 0px;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}

@@ -14,14 +14,15 @@ module.exports = require('express').Router().get('', function(req, res){
           return;
         } else if (vide(session)) {
           res.render('pages/connexion.ejs', {message: ''});
+          return;
         } else {
-          res.render('pages/bienvenue.ejs', {nom_utilisateur: session.nom_paad});
+          res.render('/bienvenue.ejs', {nom_utilisateur: session.nom_paad});
           return;
         }
       });
       return;
     } else {
-      res.render('pages/bienvenue.ejs', {nom_utilisateur: session.nom_paad});
+      res.render('/bienvenue.ejs', {nom_utilisateur: session.nom_paad});
       req.connection.on('close', function() {
         session_non_persistante.remove({'_id':req.sessionID});
         req.session.regenerate(function() {

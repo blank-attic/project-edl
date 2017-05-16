@@ -7,7 +7,7 @@ mongoose.Promise = require('bluebird');
 
 var paads = [
   {
-    _id: new mongoose.Types.ObjectId,
+    _id: new mongoose.Types.ObjectId(),
     nom: 'Centre social de la 20ème chaise',
     adresse: {
       numero: '38',
@@ -56,7 +56,7 @@ var paads = [
     }
   },
   {
-    _id: new mongoose.Types.ObjectId,
+    _id: new mongoose.Types.ObjectId(),
     nom: 'Centre social Archipélia',
     adresse: {
       numero: '17',
@@ -108,7 +108,7 @@ var paads = [
     }
   },
   {
-    _id: new mongoose.Types.ObjectId,
+    _id: new mongoose.Types.ObjectId(),
     nom: 'Association culture berbère - ACB',
     adresse: {
       numero: '37 bis',
